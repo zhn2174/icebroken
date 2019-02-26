@@ -35,6 +35,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.icebroken.BuildConfig;
+import com.icebroken.R;
+import com.icebroken.app.AppApplication;
 import com.mocuz.common.commonutils.ImageLoaderUtils;
 import com.mocuz.common.commonutils.ToastUitl;
 import com.mocuz.common.compressorutils.Compressor;
@@ -55,18 +58,14 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.icebroken.BuildConfig;
-import com.icebroken.R;
-import com.icebroken.app.AppApplication;
-
 /**
  * Created by Dev on 2017/3/8.
  */
 
 public class BaseUtil {
-    public static final String baseShared               = AppApplication.getAppContext().getPackageName().replace("com.mocuz.", "").replace(".", "");
+    public static final String baseShared = AppApplication.getAppContext().getPackageName().replace("com.mocuz.", "").replace(".", "");
     /* 默认主题色 */
-    public static final String baseColor                = "#78BD50";
+    public static final String baseColor = "#78BD50";
 
     /* 动画时间 */
     public static int TIMES = 200;
@@ -77,7 +76,7 @@ public class BaseUtil {
     /* 旋转动画 */
     public static RotateAnimation rotateAnim_anti, rotateAnim_wise;
 
-    public static final String OPEN_PUSH      = "OPEN_PUSH";
+    public static final String OPEN_PUSH = "OPEN_PUSH";
     public static final String OPEN_LAUD_PUSH = "OPEN_LAUD_PUSH";
 
     public static ImageLoader loader = new ImageLoader() {
@@ -86,20 +85,12 @@ public class BaseUtil {
             ImageLoaderUtils.display(context, imageView, path);
         }
     };
-    private static Compressor     mCompressor;
+    private static Compressor mCompressor;
     private static ProgressDialog mProgressDialog;
 
 
-
     public static boolean getDebug() {
-        return getSp().getBoolean("debug", false) ? true : BuildConfig.LOG_DEBUG;
-    }
-
-    public static void setDebug(Context context) {
-        SharedPreferences.Editor edit = context.getSharedPreferences(BaseUtil.baseShared,
-                Context.MODE_PRIVATE).edit();
-        edit.putBoolean("debug", true);
-        edit.commit();
+        return BuildConfig.LOG_DEBUG;
     }
 
     public static String bitmaptoString(String path) {
@@ -117,6 +108,7 @@ public class BaseUtil {
 
         return "data:image/png;base64," + string;
     }
+
     /**
      * 初始化弹框动画
      */
@@ -246,7 +238,7 @@ public class BaseUtil {
 
 
     // 首页广告图片尺寸
-    public static int BBS_Index_Width  = 1080;
+    public static int BBS_Index_Width = 1080;
     public static int BBS_Index_Height = 480;
 
     /***
@@ -259,7 +251,7 @@ public class BaseUtil {
     }
 
     // ListView中广告图片尺寸
-    public static int List_GG_Width  = 700;
+    public static int List_GG_Width = 700;
     public static int List_GG_Height = 390;
 
     /***
@@ -272,7 +264,7 @@ public class BaseUtil {
     }
 
     // listview中帖子多个图片的比例
-    public static int List_Img_Width  = 312;
+    public static int List_Img_Width = 312;
     public static int List_Img_Height = 250;
 
     /***
@@ -285,7 +277,7 @@ public class BaseUtil {
     }
 
     // listview中帖子一张图片的比例
-    public static int List_Img_One_Width  = 280;
+    public static int List_Img_One_Width = 280;
     public static int List_Img_One_Height = 184;
 
     /***
@@ -307,7 +299,7 @@ public class BaseUtil {
     }
 
     // 活动图片尺寸
-    public static int HuoDong_Width  = 700;
+    public static int HuoDong_Width = 700;
     public static int HuoDong_Height = 340;
 
     /***
@@ -378,7 +370,6 @@ public class BaseUtil {
     }
 
 
-
     /**
      * 将多个参数合成一个以按照特定分隔符分割的参数
      *
@@ -415,8 +406,6 @@ public class BaseUtil {
     }
 
 
-
-
     /**
      * 判断字符是否是中文
      */
@@ -432,7 +421,6 @@ public class BaseUtil {
         }
         return false;
     }
-
 
 
     /**
@@ -503,8 +491,8 @@ public class BaseUtil {
     }
 
     /*
-    * 隐藏软键盘
-    * */
+     * 隐藏软键盘
+     * */
     public static void hideInput(EditText editText) {
         InputMethodManager imm = (InputMethodManager) editText.getContext()
                 .getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -514,8 +502,8 @@ public class BaseUtil {
     }
 
     /*
-    * 隐藏软键盘
-    * */
+     * 隐藏软键盘
+     * */
     public static void hideInput(Context mContext) {
         if (null == mContext)
             return;
@@ -858,7 +846,7 @@ public class BaseUtil {
      * 关闭进度条
      */
     public static void dismissProgress() {
-        if (null != mProgressDialog&&mProgressDialog.isShowing())
+        if (null != mProgressDialog && mProgressDialog.isShowing())
             mProgressDialog.dismiss();
         mProgressDialog = null;
     }
@@ -902,8 +890,8 @@ public class BaseUtil {
         ImgSelActivity.startActivity(mActivity, config, requestCode);
     }
 
-    public static  int getColor(Context context,int res){
-        Resources r=context.getResources();
+    public static int getColor(Context context, int res) {
+        Resources r = context.getResources();
         return r.getColor(res);
     }
 
@@ -916,8 +904,8 @@ public class BaseUtil {
 
 
     public static int px(float dipValue) {
-        Resources r=Resources.getSystem();
-        final float scale =r.getDisplayMetrics().density;
+        Resources r = Resources.getSystem();
+        final float scale = r.getDisplayMetrics().density;
         return (int) (dipValue * scale + 0.5f);
     }
 
@@ -925,7 +913,7 @@ public class BaseUtil {
     //获取显示版本
     public static String getVersionName(Context context) {
         try {
-            PackageManager manager =context.getPackageManager();
+            PackageManager manager = context.getPackageManager();
             PackageInfo info = manager.getPackageInfo(context.getPackageName(), 0);
             String version = info.versionName;
             return version;
@@ -984,12 +972,12 @@ public class BaseUtil {
         int select = android.R.attr.state_selected;
         StateListDrawable drawable = new StateListDrawable();
 
-        GradientDrawable drawable2=new GradientDrawable();
+        GradientDrawable drawable2 = new GradientDrawable();
         drawable2.setShape(GradientDrawable.OVAL);
         drawable2.setColor(color);
 
         drawable.addState(new int[]{select}, drawable2);
-        drawable.addState(new int[]{},null);
+        drawable.addState(new int[]{}, null);
 
         return drawable;
     }

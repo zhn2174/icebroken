@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -33,15 +32,12 @@ import com.icebroken.app.AppApplication;
 import com.icebroken.base.BaseActivity;
 import com.icebroken.bean.JsonBean;
 import com.icebroken.bean.UserInfo;
-import com.icebroken.bean.accountExistBean;
 import com.icebroken.utils.BaseUtil;
 import com.icebroken.widget.MyToolbar;
 import com.mocuz.common.baserx.RxHelper;
 import com.mocuz.common.baserx.RxSubscriber;
 
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -53,7 +49,6 @@ import java.util.Date;
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -98,8 +93,9 @@ public class OrganizingData2Activity extends BaseActivity {
     private TimePickerView pvCustomLunar;
     private static boolean isLoaded = false;
     private UserInfo userInfo;
-    private String [] mIdentity_str={"大学生","研究生","博士生"};
+    private String[] mIdentity_str = {"大学生", "研究生", "博士生"};
     private List<String> mIdentitys = new ArrayList<>();
+
     @Override
     public int getLayoutId() {
         return R.layout.organizing_s_lay;
@@ -127,7 +123,7 @@ public class OrganizingData2Activity extends BaseActivity {
         initData();
     }
 
-    private void initData(){
+    private void initData() {
         mIdentitys.add("0");
         mIdentitys.add("1");
         mIdentitys.add("2");
@@ -148,7 +144,7 @@ public class OrganizingData2Activity extends BaseActivity {
         userInfo.setSchoolId(1);
         userInfo.setDepartment(schoolEd.getText().toString());
         userInfo.setIdentity("0");
-        userInfo.setIsAllowDirectChat(talkCk.isChecked()?"1":"0");
+        userInfo.setIsAllowDirectChat(talkCk.isChecked() ? "1" : "0");
         Gson gson = new Gson();
         showProgressDialog("正在完善资料");
         Api.getDefault(HostType.MAIN).completeInformation(gson.toJson(userInfo))
@@ -357,7 +353,7 @@ public class OrganizingData2Activity extends BaseActivity {
         return stringBuilder.toString();
     }
 
-    private void queryInfo(){
+    private void queryInfo() {
         Api.getDefault(HostType.MAIN).getUserInfo()
                 .compose(RxHelper.<UserInfo>handleResult()).subscribe(new RxSubscriber<UserInfo>(mContext, false) {
             @Override
@@ -375,10 +371,10 @@ public class OrganizingData2Activity extends BaseActivity {
             public void _onNext(UserInfo bean) {
                 userInfo.setCertify(bean.isCertify());
                 try {
-                    if (null!=userInfo && userInfo.isCertify()){
+                    if (null != userInfo && userInfo.isCertify()) {
                         studentText.setText("已认证");
                         studentSelect.setEnabled(false);
-                    }else{
+                    } else {
                         studentText.setText("去认证");
                         studentSelect.setEnabled(true);
 
@@ -401,15 +397,17 @@ public class OrganizingData2Activity extends BaseActivity {
                 BaseUtil.hideInput(mContext);
                 break;
             case R.id.identity_select:
-                ShowPop(mIdentity_str,mIdentitys,"选择身份",identityText);
+                ShowPop(mIdentity_str, mIdentitys, "选择身份", identityText);
                 break;
             case R.id.student_select:
+                AuthenticationActivity.startAction(this);
                 break;
             case R.id.talk_select:
                 talkCk.performClick();
                 break;
         }
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -417,16 +415,11 @@ public class OrganizingData2Activity extends BaseActivity {
 
 
     }
+
     public static void startAction(Activity activity) {
         Intent intent = new Intent(activity, OrganizingData2Activity.class);
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
         activity.startActivity(intent);
-    }
-
-
-    @OnClick(R.id.student_select)
-    public void studentAuth() {
-        AuthenticationActivity.startAction(this);
     }
 }

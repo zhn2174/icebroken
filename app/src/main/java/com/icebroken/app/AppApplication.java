@@ -3,22 +3,22 @@ package com.icebroken.app;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
-import android.media.MediaRouter;
 import android.util.Log;
 
 import com.baidu.mapapi.SDKInitializer;
-import com.icebroken.bean.UserInfo;
-import com.mocuz.common.baseapp.BaseApplication;
-import com.mocuz.common.commonutils.LogUtils;
-import com.tencent.android.tpush.XGIOperateCallback;
-import com.tencent.android.tpush.XGPushManager;
-import com.zxy.recovery.callback.RecoveryCallback;
-import com.zxy.recovery.core.Recovery;
-
 import com.icebroken.bean.UserBean;
+import com.icebroken.bean.UserInfo;
 import com.icebroken.ui.main.activity.MainActivity;
 import com.icebroken.utils.BaseUtil;
 import com.icebroken.utils.MyCrashHandler;
+import com.mocuz.common.baseapp.BaseApplication;
+import com.mocuz.common.baseapp.CacheUtils;
+import com.mocuz.common.commonutils.LogUtils;
+import com.tencent.android.tpush.XGIOperateCallback;
+import com.tencent.android.tpush.XGPushManager;
+import com.tencent.bugly.Bugly;
+import com.zxy.recovery.callback.RecoveryCallback;
+import com.zxy.recovery.core.Recovery;
 
 
 /**
@@ -26,7 +26,7 @@ import com.icebroken.utils.MyCrashHandler;
  */
 public class AppApplication extends BaseApplication {
     // 自己的全局应用
-    private static AppApplication   mAppApplication;
+    private static AppApplication mAppApplication;
     private static UserInfo userInfo;
     public static String PushToken;
     public static String uid;
@@ -35,18 +35,21 @@ public class AppApplication extends BaseApplication {
     public static String code;
     public static Boolean isExist;
     public static UserBean user;
+
     /**
      * 用户实体
      */
 //    public static  UserItem         userItem;
-
-
-
     @Override
     public void onCreate() {
         super.onCreate();
         setTheme(android.R.style.Theme_Light);
 //        InitializeService.start(this);
+        //bugly初始化
+        Bugly.init(getApplicationContext(), "fac7cd0425", false);
+        //缓存初始化
+        CacheUtils.init(this);
+
         Recovery.getInstance()
                 .debug(true)
                 .recoverInBackground(false)
@@ -61,6 +64,7 @@ public class AppApplication extends BaseApplication {
         openPush();
         //百度地图初始化
         SDKInitializer.initialize(BaseApplication.getAppContext());
+
     }
 
 
@@ -81,7 +85,6 @@ public class AppApplication extends BaseApplication {
         return mAppApplication;
 
     }
-
 
 
     public static PackageInfo getPackageInfo() {
@@ -133,8 +136,9 @@ public class AppApplication extends BaseApplication {
                 public void onSuccess(Object data, int flag) {
                     //token在设备卸载重装的时候有可能会变
                     Log.d("TPush", "注册成功，设备token为：" + data);
-                    PushToken=data.toString();
+                    PushToken = data.toString();
                 }
+
                 @Override
                 public void onFail(Object data, int errCode, String msg) {
                     Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + msg);
