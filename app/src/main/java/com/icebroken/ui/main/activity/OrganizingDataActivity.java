@@ -16,10 +16,10 @@ import android.provider.Settings;
 import android.support.design.widget.AppBarLayout;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -81,10 +81,11 @@ public class OrganizingDataActivity extends BaseActivity {
     RelativeLayout birthdaySelect;
     @Bind(R.id.home_select)
     RelativeLayout homeSelect;
-    @Bind(R.id.man)
-    RadioButton man;
-    @Bind(R.id.woman)
-    RadioButton woman;
+    @Bind(R.id.sex_rg)
+    RadioGroup sex_rg;
+    @Bind(R.id.love_state_rg)
+    RadioGroup love_state_rg;
+
     @Bind(R.id.single)
     RadioButton single;
     @Bind(R.id.love)
@@ -140,44 +141,29 @@ public class OrganizingDataActivity extends BaseActivity {
         rxPermissions = new RxPermissions(this);
         initLunarPicker();
         userInfo = AppApplication.getUserInfo();
-        man.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        sex_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.man) {
                     userInfo.setSex(1);
-                }else{
+                } else {
                     userInfo.setSex(0);
                 }
             }
         });
 
-
-        single.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        love_state_rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.single) {
                     userInfo.setEmotionalState(0);
-                }
-            }
-        });
-        love.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
+                } else if (checkedId == R.id.love) {
                     userInfo.setEmotionalState(1);
-                }
-            }
-        });
-        secrecy.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked){
+                } else if (checkedId == R.id.secrecy) {
                     userInfo.setEmotionalState(2);
                 }
             }
         });
-        man.setChecked(true);
-        single.setChecked(true);
 
     }
 
@@ -190,20 +176,20 @@ public class OrganizingDataActivity extends BaseActivity {
     }
 
 
-
     @OnClick(R.id.bt_login)
     public void onViewClicked() {
         BaseUtil.hideInput(mContext);
-        if (TextUtils.isEmpty(name.getText())){
+        if (TextUtils.isEmpty(name.getText())) {
             showShortToast("请输入昵称");
             return;
         }
-        if (TextUtils.isEmpty(userInfo.getHeadUrl())){
+        if (TextUtils.isEmpty(userInfo.getHeadUrl())) {
             showShortToast("请选择头像");
             return;
         }
         userInfo.setNickname(name.getText().toString());
         AppApplication.setUserInfo(userInfo);
+
         OrganizingData2Activity.startAction(this);
     }
 
@@ -238,7 +224,7 @@ public class OrganizingDataActivity extends BaseActivity {
             public void onTimeSelect(Date date, View v) {//选中事件回调
 //                Toast.makeText(mContext, getTime(date), Toast.LENGTH_SHORT).show();
                 birthdayText.setText(getTime(date));
-                userInfo.setBirthday((int) (date.getTime()/1000));
+                userInfo.setBirthday((int) (date.getTime() / 1000));
             }
         })
                 .setDate(selectedDate)
@@ -443,6 +429,7 @@ public class OrganizingDataActivity extends BaseActivity {
             }
         }
     }
+
     private void uploadPhoto(String file1) {
 
 
