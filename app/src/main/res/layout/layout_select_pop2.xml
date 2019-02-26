@@ -1,0 +1,77 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/poptitle"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="标题"
+        android:textColor="#444446"
+        android:textSize="14dp" />
+
+    <View
+        android:id="@+id/myview"
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/poptitle"
+        android:background="#CBCBCB" />
+
+    <net.simonvt.numberpicker.NumberPicker
+        android:id="@+id/np"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myview"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:id="@+id/lybtm"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/np"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="#ECECEC" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/cancel"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@color/font_1"
+                android:textSize="14dp" />
+
+            <View
+                android:layout_width="5dp"
+                android:layout_height="match_parent"></View>
+
+            <TextView
+                android:id="@+id/sure"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

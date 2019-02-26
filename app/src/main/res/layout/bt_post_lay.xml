@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+
+        <com.icebroken.widget.MyToolbar
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:layout_collapseMode="pin">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="出差"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+        </com.icebroken.widget.MyToolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_1"
+                android:background="@color/gray_E6" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="145px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="出差地点"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+                <EditText
+                    android:id="@+id/out_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@color/white"
+                    android:drawablePadding="20px"
+                    android:hint="请输入出差地点"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+
+            <RelativeLayout
+                android:id="@+id/start_time"
+                android:layout_width="match_parent"
+                android:layout_height="145px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/start_time_text"
+                    android:layout_alignBottom="@+id/start_time_text"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="开始时间"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+                <TextView
+                    android:id="@+id/start_time_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="20px"
+                    android:drawableRight="@mipmap/icon_arrow"
+                    android:text="请选择"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_1"
+                android:background="@color/gray_E6" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_1"
+                android:background="@color/gray_E6" />
+
+            <RelativeLayout
+                android:id="@+id/end_time"
+                android:layout_width="match_parent"
+                android:layout_height="145px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/end_time_text"
+                    android:layout_alignBottom="@+id/end_time_text"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="结束时间"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+                <TextView
+                    android:id="@+id/end_time_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="20px"
+                    android:drawableRight="@mipmap/icon_arrow"
+                    android:text="请选择"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="145px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="时长(天)"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+                <EditText
+                    android:id="@+id/use_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@color/white"
+                    android:drawablePadding="20px"
+                    android:hint="请输入使用时长"
+                    android:inputType="number"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="8dp"
+                android:background="@color/five_bg" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="145px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="出差事由"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/title_post"
+                android:layout_width="match_parent"
+                android:layout_height="210px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:background="@color/white"
+                android:drawablePadding="20px"
+                android:gravity="top"
+                android:hint="请输入出差事由"
+                android:textColor="@color/gray_4C"
+                android:textSize="@dimen/px_48" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="8dp"
+                android:background="@color/five_bg" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="330px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="30px"
+                    android:text="图片"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+                <ImageButton
+                    android:id="@+id/imb_photo"
+                    android:layout_width="130px"
+                    android:layout_height="130px"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="108px"
+                    android:background="@mipmap/add_p"
+                    android:scaleType="centerCrop" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="8dp"
+                android:background="@color/five_bg" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <RelativeLayout
+                android:id="@+id/people_lay"
+                android:layout_width="match_parent"
+                android:layout_height="145px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="审批人"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+                <TextView
+                    android:id="@+id/people_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="20px"
+                    android:drawableRight="@mipmap/icon_arrow"
+                    android:text="请选择"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="32px"
+                android:background="@color/five_bg" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray_F8">
+
+                <TextView
+                    android:id="@+id/btnExit"
+                    android:layout_width="match_parent"
+                    android:layout_height="145px"
+                    android:layout_margin="@dimen/px_60"
+                    android:background="#3676fc"
+                    android:gravity="center"
+                    android:text="提交"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/px_48" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

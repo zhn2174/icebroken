@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+
+        <RelativeLayout
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:layout_collapseMode="pin">
+
+            <TextView
+                android:id="@+id/left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/px_60"
+                android:text="取消"
+                android:textColor="@color/blue_text"
+                android:textSize="50px" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="新建日程"
+                android:textColor="@android:color/black"
+                android:textSize="60px" />
+
+            <TextView
+                android:id="@+id/right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/px_60"
+                android:text="完成"
+                android:textColor="@color/blue_text"
+                android:textSize="50px" />
+        </RelativeLayout>
+    </android.support.design.widget.AppBarLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="8dp"
+                android:background="@color/five_bg" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <EditText
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="379px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginTop="30px"
+                android:background="@color/white"
+                android:drawablePadding="20px"
+                android:gravity="top"
+                android:hint="请输入请日程内容"
+                android:textColor="@color/gray_4C"
+                android:textSize="@dimen/px_48" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="145px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="全天"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px_48" />
+
+                <Switch
+                    android:id="@+id/allday_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="20px"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="60px"
+                    android:layout_height="60px"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/icon_arrow" />
+
+                <LinearLayout
+                    android:id="@+id/start_time"
+                    android:layout_width="480px"
+                    android:layout_height="305px"
+                    android:layout_marginLeft="@dimen/px_60"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="39px"
+                        android:text="开始"
+                        android:textColor="@color/gray_8F"
+                        android:textSize="@dimen/px_48" />
+
+                    <TextView
+                        android:id="@+id/start_day_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="22px"
+                        android:text="2018年6月1日"
+                        android:textColor="@color/gray_8F"
+                        android:textSize="@dimen/px_48" />
+
+                    <TextView
+                        android:id="@id/start_time_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="22px"
+                        android:text="8:00"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/px_48" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/end_time"
+                    android:layout_width="480px"
+                    android:layout_height="305px"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/px_60"
+                    android:gravity="right"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="39px"
+                            android:text="结束"
+                            android:textColor="@color/gray_8F"
+                            android:textSize="@dimen/px_48" />
+
+                        <TextView
+                            android:id="@+id/end_day_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="22px"
+                            android:text="2018年6月1日"
+                            android:textColor="@color/gray_8F"
+                            android:textSize="@dimen/px_48" />
+
+                        <TextView
+                            android:id="@+id/end_time_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginTop="22px"
+                            android:text="10:00"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px_48" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="8dp"
+                android:background="@color/five_bg" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="145px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/att_switch"
+                    android:layout_alignBottom="@+id/att_switch"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="提醒"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px_48" />
+
+                <Switch
+                    android:id="@+id/att_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="20px"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_1"
+                android:background="@color/gray_E6" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="145px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="重复"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px_48" />
+
+                <Switch
+                    android:id="@+id/re_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:drawablePadding="20px"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_1"
+                android:background="@color/gray_E6" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="8dp"
+                android:background="@color/five_bg" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="310px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginTop="30px"
+                android:background="@color/white"
+                android:drawablePadding="20px"
+                android:gravity="top"
+                android:hint="添加备注"
+                android:textColor="@color/gray_4C"
+                android:textSize="@dimen/px_48" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

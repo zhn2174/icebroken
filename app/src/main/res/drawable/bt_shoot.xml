@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- 圆角的程度 -->
+    <corners android:radius="400px" />
+    <!-- 背景颜色 -->
+    <solid android:color="@color/black" />
+    <!-- 图片边框属性 -->
+    <stroke
+        android:width="6px"
+        android:color="#60E6E6E6" />
+    <!-- padding 表示内部空间距离背景图片内部边距 的距离 -->
+    <padding
+        android:bottom="@dimen/px_20"
+        android:left="@dimen/px_20"
+        android:right="@dimen/px_20"
+        android:top="@dimen/px_20" />
+</shape>

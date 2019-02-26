@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+        <com.icebroken.widget.MyToolbar
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:layout_collapseMode="pin"
+            >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="我的信息"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+        </com.icebroken.widget.MyToolbar>
+    </android.support.design.widget.AppBarLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_E6"></View>
+
+            <!--头像-->
+            <RelativeLayout
+                android:id="@+id/layoutHead"
+                android:layout_width="match_parent"
+                android:layout_height="230px"
+                android:layout_marginLeft="60px"
+                android:layout_marginRight="60px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="头像"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="48px" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:id="@+id/imageHead"
+                        android:layout_width="140px"
+                        android:layout_height="140px"
+                        android:focusable="false"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/toux2" />
+
+                    <TextView
+                        android:layout_width="70px"
+                        android:layout_height="70px"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="23px"
+                        android:background="@mipmap/icon_arrow" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="60px"
+                android:background="@color/gray_E6"></View>
+
+            <!--昵称-->
+            <RelativeLayout
+                android:id="@+id/layoutName"
+                android:layout_width="match_parent"
+                android:layout_height="140px"
+                android:layout_marginLeft="60px"
+                android:layout_marginRight="130px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="昵称"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="48px" />
+
+                <TextView
+                    android:id="@+id/textName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="小债主"
+                    android:textColor="@color/gray_99"
+                    android:textSize="48px" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="60px"
+                android:background="@color/gray_E6"></View>
+
+
+
+            <!--电话-->
+            <RelativeLayout
+                android:id="@+id/layoutPhone"
+                android:layout_width="match_parent"
+                android:layout_height="140px"
+                android:layout_marginLeft="60px"
+                android:layout_marginRight="60px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="电话"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="48px" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textPhone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="未设置"
+                        android:textColor="@color/gray_99"
+                        android:textSize="48px" />
+
+                    <TextView
+                        android:layout_width="70px"
+                        android:layout_height="70px"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="25px"
+                        android:background="@mipmap/icon_arrow" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="60px"
+                android:background="@color/gray_E6"></View>
+
+            <!--性别-->
+            <RelativeLayout
+                android:id="@+id/layoutSex"
+                android:layout_width="match_parent"
+                android:layout_height="140px"
+                android:layout_marginLeft="60px"
+                android:layout_marginRight="60px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="性别"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="48px" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textSex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="保密"
+                        android:textColor="@color/gray_99"
+                        android:textSize="48px" />
+
+                    <TextView
+                        android:layout_width="70px"
+                        android:layout_height="70px"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="25px"
+                        android:background="@mipmap/icon_arrow" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="60px"
+                android:background="@color/gray_E6"></View>
+
+
+            <!--个人签名-->
+            <RelativeLayout
+                android:id="@+id/layoutSign"
+                android:layout_width="match_parent"
+                android:layout_height="140px"
+                android:layout_marginLeft="60px"
+                android:layout_marginRight="60px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="二维码"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="48px" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="70px"
+                        android:layout_height="70px"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="25px"
+                        android:background="@mipmap/icon_arrow" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_E6"></View>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="30px"
+                android:background="#f8f8f8"></View>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_E6"></View>
+
+
+            <!--手机号码-->
+            <RelativeLayout
+                android:id="@+id/layoutAge"
+                android:layout_width="match_parent"
+                android:layout_height="140px"
+                android:layout_marginLeft="60px"
+                android:layout_marginRight="60px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="生日"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="48px" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textAge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="19900112"
+                        android:textColor="@color/gray_99"
+                        android:textSize="48px" />
+
+                    <TextView
+                        android:layout_width="70px"
+                        android:layout_height="70px"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="25px"
+                        android:background="@mipmap/icon_arrow" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="60px"
+                android:background="@color/gray_E6"></View>
+            <!--手机号码-->
+            <RelativeLayout
+                android:id="@+id/layoutEar"
+                android:layout_width="match_parent"
+                android:layout_height="140px"
+                android:layout_marginLeft="60px"
+                android:layout_marginRight="60px">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="地区"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="48px" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textEar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="320111198903023216"
+                        android:textColor="@color/gray_99"
+                        android:textSize="48px" />
+
+                    <TextView
+                        android:layout_width="70px"
+                        android:layout_height="70px"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="25px"
+                        android:background="@mipmap/icon_arrow" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="60px"
+                android:background="@color/gray_E6"></View>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

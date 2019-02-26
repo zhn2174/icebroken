@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                            xmlns:tl="http://schemas.android.com/apk/res-auto"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rel_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 公共的的标题栏 -->
+        <RelativeLayout
+            android:id="@+id/common_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_layout_height"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/title_other_margin"
+                android:layout_marginRight="@dimen/title_other_margin">
+
+                <!--标题-->
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="Mocuzdfgdfgfggggdgdgdgdgdf"
+                    android:textColor="@color/bg_white"
+                    android:textSize="50px"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/icon_sub"
+                    android:layout_width="40px"
+                    android:layout_height="40px"
+                    android:layout_below="@+id/tv_title"
+                    android:layout_centerHorizontal="true"
+                    android:background="@mipmap/icon_arrow_down"
+                    android:visibility="gone"/>
+            </RelativeLayout>
+
+            <!--Biu TabLayout-->
+            <com.mocuz.tablayout.SlidingTabLayout
+                android:id="@+id/biu_slt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                tl:tl_indicator_corner_radius="10dp"
+                tl:tl_indicator_height="@dimen/title_line_height"
+                tl:tl_indicator_margin_bottom="@dimen/title_biuline_padtop"
+                tl:tl_indicator_width_equal_title="true"
+                tl:tl_tab_padding="10dp"
+                tl:tl_textBold="BOTH"
+                tl:tl_textsize="50px"/>
+
+            <!--左侧图标-->
+            <RelativeLayout
+                android:id="@+id/lay_image_back"
+                android:layout_width="230px"
+                android:background="?android:attr/selectableItemBackground"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/image_person"
+                    android:layout_width="70px"
+                    android:layout_height="70px"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="54px"
+                    android:src="@mipmap/btn_back"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/text_user_msg"
+                    android:layout_width="80px"
+                    android:layout_height="50px"
+                    android:layout_marginLeft="135px"
+                    android:layout_marginTop="28px"
+                    android:gravity="center"
+                    android:text="99+"
+                    android:textColor="#ff3b51"
+                    android:textSize="36px"
+                    android:background="@mipmap/user_sys_msg"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:id="@+id/image_back"
+                    android:layout_width="@dimen/title_icon_size"
+                    android:layout_height="@dimen/title_icon_size"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/px_60"
+                    android:src="@mipmap/btn_back"/>
+
+            </RelativeLayout>
+            <!--左侧文字-->
+            <RelativeLayout
+                android:id="@+id/lay_left_text"
+                android:layout_width="168px"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/left_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/title_icon_size"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/px_60"
+                    android:layout_marginRight="@dimen/px_60"
+                    android:textColor="@color/bg_white"
+                    android:textSize="@dimen/title_right_text_size"/>
+
+            </RelativeLayout>
+
+            <!--右侧图标-->
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/lay_image_right"
+                android:layout_width="190px"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="?android:attr/selectableItemBackground"
+                 >
+
+                <ImageView
+                    android:id="@+id/image_right"
+                    android:layout_width="60px"
+                    android:layout_height="60px"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/px_60"
+                    android:layout_marginRight="@dimen/px_60"
+                    android:src="@mipmap/btn_close"/>
+
+            </RelativeLayout>
+
+            <!--右侧文字-->
+            <RelativeLayout
+                android:id="@+id/lay_tv_right"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="?android:attr/selectableItemBackground"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/px_60"
+                    android:layout_marginRight="@dimen/px_60"
+                    android:text="标题"
+                    android:textColor="@color/bg_white"
+                    android:textSize="@dimen/px_42"
+                    android:textStyle="bold"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/bbs_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20px"
+                android:layout_marginLeft="180px"
+                android:layout_marginRight="200px"
+                android:layout_marginTop="20px"
+                android:background="@drawable/bbs_search_bg"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/btnIcon"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@mipmap/icon_search_dark"/>
+
+                <EditText
+                    android:id="@+id/editSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:hint="搜索帖子"
+                    android:textColor="@color/font_2"
+                    android:textColorHint="@color/font_1"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/viewLine"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/gray_E6"
+                android:visibility="gone">
+
+            </View>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/common_title"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <com.mocuz.tablayout.SlidingTabLayout
+                android:id="@+id/mine_tab_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px_136"
+                android:background="@color/white"
+                tl:tl_indicator_corner_radius="10dp"
+                tl:tl_indicator_height="@dimen/px_7"
+                tl:tl_indicator_width="@dimen/px_244"
+                tl:tl_textAllCaps="true"
+                tl:tl_textUnselectColor="@color/gray_4C"
+                tl:tl_textsize="@dimen/title_tablayout_text_size"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</android.support.design.widget.AppBarLayout>

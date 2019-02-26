@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/five_bg"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+        <com.icebroken.widget.MyToolbar
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:layout_collapseMode="pin"
+            >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="设置"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+        </com.icebroken.widget.MyToolbar>
+    </android.support.design.widget.AppBarLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_E6"></View>
+
+    <RelativeLayout
+        android:id="@+id/notiManager"
+        android:layout_width="match_parent"
+        android:layout_height="145px"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="60px">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="消息提醒"
+            android:textColor="@color/gray_4C"
+            android:textSize="48px" />
+
+        <Switch
+            android:id="@+id/allday_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="20px"
+            android:textColor="@color/gray_4C"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="8dp"
+        android:background="@color/five_bg" />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+
+    <RelativeLayout
+        android:id="@+id/about"
+        android:layout_width="match_parent"
+        android:layout_height="145px"
+        android:layout_marginLeft="@dimen/px_60"
+        android:layout_marginRight="@dimen/px_60">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="关于"
+            android:textColor="@color/gray_4C"
+            android:textSize="@dimen/px_48" />
+
+        <TextView
+            android:layout_width="@dimen/px_50"
+            android:layout_height="@dimen/px_50"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/icon_arrow" />
+
+    </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/gray_L" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="8dp"
+            android:background="@color/five_bg" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/gray_L" />
+
+    <RelativeLayout
+        android:id="@+id/feedback"
+        android:layout_width="match_parent"
+        android:layout_height="145px"
+        android:layout_marginLeft="@dimen/px_60"
+        android:layout_marginRight="@dimen/px_60">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="意见反馈"
+            android:textColor="@color/gray_4C"
+            android:textSize="@dimen/px_48" />
+
+        <TextView
+            android:layout_width="@dimen/px_50"
+            android:layout_height="@dimen/px_50"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/icon_arrow" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_1"
+        android:layout_marginLeft="@dimen/px_60"
+        android:background="@color/gray_E6"></View>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="@dimen/px_60"
+        android:background="@color/gray_E6"></View>
+
+
+    <!--版本-->
+    <RelativeLayout
+        android:id="@+id/layoutVersion"
+        android:layout_width="match_parent"
+        android:layout_height="145px"
+        android:layout_marginLeft="@dimen/px_60"
+        android:layout_marginRight="@dimen/px_60">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="版本更新"
+            android:textColor="@color/gray_4C"
+            android:textSize="@dimen/px_48" />
+
+        <TextView
+            android:layout_width="@dimen/px_50"
+            android:layout_height="@dimen/px_50"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/icon_arrow" />
+
+    </RelativeLayout>
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_gravity="center"
+        android:background="@color/gray_E6"></View>
+        <RelativeLayout
+            android:id="@+id/edit_password"
+            android:layout_width="match_parent"
+            android:layout_height="145px"
+            android:layout_marginLeft="@dimen/px_60"
+            android:layout_marginRight="@dimen/px_60">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="更改密码"
+                android:textColor="@color/gray_4C"
+                android:textSize="@dimen/px_48" />
+
+            <TextView
+                android:layout_width="@dimen/px_50"
+                android:layout_height="@dimen/px_50"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/icon_arrow" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_1"
+            android:layout_marginLeft="@dimen/px_60"
+            android:background="@color/gray_E6"></View>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/gray_L" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="8dp"
+            android:background="@color/five_bg" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1px"
+            android:background="@color/gray_L" />
+
+        <RelativeLayout
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="145px"
+            android:layout_marginLeft="@dimen/px_60"
+            android:layout_marginRight="@dimen/px_60">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="手势密码"
+                android:textColor="@color/gray_4C"
+                android:textSize="@dimen/px_48" />
+
+            <TextView
+                android:layout_width="@dimen/px_50"
+                android:layout_height="@dimen/px_50"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/icon_arrow" />
+
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="180px"
+        android:background="@color/white"
+        android:id="@+id/login_out"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="145px"
+        >
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="退出登录"
+            android:textColor="@color/gray_4C"
+            android:textSize="@dimen/px_48" />
+
+    </LinearLayout>
+</LinearLayout>

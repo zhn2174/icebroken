@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_bg"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+
+        <com.icebroken.widget.MyToolbar
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:layout_collapseMode="pin">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="通知详情"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+        </com.icebroken.widget.MyToolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_1"
+        android:background="@color/gray_E6" />
+<LinearLayout
+    android:gravity="center_horizontal"
+    android:background="@color/gray_bg"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/time"
+        android:layout_marginTop="30px"
+        android:paddingLeft="32px"
+        android:paddingRight="32px"
+        android:paddingTop="15px"
+        android:paddingBottom="15px"
+        android:textColor="@color/white"
+        android:textSize="30px"
+        android:text="2018/05/03/15:00"
+        android:background="@drawable/bbs_search_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_margin="50px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/content"
+            android:layout_marginBottom="30px"
+            android:layout_marginLeft="15px"
+            android:layout_marginTop="50px"
+            android:textColor="@color/black"
+            android:textSize="45px"
+            android:text="月度净利润２亿元"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/img"
+            android:layout_margin="15px"
+            android:scaleType="fitXY"
+            android:src="@mipmap/banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+</LinearLayout>

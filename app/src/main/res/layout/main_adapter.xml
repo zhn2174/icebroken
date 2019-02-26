@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="185px"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/head_icon"
+        android:layout_width="141px"
+        android:layout_height="141px"
+        android:layout_marginLeft="51px"
+         />
+
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/name"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="王小米"
+            android:textColor="@color/gray_4C"
+            android:textSize="45px" />
+
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5px"
+            android:layout_marginRight="55px"
+            android:gravity="center"
+            android:text="12:30"
+            android:textSize="31px"
+            android:textColor="@color/gray" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="10px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:layout_width="645px"
+            android:layout_height="wrap_content"
+            android:text="请现在把人事档案发我邮箱，谢谢"
+            android:textColor="@color/gray"
+            android:textSize="12sp" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/text_notice_count"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5px"
+            android:layout_marginRight="55px"
+            android:background="@drawable/cycle_red_bg"
+            android:gravity="center"
+            android:text="1"
+            android:textSize="36px"
+            android:textColor="@color/bg_white" />
+
+        <TextView
+            android:id="@+id/head_text"
+            android:layout_width="125px"
+            android:layout_height="125px"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="49dp"
+            android:layout_marginEnd="106dp"
+            android:layout_marginRight="106dp"
+            android:layout_toLeftOf="@+id/text_notice_count"
+            android:layout_toStartOf="@+id/text_notice_count"
+            android:background="@mipmap/hp"
+            android:gravity="center"
+            android:text="小米"
+            android:textColor="@color/white"
+            android:textSize="45px"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_1"
+        android:background="@color/gray_E6" />
+</LinearLayout>
+

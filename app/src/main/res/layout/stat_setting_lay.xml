@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipToPadding="true"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+    <TextView
+        android:gravity="center_vertical"
+        android:layout_marginLeft="45px"
+        android:text="当前位置"
+        android:textSize="45px"
+        android:layout_width="match_parent"
+        android:layout_height="120px" />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/mmap"
+        android:layout_width="match_parent"
+        android:layout_height="570px" />
+    <TextView
+        android:id="@+id/address"
+        android:singleLine="true"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="45px"
+        android:text="当前位置"
+        android:textSize="45px"
+        android:layout_width="match_parent"
+        android:layout_height="120px" />
+
+    <LinearLayout
+        android:layout_marginTop="300px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_F8">
+
+        <TextView
+            android:id="@+id/btnExit"
+            android:layout_width="match_parent"
+            android:layout_height="145px"
+            android:layout_margin="@dimen/px_60"
+            android:background="#3676fc"
+            android:gravity="center"
+            android:text="完成设置"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_48" />
+
+    </LinearLayout>
+</LinearLayout>
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/sb__inner"
+        android:layout_height="150px"
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/sb__icon"
+            android:layout_width="86px"
+            android:layout_height="86px"
+            android:layout_gravity="center"
+            android:layout_marginLeft="60px"
+            android:src="@drawable/snake_msg_bg"
+            android:background="#ff3252"/>
+
+        <TextView
+            android:id="@+id/sb__text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_gravity="center"
+            android:layout_marginRight="200px"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="沙士大夫撒佛山市粉丝粉丝第三方的士大夫撒飞洒地方是东方闪电"
+            android:textColor="#4c4c4c"
+            android:textSize="40px"/>
+
+        <TextView
+            android:id="@+id/sb__action"
+            style="@style/Snackbar.Text.Action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="right"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+</merge>

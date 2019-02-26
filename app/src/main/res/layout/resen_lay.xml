@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+
+        <com.icebroken.widget.MyToolbar
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:layout_collapseMode="pin">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="收发文件"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+        </com.icebroken.widget.MyToolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_1"
+        android:background="@color/gray_E6" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45px"
+        android:layout_marginTop="60px"
+        android:text="发文管理"
+        android:textColor="@color/black"
+        android:textSize="52px"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="65px"
+        android:layout_marginLeft="45px"
+        android:layout_marginRight="45px"
+        android:layout_marginTop="60px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/re_btn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="20px"
+            android:drawableTop="@mipmap/f_n"
+            android:gravity="center"
+            android:text="发文拟稿"
+            android:textColor="@color/black"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/re_btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="20px"
+            android:drawableTop="@mipmap/f_b"
+            android:gravity="center"
+            android:text="发文办理"
+            android:textColor="@color/black"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/re_btn3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="20px"
+            android:drawableTop="@mipmap/f_c"
+            android:gravity="center"
+            android:text="发文查询"
+            android:textColor="@color/black"
+            android:textSize="40px" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_1"
+        android:background="@color/gray_E6" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45px"
+        android:layout_marginTop="60px"
+        android:text="收文管理"
+        android:textColor="@color/black"
+        android:textSize="52px"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="65px"
+        android:layout_marginLeft="45px"
+        android:layout_marginRight="45px"
+        android:layout_marginTop="60px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/send_btn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="20px"
+            android:drawableTop="@mipmap/s_q"
+            android:gravity="center"
+            android:text="收文签收"
+            android:textColor="@color/black"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/send_btn2"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="20px"
+            android:drawableTop="@mipmap/s_d"
+            android:gravity="center"
+            android:text="收文登记"
+            android:textColor="@color/black"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/send_btn3"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="20px"
+            android:drawableTop="@mipmap/s_b"
+            android:gravity="center"
+            android:text="收文办理"
+            android:textColor="@color/black"
+            android:textSize="40px" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="65px"
+        android:layout_marginLeft="45px"
+        android:layout_marginRight="45px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/send_btn4"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="20px"
+            android:drawableTop="@mipmap/s_c"
+            android:gravity="center"
+            android:text="收文查询"
+            android:textColor="@color/black"
+            android:textSize="40px" />
+
+        <TextView
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="20px"
+            android:drawableTop="@mipmap/icon2"
+            android:gravity="center"
+            android:text="收文登记"
+            android:textColor="@color/black"
+            android:textSize="40px" />
+
+        <TextView
+            android:visibility="invisible"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawablePadding="20px"
+            android:drawableTop="@mipmap/icon2"
+            android:gravity="center"
+            android:text="发文办理"
+            android:textColor="@color/black"
+            android:textSize="40px" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_1"
+        android:background="@color/gray_E6" />
+</LinearLayout>

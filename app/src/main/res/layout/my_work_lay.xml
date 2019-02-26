@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+
+        <com.icebroken.widget.MyToolbar
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:layout_collapseMode="pin">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="我的任务"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+        </com.icebroken.widget.MyToolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="32px"
+        android:background="@color/five_bg" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+
+
+    <com.icebroken.widget.MySwipeRefreshLayout
+        android:id="@+id/swipyrefreshlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srl_direction="top">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.icebroken.widget.MySwipeRefreshLayout>
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_marginTop="55px"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <CheckBox
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:button="@drawable/check_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="156px"
+                android:text="APP页面设计"
+                android:textColor="@color/black"
+                android:textSize="45px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <TextView
+            android:layout_marginLeft="156px"
+            android:layout_marginTop="20px"
+            android:text="6月5日 周二 18:00 结束"
+            android:textColor="@color/gray"
+            android:textSize="45px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_marginTop="20px"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="156px"
+                android:layout_gravity="center_vertical"
+                android:text="我分配的"
+                android:textColor="#335db1"
+                android:textSize="45px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="45px"
+                android:background="@color/gray"
+                android:layout_width="1px"
+                android:layout_height="45px"/>
+            <TextView
+                android:layout_marginLeft="45px"
+                android:layout_gravity="center_vertical"
+                android:text="刚刚"
+                android:textColor="@color/gray"
+                android:textSize="45px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="48px"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:drawableLeft="@mipmap/content_notice"
+                android:drawablePadding="25px"
+                android:layout_marginLeft="156px"
+                android:layout_gravity="center_vertical"
+                android:text="1条动态"
+                android:textColor="@color/gray"
+                android:textSize="40px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:drawableLeft="@mipmap/content_finish"
+                android:drawablePadding="25px"
+                android:layout_marginLeft="55px"
+                android:layout_gravity="center_vertical"
+                android:text="1/5人完成"
+                android:textColor="@color/gray"
+                android:textSize="40px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_user_scan"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+   >
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+
+        <com.icebroken.widget.MyToolbar
+            android:id="@+id/mToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            >
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="我的二维码名片"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+        </com.icebroken.widget.MyToolbar>
+    </android.support.design.widget.AppBarLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_1"
+        android:background="@color/gray_E6"></View>
+</LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <android.support.v7.widget.CardView
+        android:id="@+id/rel_qrcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="422dp">
+        <LinearLayout
+            android:layout_marginTop="145px"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/linearLayout">
+            <TextView
+                android:id="@+id/txt_nickName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:text="高薇薇"
+                android:gravity="bottom"
+                android:textColor="@android:color/black"
+                android:textSize="19dp" />
+
+            <TextView
+                android:id="@+id/txt_job"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignTop="@+id/linearLayout"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="7dp"
+                android:layout_marginStart="7dp"
+                android:layout_toEndOf="@+id/txt_hint"
+                android:layout_toRightOf="@+id/txt_hint"
+                android:gravity="bottom"
+                android:text="人事部主管"
+                android:textColor="@color/gray"
+                android:textSize="13dp" />
+        </LinearLayout>
+
+
+            <ImageView
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="110dp"
+                android:id="@+id/img_qr_code"
+                android:layout_width="245dp"
+                android:layout_height="247dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/code_test"/>
+
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/txt_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="27dp"
+            android:layout_below="@+id/img_qr_code"
+            android:text="扫描二维码查看企业名片"
+            android:textColor="#86858a"
+            android:textSize="14sp" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+    </RelativeLayout>
+    <ImageView
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/image_user"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/thread_magin_LR"
+        android:layout_marginRight="@dimen/thread_magin_LR"
+        android:scaleType="fitXY"
+        android:src="@drawable/toux2" />
+    </FrameLayout>
+</RelativeLayout>

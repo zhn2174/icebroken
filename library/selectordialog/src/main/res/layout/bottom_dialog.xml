@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+        android:id="@+id/action_dialog_linearlayout1"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/action_dialog_btn1"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            android:text="找回密码"
+            android:gravity="center" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E2E2E2"
+        />
+    <LinearLayout
+        android:id="@+id/action_dialog_linearlayout2"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/action_dialog_btn2"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            android:text="无法登录"
+            android:gravity="center" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="#E2E2E2"
+        />
+    <LinearLayout
+        android:id="@+id/cancel_lay"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:textColor="#333333"
+            android:textSize="18sp"
+            android:text="取消"
+            android:gravity="center" />
+    </LinearLayout>
+</LinearLayout>

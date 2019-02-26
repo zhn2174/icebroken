@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+
+        <com.icebroken.widget.MyToolbar
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:layout_collapseMode="pin">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="收文登记"
+                android:textColor="@android:color/black"
+                android:textSize="60px" />
+        </com.icebroken.widget.MyToolbar>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_1"
+                android:background="@color/gray_E6" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="文件类型"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/send_title"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="250px"
+                    android:background="@color/white"
+                    android:drawablePadding="20px"
+                    android:hint="请填写文件类型(必填)"
+                    
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_1"
+                android:background="@color/gray_E6" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="密级"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/send_main_title"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="250px"
+                    android:background="@color/white"
+                    android:drawablePadding="20px"
+                    android:hint="请填写文件密级(必填)"
+                    android:inputType="number"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="收文文号"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+                <EditText
+                    android:id="@+id/main_to"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="250px"
+                    android:background="@color/white"
+                    android:drawablePadding="20px"
+                    android:hint="请填写收文文号(必填)"
+                    android:inputType="number"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="来文单位"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+                <EditText
+                    android:id="@+id/two_to"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="250px"
+                    android:background="@color/white"
+                    android:drawablePadding="20px"
+                    android:hint="请填写来文单位(必填)"
+                    android:inputType="number"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+            </RelativeLayout>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="对方文号"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+                <EditText
+                    android:id="@+id/two_to1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="250px"
+                    android:background="@color/white"
+                    android:drawablePadding="20px"
+
+                    android:hint="请填写对方文号(必填)"
+                    android:inputType="number"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="标题"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+                <EditText
+                    android:id="@+id/send_porson"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="250px"
+                    android:background="@color/white"
+                    android:drawablePadding="20px"
+                    android:hint="请填写标题(必填)"
+                    android:inputType="number"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120px"
+                android:layout_marginLeft="@dimen/px_60"
+                android:layout_marginRight="@dimen/px_60">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="份数"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+                <EditText
+                    android:id="@+id/send_porson1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="250px"
+                    android:background="@color/white"
+                    android:drawablePadding="20px"
+                    android:hint="请填写份数(必填)"
+                    android:inputType="number"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="@dimen/px_48" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:layout_marginTop="60px"
+                android:background="@color/gray_L" />
+
+            <TextView
+                android:id="@+id/post_file"
+                android:layout_width="match_parent"
+                android:layout_height="145px"
+                android:layout_marginBottom="30px"
+                android:layout_marginLeft="90px"
+                android:layout_marginRight="90px"
+                android:layout_marginTop="30px"
+                android:background="@drawable/black_btn_bg"
+                android:gravity="center"
+                android:text="点击上传附件"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/px_48" />
+
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="8dp"
+                android:background="@color/five_bg" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray_F8">
+
+                <TextView
+                    android:id="@+id/btnExit"
+                    android:layout_width="match_parent"
+                    android:layout_height="145px"
+                    android:layout_margin="@dimen/px_60"
+                    android:background="#3676fc"
+                    android:gravity="center"
+                    android:text="提交"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/px_48" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

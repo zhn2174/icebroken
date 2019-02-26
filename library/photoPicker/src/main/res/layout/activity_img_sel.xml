@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/rel_titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RelativeLayout
+                android:id="@+id/rlTitleBar"
+                android:layout_width="match_parent"
+                android:layout_height="130px">
+
+
+                <!--左侧图标-->
+                <RelativeLayout
+                    android:id="@+id/lay_image_back"
+                    android:layout_width="150px"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/image_back"
+                        android:layout_width="60px"
+                        android:layout_height="60px"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="45px"
+                        android:layout_marginRight="45px"
+                        android:src="@drawable/icon_back_fanbai" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="胶卷相机"
+                    android:textColor="@color/gray_4C"
+                    android:textSize="50px"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/lin_confirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_imgNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0/9"
+                        android:textColor="@color/gray_C3"
+                        android:textSize="42px" />
+
+                    <TextView
+                        android:id="@+id/btnConfirm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="35px"
+                        android:layout_marginRight="54px"
+                        android:text="提交"
+                        android:textSize="42px"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_E6" />
+
+    <FrameLayout
+        android:id="@+id/fmImageList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white" />
+
+</LinearLayout>

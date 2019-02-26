@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="PasswordInput">
+        <!--获得焦点时的颜色-->
+        <attr name="focusedColor" format="color" />
+        <!--未获得焦点时的颜色-->
+        <attr name="notFocusedColor" format="color" />
+        <!--背景色-->
+        <attr name="backgroundColor" format="color" />
+        <!--字符方块的数量-->
+        <attr name="boxCount" format="integer" />
+        <!--获得焦点时颜色是否改变-->
+        <attr name="focusColorChangeEnable" format="boolean" />
+        <!--圆点半径-->
+        <attr name="dotRaduis" format="dimension" />
+    </declare-styleable>
+
+</resources>

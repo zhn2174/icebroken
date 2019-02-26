@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#f8f8f8">
+
+    <ImageView
+        android:layout_width="490px"
+        android:layout_height="302px"
+        android:layout_gravity="center"
+        android:layout_marginTop="490px"
+        android:background="@mipmap/icon_zhanwei"/>
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28px"
+        android:layout_gravity="center"
+        android:text="您还没有粉丝"
+        android:textColor="@color/gray_99"
+        android:textSize="42px"/>
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:layout_gravity="center"
+        android:text="快去主动认识有趣的朋友吧"
+        android:textColor="@color/gray_99"
+        android:textSize="42px"/>
+
+</LinearLayout>
+

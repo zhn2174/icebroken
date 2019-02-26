@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/five_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+
+        <RelativeLayout
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:layout_collapseMode="pin">
+            <TextView
+                android:layout_centerVertical="true"
+                android:id="@+id/left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/px_60"
+                android:text="取消"
+                android:textColor="@color/blue_text"
+                android:textSize="50px" />
+            <TextView
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="预约会议"
+                android:textColor="@android:color/black"
+                android:textSize="60px" />
+            <TextView
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:id="@+id/right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/px_60"
+                android:text="发送"
+                android:textColor="@color/blue_text"
+                android:textSize="50px" />
+        </RelativeLayout>
+    </android.support.design.widget.AppBarLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="8dp"
+        android:background="@color/five_bg" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+    <EditText
+        android:gravity="top"
+        android:layout_marginTop="30px"
+        android:layout_marginLeft="@dimen/px_60"
+        android:layout_width="match_parent"
+        android:layout_height="379px"
+        android:background="@color/white"
+        android:drawablePadding="20px"
+        android:hint="请输入会议内容"
+        android:textColor="@color/gray_4C"
+        android:textSize="45px" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:src="@mipmap/icon_arrow"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="480px"
+            android:layout_height="305px"
+            android:layout_marginLeft="@dimen/px_60"
+            >
+
+            <TextView
+                android:layout_marginTop="39px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="开始"
+                android:textColor="@color/gray_8F"
+                android:textSize="@dimen/px_48" />
+            <TextView
+                android:layout_marginTop="22px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="2018年6月1日"
+                android:textColor="@color/gray_8F"
+                android:textSize="@dimen/px_48" />
+            <TextView
+                android:layout_marginTop="22px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="8:00"
+                android:textColor="@color/black"
+                android:textSize="@dimen/px_48" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="right"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical"
+            android:layout_width="480px"
+            android:layout_height="305px"
+            android:layout_marginRight="@dimen/px_60">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_marginTop="39px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="结束"
+                    android:textColor="@color/gray_8F"
+                    android:textSize="@dimen/px_48" />
+                <TextView
+                    android:layout_marginTop="22px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="2018年6月1日"
+                    android:textColor="@color/gray_8F"
+                    android:textSize="@dimen/px_48" />
+                <TextView
+                    android:layout_marginTop="22px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:text="10:00"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px_48" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="8dp"
+        android:background="@color/five_bg" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="145px"
+        android:layout_marginLeft="@dimen/px_60"
+        android:layout_marginRight="@dimen/px_60">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="执行人"
+            android:textColor="@color/black"
+            android:textSize="45px" />
+
+        <TextView
+            android:layout_marginRight="20px"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/persen"
+            android:background="@mipmap/hp"
+            android:textSize="35px"
+            android:text="张伟"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:id="@+id/head_text"
+            android:layout_width="90px"
+            android:layout_height="90px"
+            />
+
+        <TextView
+            android:id="@+id/persen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="20px"
+            android:drawableRight="@mipmap/icon_arrow"
+            android:text="1人"
+            android:textColor="@color/gray_4C"
+            android:textSize="45px" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="145px"
+        android:layout_marginLeft="@dimen/px_60"
+        android:layout_marginRight="@dimen/px_60">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="参会人"
+            android:textColor="@color/black"
+            android:textSize="45px" />
+
+        <TextView
+            android:layout_marginRight="20px"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/persen_to"
+            android:background="@mipmap/hp"
+            android:textSize="35px"
+            android:text="李勇"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:id="@+id/head_text_to"
+            android:layout_width="90px"
+            android:layout_height="90px"
+            />
+
+        <TextView
+            android:id="@+id/persen_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="20px"
+            android:drawableRight="@mipmap/icon_arrow"
+            android:text="1人"
+            android:textColor="@color/gray_4C"
+            android:textSize="45px" />
+
+
+    </RelativeLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="8dp"
+        android:background="@color/five_bg" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="145px"
+        android:layout_marginLeft="@dimen/px_60"
+        android:layout_marginRight="@dimen/px_60">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="发送方式"
+            android:textColor="@color/black"
+            android:textSize="45px" />
+
+
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="20px"
+            android:orientation="horizontal"
+            >
+            <RadioButton
+                android:id="@+id/rd1"
+                android:layout_width="160px"
+                android:layout_height="75px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:background="@drawable/radio_left_bg"
+                android:text="应用内"
+                android:textColor="@color/white"
+                android:textSize="40px"
+                android:button="@null" />
+            <RadioButton
+                android:id="@+id/rd2"
+                android:layout_width="160px"
+                android:layout_height="75px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:background="@drawable/radio_center_bg"
+                android:text="短信"
+                android:textColor="@color/blue_d"
+                android:textSize="40px"
+                android:button="@null" />
+            <RadioButton
+                android:id="@+id/rd3"
+                android:layout_width="160px"
+                android:layout_height="75px"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:background="@drawable/radio_right_bg"
+                android:text="电话"
+                android:textColor="@color/blue_d"
+                android:textSize="40px"
+                android:button="@null" />
+        </RadioGroup>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="8dp"
+        android:background="@color/five_bg" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="145px"
+        android:layout_marginLeft="@dimen/px_60"
+        android:layout_marginRight="@dimen/px_60">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="会前提醒"
+            android:textColor="@color/black"
+            android:textSize="45px" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="20px"
+            android:drawableRight="@mipmap/icon_arrow"
+            android:text="会议开始时应用内提醒"
+            android:textColor="@color/gray_4C"
+            android:textSize="45px" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_1"
+        android:background="@color/gray_E6" />
+
+
+
+</LinearLayout>
+
+</ScrollView>

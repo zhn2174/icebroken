@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rel_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_collapseMode="pin"
+            >
+            <TextView
+                android:layout_centerInParent="true"
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="句容政务"
+                android:textColor="@android:color/black"
+                android:textSize="60px" />
+            <ImageView
+                android:layout_marginRight="15dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:id="@+id/btn"
+                android:layout_width="60px"
+                android:layout_height="60px"
+                android:src="@mipmap/add"
+                />
+        </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/lin_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray_E6"/>
+
+        <com.mocuz.tablayout.CommonTabLayout
+            android:id="@+id/ctab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="144px"
+            android:background="@color/white"
+            tl:tl_indicator_bounce_enable="true"
+            tl:tl_textSelectColor="#3676fc"
+            tl:tl_textUnselectColor="#c0c0c0"
+            tl:tl_textsize="36px"
+            tl:tl_underline_height="0dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutMainBlank"
+        android:layout_width="match_parent"
+        android:layout_height="145px"
+        android:layout_alignParentBottom="true"
+        android:background="#7F000000"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_below="@+id/myToolbar"
+        android:id="@+id/fl_body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/lin_tab"/>
+</RelativeLayout>

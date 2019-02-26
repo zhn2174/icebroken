@@ -1,0 +1,126 @@
+<resources>
+    <string name="select_module">选择版块</string>
+    <string name="chatimgrow">chatimgrow</string>
+
+    <!---->
+    <string name="txt_is_agree">已阅读并同意</string>
+    <string name="txt_private_agreement">隐私协议</string>
+
+    <string name="zone_img_position">circle_img_position</string>
+    <string name="umeng_socialize_sharetosina">分享到新浪微博</string>
+    <!-- 平台名称 -->
+    <string name="umeng_socialize_text_tencent_key">腾讯微博</string>
+    <string name="umeng_socialize_text_wenxin_fav">微信收藏</string>
+    <string name="umeng_socialize_text_sina_key">微博</string>
+    <string name="umeng_socialize_text_qq_key">QQ</string>
+    <string name="umeng_socialize_text_qq_zone_key">QQ空间</string>
+    <string name="umeng_socialize_text_weixin_key">微信</string>
+    <string name="umeng_socialize_text_weixin_circle_key">微信朋友圈</string>
+    <string name="umeng_example_home_btn_plus">社交分享</string>
+    <string name="umeng_socialize_text_waitting_share">分享中&#8230;</string>
+    <string name="umeng_socialize_content_hint">说点啥&#8230;</string>
+    <string name="umeng_socialize_cancel_btn_str">取消</string>
+    <string name="umeng_socialize_send_btn_str">发送</string>
+    <string name="umeng_socialize_share">分享</string>
+    <string name="umeng_socialize_sms">短信</string>
+    <string name="umeng_socialize_sina">新浪</string>
+    <string name="post_title">发帖</string>
+    <string name="post_send">发布</string>
+
+    <string name="umeng_socialize_female">女</string>
+    <string name="umeng_socialize_male">男</string>
+    <!-- LBS -->
+    <string name="regist_params_error">注册参数错误，请检查</string>
+    <string name="media_ejected">储存卡已拔出，语音功能将暂时不可用</string>
+    <string name="notification_fmt_one_txttype">%s发来1条消息</string>
+    <string name="notification_fmt_one_imgtype">%s发来1张图片</string>
+    <string name="notification_fmt_one_voicetype">%s发来1段语音</string>
+    <string name="notification_fmt_one_filetype">%s发来1个文件</string>
+    <string name="str_system_message_group_notice">群组通知</string>
+    <string name="app_pic">[图片]</string>
+    <string name="app_music">[音乐]</string>
+    <string name="app_voice">[语音]</string>
+    <string name="app_video">[视频]</string>
+    <string name="app_file">[文件]</string>
+    <string name="errormsg_server">网络请求失败，请稍后重试</string>
+    <string name="plugin_upload_attach_size_tip">文件大小为：%s，确定要上传为附件吗？</string>
+    <string name="app_clear">清空</string>
+    <string name="dialog_btn_confim">确认</string>
+    <string name="dialog_btn_cancel">取消</string>
+    <string name="dialog_title_alert">提示</string>
+    <string name="loading_press">请稍候，正在提交...</string>
+    <string name="app_title_image_preview">预览</string>
+    <string name="imgdownload_fail">下载图片失败</string>
+    <string name="imgdownload_fail_or_cleaned">图片已过期或已被清理</string>
+    <string name="imgdownload_hdimg_download_tip">正在加载原始图片，由于尺寸较大，可能需要较长时间</string>
+    <string name="app_tip">提示</string>
+    <string name="chatting_empty_message_cant_be_sent">不能发送空白消息</string>
+    <string name="sendmsg_error_16072">您已不属于此群组成员</string>
+    <string name="sendmsg_error_15032">您已经被禁言</string>
+    <string name="sendmsg_error_170001">您发送的文本超过最大长度限制</string>
+    <string name="chatting_resend_title">重发</string>
+    <string name="chatting_resend_content">确认重发该消息？</string>
+    <string name="plugin_file_explorer_root_tag">设备</string>
+    <string name="plugin_file_explorer_sdcard_tag">存储卡</string>
+    <string name="plugin_file_explorer_ui_title">添加附件</string>
+    <string name="menu_del">删除</string>
+    <string name="app_copy_ok">已复制</string>
+    <string name="app_delete_tips">确认删除？</string>
+    <string name="common_enter_activity">当前所在页面,</string>
+    <string name="app_panel_pic">图片</string>
+    <string name="app_panel_tackpic">拍照</string>
+    <string name="app_panel_file">文件</string>
+    <string name="media_no_memory">储存卡存储空间不足</string>
+    <string name="voice_cancel_rcd_release">松开手指，取消发送</string>
+    <string name="chatfooter_releasetofinish">松开 结束</string>
+    <string name="chatfooter_presstorcd">按住 说话</string>
+    <string name="chatting_send">发送</string>
+    <string name="chat_footer_smiley_btn">表情</string>
+    <string name="chat_footer_switch_mode_btn">语音说话与键盘输入切换</string>
+    <string name="chat_footer_switch_mode_voice_btn">切换到按住说话</string>
+    <string name="chat_footer_switch_mode_keybord_btn">切换到键盘</string>
+    <string name="chatfooter_cancel_rcd">手指上滑，取消发送</string>
+    <string name="chatfooter_cancel_rcd_release">松开手指，取消发送</string>
+    <string name="chatfooter_too_short">录音时间太短</string>
+    <string name="chat_footer_app_btn">更多</string>
+    <string name="save_img_waite_download">请稍候，图片正在加载中</string>
+    <string name="viewpager_indicator" formatted="false">%d/%d</string>
+    <string name="save_to_local">保存到手机</string>
+    <string name="dialog_ok_button">确定</string>
+    <string name="dialog_ok_skip">跳过</string>
+    <string name="fmt_time_length">%d\"</string>
+    <string name="conv_msg_sending">正在发送中</string>
+    <string name="fmt_delcontactmsg_confirm_group">确定删除群的聊天记录吗？</string>
+    <string name="clear_msg_success">清除成功</string>
+    <string name="main_delete">删除该聊天</string>
+    <string name="menu_mute_notify">设置免打扰</string>
+    <string name="menu_notify">取消免打扰</string>
+    <string name="main_empty_conversation">暂无聊天信息</string>
+    <string name="app_delete_all_tips">确认清空聊天记录？</string>
+    <string name="hint">提示</string>
+    <string name="dialog_yes">是</string>
+    <string name="dialog_no">否</string>
+    <string name="imageview_content_description"></string>
+    <string name="record_camera_init_faild">初始化视频存储路径失败</string>
+    <string name="record_camera_progress_message">正在转码…</string>
+    <string name="record_camera_check_available_faild">手机满了！至少需要200M存储空间才能继续拍摄！</string>
+    <string name="record_camera_open_audio_faild">无法打开录音设备！</string>
+    <string name="record_camera_save_faild">视频信息保存失败！</string>
+    <string name="record_camera_exit_dialog_message">是否放弃这段视频？</string>
+    <string name="record_video_transcoding_faild">视频转码失败</string>
+    <string name="edit_post">编辑帖子</string>
+    <string name="modify_pwd_success">密码修改成功！</string>
+    <string name="new_pwd_must_diff_old_pwd">新密码不能与原密码相同！</string>
+    <string name="twice_pwd_diff">两次输入的密码不一致！</string>
+    <string name="pwd_length_must_more_than_six">密码长度不能低于6位！</string>
+    <string name="set_pwd">设置密码</string>
+    <string name="modify_pwd">修改密码</string>
+    <string name="str_agreement2">\n第2条 本论坛所有权、经营权均属网站创建者所有。
+        \n\n第二章 论坛用户\n第3条 在本论坛论坛注册的用户均属于本网站论坛用户（以下简称“论坛用户”），拥有论坛用户基本权限。\n第4条 本论坛用户的个人资料受到保护，不接受任何单位或个人查询，公检法机关或法律要求的除外。\n第5条 本论坛用户享有在论坛各正常版面发帖和浏览的权限，若版面有特殊规定，或用户因违反论坛规定被取消上述权限的除外。\n第6条 本论坛用户有权依照申请流程申请版面斑竹。\n第7条 本论坛用户有义务遵守中华人民共和国法律以及本论坛各项规章制度。\n第8条 本论坛用户有义务遵守网络礼仪。
+        \n\n第三章 言论规则\n第9条 本论坛用户享有言论自由权利。\n第10条 本论坛用户不得在本论坛发表包含以下内容的言论：\n　　 （一）煽动抗拒、破坏宪法和法律、行政法规实施的；\n　　 （二）煽动颠覆国家政权，推翻社会主义制度的；\n　　 （三）煽动分裂国家、破坏国家统一的；\n　　 （四）煽动民族仇恨、民族歧视，破坏民族团结的；\n　　 （五）任何包含对种族、性别、宗教、地域内容等歧视的\n　　 （六）捏造或者歪曲事实，散布谣言，扰乱社会秩序的；\n　　 （七）宣扬封建迷信、淫秽、色情、赌博、暴力、凶杀、恐怖、教唆犯罪的；\n　　 （八）公然侮辱他人或者捏造事实诽谤他人的，或者进行其他恶意攻击的；\n　　 （九）损害国家机关信誉的；\n　　 （十）其他违反宪法和法律行政法规的。\n第11条 本论坛用户在相关讨论区发表文章时，除遵守本条款外，还应遵守该讨论区的相关规定。\n第12条 未经本网站管理者同意，禁止在本论坛内发布任何形式的广告。
+        \n\n第四章 版权声明\n第13条 本论坛文章仅代表作者个人观点，与本论坛立场无关，作者文责自负。\n第14条 本论坛文章（包括转载文章）版权归原作者所有，本网站及其关联公司网站有权优先使用论坛用户发表在本论坛的文章。原作者有版权声明或文章由其他站点转载而附有原站点版权声明的，其版权归属以附带声明为主。\n第15条 在用于商业、盈利、广告性目的时需征得文章原作者同意，并注明作者姓名及文章出处。
+        \n\n第五章 处罚原则\n第16条 本论坛用户不得在本论坛进行任何违反国家法律法规及社区各项规章制度的活动，不得在本社区进行任何破坏公共安全的活动，不得在本社区进行任何非法商业活动，不得在本社区进行任何破坏论坛公共秩序的活动，如有违反，社区管理人员将依据有关规定进行处罚。\n第17条 本论坛用户不得利用社区BUG进行任何活动，如有违反，社区有权作出关闭其部分权限、暂停帐号使用直至删除帐号处理，同时社区保留追究责任人法律及经济责任的权利。
+        \n\n第六章 责任声明\n第18条 本论坛用户之间通过论坛相识、交往中发生的任何心理、生理上的伤害和经济上的纠纷和损失，本网站论坛不承担任何责任。用户可及时与论坛管理人员联系。\n第19条 本论坛用户因违反论坛规定而触犯中华人民共和国法律法规的，责任自负，本网站论坛不承担任何责任。
+        \n\n第七章 附则\n第20条 本条款未涉及问题参见国家有关法律法规，当本条款与国家法律法规冲突时，以国家法律法规为准。\n第21条 本网站论坛保留修改完善本条款的权利。\n第22条 本条款自公布之日起实行。</string>
+
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+        <EditText
+            android:id="@+id/ed_code"
+            style="@style/mine_ed_style"
+            android:gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="173px"
+            android:inputType="textPassword"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="105px"
+            android:maxLength="15"/>
+
+        <ImageView
+            android:id="@+id/iv_clear"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_marginRight="135px"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:src="@mipmap/icon_shanchu"
+            android:visibility="gone" />
+
+</RelativeLayout>

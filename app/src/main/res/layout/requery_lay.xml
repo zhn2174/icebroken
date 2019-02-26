@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+
+        <com.icebroken.widget.MyToolbar
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:layout_collapseMode="pin">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="发文查询"
+                android:textColor="@android:color/black"
+                android:textSize="60px" />
+        </com.icebroken.widget.MyToolbar>
+    </android.support.design.widget.AppBarLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/gray_L" />
+    <EditText
+        android:drawablePadding="30px"
+        android:drawableLeft="@mipmap/search"
+        android:id="@+id/search_view"
+        android:hint="搜索"
+        android:paddingLeft="40px"
+        android:background="@drawable/bbs_search_bg"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="40px"
+        android:textColor="#A0A1A2"
+        android:layout_marginRight="40px"
+        android:textSize="48px"
+        android:layout_width="match_parent"
+        android:layout_height="105px" />
+    <LinearLayout
+        android:layout_marginTop="2px"
+        android:layout_marginBottom="2px"
+        android:paddingLeft="40px"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="150px">
+        <TextView
+            android:id="@+id/start_time"
+            android:textColor="@color/gray_4C"
+            android:textSize="@dimen/px_43"
+            android:gravity="center|left"
+            android:layout_width="300px"
+            android:layout_height="match_parent" />
+        <TextView
+            android:textColor="@color/black"
+            android:textSize="@dimen/px_43"
+            android:gravity="center"
+            android:layout_width="70px"
+            android:text="至"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/end_time"
+            android:textColor="@color/gray_4C"
+            android:textSize="@dimen/px_43"
+            android:gravity="center|right"
+            android:layout_width="300px"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:background="@mipmap/bg12"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/all"
+            android:layout_marginLeft="40px"
+            android:gravity="center"
+            android:layout_width="200px"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableRight="@mipmap/content_jt"
+            android:text="全部"
+            android:textColor="@color/gray_4C"
+            android:textSize="@dimen/px_48" />
+
+    </LinearLayout>
+    <com.icebroken.widget.MySwipeRefreshLayout
+        android:id="@+id/swipyrefreshlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srl_direction="top">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.icebroken.widget.MySwipeRefreshLayout>
+</LinearLayout>

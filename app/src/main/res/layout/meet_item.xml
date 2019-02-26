@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55px"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="57px"
+            android:layout_height="36px"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="60px"
+            android:src="@mipmap/content_hy" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="156px"
+            android:text="APP页面设计"
+            android:textColor="@color/black"
+            android:textSize="45px" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/time_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="156px"
+        android:layout_marginTop="20px"
+        android:text="6月5日 周二 18:00 结束"
+        android:textColor="@color/gray"
+        android:textSize="45px" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/onwer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="156px"
+            android:text="我分配的"
+            android:textColor="#335db1"
+            android:textSize="45px" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="51px"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="45px"
+            android:background="@color/gray" />
+
+        <TextView
+            android:id="@+id/time1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="45px"
+            android:text="刚刚"
+            android:textColor="@color/gray"
+            android:textSize="45px" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48px"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="156px"
+            android:text="参与人数"
+            android:textColor="@color/gray"
+            android:textSize="40px" />
+
+        <TextView
+            android:id="@+id/num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="55px"
+            android:text="1人"
+            android:textColor="@color/gray"
+            android:textSize="40px" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="35px"
+        android:background="@color/gray" />
+</LinearLayout>

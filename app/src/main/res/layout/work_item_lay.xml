@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_marginTop="8dp"
+        android:id="@+id/img_icon"
+        android:layout_width="match_parent"
+        android:layout_height="390px"
+        android:layout_marginLeft="58px"
+        android:layout_marginRight="58px"
+        android:scaleType="fitXY"
+        android:src="@mipmap/banner" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="58px">
+
+        <View
+            android:id="@+id/view_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_1"
+            android:background="@color/E3E3E3" />
+
+        <TextView
+            android:id="@+id/mine_use"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_130"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:padding="20px"
+            android:text="我常用的"
+            android:textColor="@color/black"
+            android:textSize="50px" />
+
+        <com.icebroken.widget.LineGridView
+            android:id="@+id/min_module"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:listSelector="@null"
+            android:numColumns="4"
+            android:scrollbars="none" />
+
+        <TextView
+            android:id="@+id/txt_module_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_130"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:padding="20px"
+            android:text="政务应用"
+            android:textColor="@color/black"
+            android:textSize="50px" />
+
+        <View
+            android:id="@+id/view_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_1"
+            android:background="@color/E3E3E3" />
+
+        <com.icebroken.widget.LineGridView
+            android:id="@+id/gov_module"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:listSelector="@null"
+            android:numColumns="4"
+            android:scrollbars="none" />
+    </LinearLayout>
+</LinearLayout>

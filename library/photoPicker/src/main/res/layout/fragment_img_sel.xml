@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvImageList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="60px"
+        android:layout_marginRight="30px"
+        android:layout_weight="6" />
+
+    <RelativeLayout
+        android:id="@+id/rlBottom"
+        android:layout_width="match_parent"
+        android:layout_height="140px"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:clickable="true">
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentTop="true"
+            android:background="@color/gray_E6" />
+
+        <Button
+            android:id="@+id/btnAlbumSelected"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/view_line"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:drawablePadding="5dp"
+            android:drawableRight="@drawable/ic_album"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:paddingLeft="60px"
+            android:paddingRight="16dp"
+            android:singleLine="true"
+            android:text="所有图片"
+            android:textColor="@color/black"
+            android:textSize="42px" />
+
+    </RelativeLayout>
+
+</LinearLayout>

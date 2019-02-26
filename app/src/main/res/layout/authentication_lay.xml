@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/topview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:elevation="0px">
+
+            <com.icebroken.widget.MyToolbar
+                android:id="@+id/myToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                app:layout_collapseMode="pin">
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="学生认证"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+            </com.icebroken.widget.MyToolbar>
+
+
+        </android.support.design.widget.AppBarLayout>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:id="@+id/info_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="111"
+                android:textColor="@color/umeng_socialize_list_item_textcolor"
+                android:textSize="@dimen/sp_14" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="真实姓名"
+                android:textColor="@color/umeng_socialize_list_item_textcolor"
+                android:textSize="@dimen/sp_16" />
+            <EditText
+                android:id="@+id/school_ed"
+                android:hint="请填写真实新名"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_38"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_100"
+                android:background="@color/white"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/sp_16" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:background="@color/gray_E4" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_52"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15">
+
+            <TextView
+                android:layout_marginTop="@dimen/dp_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="认证类型："
+                android:textColor="@color/umeng_socialize_list_item_textcolor"
+                android:textSize="@dimen/sp_16" />
+            <LinearLayout
+                android:id="@+id/auth_select"
+                android:background="@drawable/btn_dialog_center_normal"
+                android:layout_marginLeft="@dimen/dp_100"
+                android:layout_marginTop="@dimen/dp_13"
+                android:layout_width="@dimen/dp_188"
+                android:layout_height="@dimen/dp_35">
+                <TextView
+                    android:paddingLeft="@dimen/dp_8"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/auth_name"
+                    android:hint="校园一卡通"
+                    android:gravity="center_vertical"
+                    android:layout_width="@dimen/dp_153"
+                    android:layout_height="@dimen/dp_35"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/sp_16" />
+                <LinearLayout
+                    android:background="@drawable/btn_dialog_center_normal"
+                    android:gravity="center"
+                    android:layout_width="@dimen/dp_35"
+                    android:layout_height="@dimen/dp_35">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/icon_btm"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+        <TextView
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="请上传认证照片"
+            android:textColor="@color/umeng_socialize_list_item_textcolor"
+            android:textSize="@dimen/sp_16" />
+        <TextView
+            android:drawableLeft="@mipmap/icon_light"
+            android:drawablePadding="@dimen/dp_3"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:layout_marginRight="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="资料我们会加密保护，不会泄露您的信息"
+            android:textColor="@color/umeng_socialize_text_time"
+            android:textSize="@dimen/sp_12" />
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/auth_select_pic"
+                android:layout_width="@dimen/dp_153"
+                android:layout_height="@dimen/dp_99">
+                <ImageView
+                    android:id="@+id/auth_img"
+                    android:layout_alignParentBottom="true"
+                    android:src="@mipmap/add_auth_bg"
+                    android:layout_width="@dimen/dp_146"
+                    android:layout_height="@dimen/dp_92" />
+                <ImageView
+                    android:id="@+id/auth_delete"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/icon_deledt"
+                    android:layout_width="@dimen/dp_15"
+                    android:layout_height="@dimen/dp_15" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginLeft="@dimen/dp_22"
+                android:id="@+id/auth_select_pic1"
+                android:layout_width="@dimen/dp_153"
+                android:layout_height="@dimen/dp_99">
+                <ImageView
+                    android:id="@+id/auth_img1"
+                    android:layout_alignParentBottom="true"
+                    android:src="@mipmap/add_auth_bg"
+                    android:layout_width="@dimen/dp_146"
+                    android:layout_height="@dimen/dp_92" />
+                <ImageView
+                    android:id="@+id/auth_delete1"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/icon_deledt"
+                    android:layout_width="@dimen/dp_15"
+                    android:layout_height="@dimen/dp_15" />
+            </RelativeLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+           <TextView
+               android:text="正面（封面）"
+               android:gravity="center"
+               android:textColor="@color/umeng_socialize_list_item_textcolor"
+               android:textSize="@dimen/sp_12"
+               android:layout_width="@dimen/dp_153"
+               android:layout_height="wrap_content"
+               />
+            <TextView
+                android:layout_marginLeft="@dimen/dp_22"
+                android:text="反面（里面）"
+                android:gravity="center"
+                android:textColor="@color/umeng_socialize_list_item_textcolor"
+                android:textSize="@dimen/sp_12"
+                android:layout_width="@dimen/dp_153"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginLeft="@dimen/dp_15"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="@dimen/dp_153"
+                android:layout_height="@dimen/dp_99">
+                <ImageView
+                    android:layout_alignParentBottom="true"
+                    android:src="@mipmap/auth_bg"
+                    android:layout_width="@dimen/dp_146"
+                    android:layout_height="@dimen/dp_92" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginLeft="@dimen/dp_22"
+                android:layout_width="@dimen/dp_153"
+                android:layout_height="@dimen/dp_99">
+                <ImageView
+                    android:layout_alignParentBottom="true"
+                    android:src="@mipmap/auth_back"
+                    android:layout_width="@dimen/dp_146"
+                    android:layout_height="@dimen/dp_92" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bt_login"
+        android:layout_width="@dimen/dp_320"
+        android:layout_height="@dimen/dp_49"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/dp_23"
+        android:background="@drawable/login_btn_bg"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_18" />
+</RelativeLayout>

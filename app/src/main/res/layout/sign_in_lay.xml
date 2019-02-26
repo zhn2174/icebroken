@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/five_bg"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+
+        <com.icebroken.widget.MyToolbar
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:layout_collapseMode="pin">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="签到"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+        </com.icebroken.widget.MyToolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_below="@+id/topview"
+        android:layout_above="@+id/btnExit_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:id="@+id/layoutSign"
+            android:layout_width="match_parent"
+            android:layout_height="145px"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="60px">
+
+            <TextView
+                android:drawablePadding="20px"
+                android:id="@+id/time_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@mipmap/h_time"
+                android:text="签到时间"
+                android:textColor="@color/black"
+                android:textSize="@dimen/px_48" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_marginLeft="20px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/time_icon"
+                android:text="10:00"
+                android:textColor="@color/black"
+                android:textSize="@dimen/px_48" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="145px"
+            android:layout_marginLeft="60px"
+            android:layout_marginRight="60px">
+
+            <TextView
+                android:drawablePadding="20px"
+                android:id="@+id/add_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:drawableLeft="@mipmap/h_add"
+                android:text="签到地点"
+                android:textColor="@color/black"
+                android:textSize="@dimen/px_48" />
+
+            <TextView
+                android:id="@+id/add"
+                android:layout_marginLeft="20px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/time_icon"
+                android:text="江苏省南京市莱迪广场"
+                android:textColor="@color/black"
+                android:textSize="@dimen/px_48" />
+
+        </LinearLayout>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="14px"
+                android:background="@color/five_bg" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="@color/gray_L" />
+        <EditText
+            android:id="@+id/content"
+            android:gravity="top"
+            android:layout_margin="60px"
+            android:layout_width="match_parent"
+            android:layout_height="210px"
+            android:background="@color/white"
+            android:hint="请填写签到备注"
+            android:textColor="@color/gray_4C"
+            android:textSize="@dimen/px_48" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/btnExit_lay"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_F8">
+        <TextView
+            android:layout_marginLeft="60px"
+            android:layout_marginTop="10px"
+            android:layout_marginBottom="10px"
+            android:layout_marginRight="60px"
+            android:id="@+id/btnExit"
+            android:layout_width="match_parent"
+            android:layout_height="145px"
+            android:background="#3676fc"
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_48" />
+    </LinearLayout>
+</RelativeLayout>

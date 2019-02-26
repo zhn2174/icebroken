@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/five_bg"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/btm_lay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/five_bg"
+            android:orientation="vertical">
+
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/AppTheme.AppBarOverlay"
+                app:elevation="0px">
+
+                <com.icebroken.widget.MyToolbar
+                    android:id="@+id/mToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/white"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="会议申请详情"
+                        android:textColor="@android:color/black"
+                        android:textSize="20dp" />
+                </com.icebroken.widget.MyToolbar>
+            </android.support.design.widget.AppBarLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_1"
+                android:background="@color/gray_E6"></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="195px"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:visibility="gone"
+                        android:id="@+id/imageHead"
+                        android:layout_width="140px"
+                        android:layout_height="140px"
+                        android:layout_marginLeft="60px"
+                        android:focusable="false"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/toux2" />
+                    <TextView
+                        android:layout_width="125px"
+                        android:layout_height="125px"
+                        android:layout_marginLeft="60px"
+                        android:background="@mipmap/hp"
+                        android:textSize="45px"
+                        android:text="小米"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:id="@+id/head_text"
+                        />
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="65px"
+                        android:text="高薇薇"
+                        android:textColor="@color/black"
+                        android:textSize="45px" />
+
+                    <TextView
+                        android:id="@+id/apply_text_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="37px"
+                        android:background="@drawable/apply_text_bg"
+                        android:paddingBottom="8px"
+                        android:paddingLeft="10px"
+                        android:paddingRight="10px"
+                        android:paddingTop="8px"
+                        android:text="审核中"
+                        android:textColor="#ffa439"
+                        android:textSize="33px" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_1"
+                    android:background="@color/gray_E6"></View>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:layout_marginLeft="@dimen/px_60"
+                    android:layout_marginRight="@dimen/px_60"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="使用部门"
+                        android:textColor="#929292"
+                        android:textSize="45px" />
+
+                    <TextView
+                        android:id="@+id/dep_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="90px"
+                        android:text="采购部"
+                        android:textColor="@color/black"
+                        android:textSize="45px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:layout_marginLeft="@dimen/px_60"
+                    android:layout_marginRight="@dimen/px_60"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="开始时间"
+                        android:textColor="#929292"
+                        android:textSize="45px" />
+
+                    <TextView
+                        android:id="@+id/start_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="90px"
+                        android:text="2018-04-06"
+                        android:textColor="@color/black"
+                        android:textSize="45px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:layout_marginLeft="@dimen/px_60"
+                    android:layout_marginRight="@dimen/px_60"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="结束时间"
+                        android:textColor="#929292"
+                        android:textSize="45px" />
+
+                    <TextView
+                        android:id="@+id/end_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="90px"
+                        android:text="2018-05-05"
+                        android:textColor="@color/black"
+                        android:textSize="45px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:layout_marginLeft="@dimen/px_60"
+                    android:layout_marginRight="@dimen/px_60"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="时长（天）"
+                        android:textColor="#929292"
+                        android:textSize="45px" />
+
+                    <TextView
+                        android:id="@+id/day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="90px"
+                        android:text="1"
+                        android:textColor="@color/black"
+                        android:textSize="45px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:layout_marginLeft="@dimen/px_60"
+                    android:layout_marginRight="@dimen/px_60"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="会议主题"
+                        android:textColor="#929292"
+                        android:textSize="45px" />
+
+                    <TextView
+                        android:id="@+id/meet_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="90px"
+                        android:text="扩大会议"
+                        android:textColor="@color/black"
+                        android:textSize="45px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:layout_marginLeft="@dimen/px_60"
+                    android:layout_marginRight="@dimen/px_60"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="使用类型"
+                        android:textColor="#929292"
+                        android:textSize="45px" />
+
+                    <TextView
+                        android:id="@+id/meet_type_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="90px"
+                        android:text="内部会议"
+                        android:textColor="@color/black"
+                        android:textSize="45px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:layout_marginLeft="@dimen/px_60"
+                    android:layout_marginRight="@dimen/px_60"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="参会人数"
+                        android:textColor="#929292"
+                        android:textSize="45px" />
+
+                    <TextView
+                        android:id="@+id/meet_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="90px"
+                        android:text="10"
+                        android:textColor="@color/black"
+                        android:textSize="45px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:layout_marginLeft="@dimen/px_60"
+                    android:layout_marginRight="@dimen/px_60"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="会议室选择"
+                        android:textColor="#929292"
+                        android:textSize="45px" />
+
+                    <TextView
+                        android:id="@+id/room_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="90px"
+                        android:text="302"
+                        android:textColor="@color/black"
+                        android:textSize="45px" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120px"
+                    android:layout_marginLeft="@dimen/px_60"
+                    android:layout_marginRight="@dimen/px_60"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="所需设备与物品"
+                        android:textColor="#929292"
+                        android:textSize="45px" />
+
+                    <TextView
+                        android:id="@+id/room_need_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="90px"
+                        android:text="电脑，投影仪"
+                        android:textColor="@color/black"
+                        android:textSize="45px" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_1"
+                    android:background="@color/gray_E6"></View>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:background="@color/gray_E6"></View>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_1"
+                    android:background="@color/gray_E6"></View>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="195px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:id="@+id/imageHead1"
+                        android:layout_width="140px"
+                        android:layout_height="140px"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="60px"
+                        android:focusable="false"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/toux2" />
+
+                    <TextView
+                        android:id="@+id/send_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="65px"
+                        android:layout_toRightOf="@+id/imageHead1"
+                        android:text="我发起申请"
+                        android:textColor="@color/black"
+                        android:textSize="41px" />
+
+                    <TextView
+                        android:id="@+id/apply_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="37px"
+                        android:layout_marginRight="60px"
+                        android:paddingBottom="8px"
+                        android:paddingLeft="10px"
+                        android:paddingRight="10px"
+                        android:paddingTop="8px"
+                        android:text="07.24 12:21"
+                        android:textColor="@color/gray"
+                        android:textSize="33px" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_1"
+                    android:background="@color/gray_E6"></View>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:background="@color/gray_E6"></View>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_1"
+                    android:background="@color/gray_E6"></View>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/btm_lay"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <Button
+            android:layout_marginRight="80px"
+            android:layout_marginLeft="80px"
+            android:id="@+id/bt_yes"
+            android:layout_width="420px"
+            android:layout_height="105px"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="#3676fc"
+            android:fitsSystemWindows="true"
+            android:gravity="center"
+            android:padding="0dp"
+            android:text="同意"
+            android:textColor="@color/white"
+            android:textSize="45px" />
+        <Button
+            android:id="@+id/bt_no"
+            android:layout_width="420px"
+            android:layout_height="105px"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="#3676fc"
+            android:fitsSystemWindows="true"
+            android:gravity="center"
+            android:padding="0dp"
+            android:text="拒绝"
+            android:textColor="@color/white"
+            android:textSize="45px" />
+    </LinearLayout>
+</RelativeLayout>

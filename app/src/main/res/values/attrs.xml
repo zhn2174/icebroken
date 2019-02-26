@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="DashView">
+        <attr name="dashWidth" format="dimension" />
+        <attr name="lineWidth" format="dimension" />
+        <attr name="lineHeight" format="dimension" />
+        <attr name="lineColor" format="color" />
+        <attr name="dashOrientation" format="integer" />
+    </declare-styleable>
+
+    <!-- LBS Begin -->
+    <declare-styleable name="Emojicon">
+        <attr name="emojiconSize" format="dimension" />
+        <attr name="emojiconTextStart" format="integer" />
+        <attr name="emojiconTextLength" format="integer" />
+        <attr name="emojiconUseSystemDefault" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="AppPanel">
+        <attr name="dot_count" format="dimension" />
+        <attr name="dot_selected" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="MaskLayout">
+        <attr name="foreground" format="reference" />
+        <attr name="content_margin" format="dimension" />
+        <attr name="content_marginLeft" format="dimension" />
+        <attr name="content_marginRight" format="dimension" />
+        <attr name="content_marginTop" format="dimension" />
+        <attr name="content_marginBottom" format="dimension" />
+    </declare-styleable>
+    <!-- LBS End -->
+    <declare-styleable name="SwipeMenuLayout">
+        <attr name="leftViewId" format="reference" />
+        <attr name="rightViewId" format="reference" />
+        <attr name="contentViewId" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="CircleIndicator">
+        <attr name="ci_radius" format="dimension" />
+        <attr name="ci_margin" format="dimension" />
+        <attr name="ci_background" format="color|integer" />
+        <attr name="ci_selected_background" format="color|integer" />
+        <attr name="ci_gravity">
+            <enum name="left" value="0" />
+            <enum name="center" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <attr name="ci_mode">
+            <enum name="inside" value="0" />
+            <enum name="outside" value="1" />
+            <enum name="solo" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

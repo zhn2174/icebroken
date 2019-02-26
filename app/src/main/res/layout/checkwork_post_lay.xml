@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_1"
+            android:background="@color/gray_E6" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/head_icon"
+                android:layout_width="145px"
+                android:layout_height="145px"
+                android:layout_marginLeft="55px"
+                android:visibility="gone"
+                />
+            <TextView
+                android:background="@mipmap/hp"
+                android:textSize="45px"
+                android:text="小米"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:id="@+id/head_text"
+                android:layout_width="125px"
+                android:layout_height="125px"
+                android:layout_marginLeft="55px" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="王小米"
+                        android:textColor="@color/gray_4C"
+                        android:textSize="45px" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_marginTop="10px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30px"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/dep_text"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_width="645px"
+                        android:layout_height="wrap_content"
+                        android:text="考勤组:开发组"
+                        android:textColor="@color/gray"
+                        android:textSize="45px" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5px"
+                android:layout_marginRight="55px"
+                android:gravity="center"
+                android:text="2018.06.07"
+                android:textSize="31px"
+                android:drawablePadding="20px"
+                android:drawableRight="@mipmap/icon_spread"
+                android:textColor="@color/text_black" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_1"
+            android:background="@color/gray_E6" />
+        <TextView
+            android:layout_margin="55px"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:layout_width="645px"
+            android:layout_height="wrap_content"
+            android:text="打开记录时间和位置"
+            android:textColor="@color/gray"
+            android:textSize="45px" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_marginTop="20px"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="55px"
+                android:background="@mipmap/content_hp"
+                android:layout_width="30px"
+                android:layout_height="30px" />
+            <View
+                android:layout_marginLeft="70px"
+                android:background="@color/gray"
+                android:layout_width="1px"
+                android:layout_height="420px"/>
+            <TextView
+                android:background="@mipmap/y2"
+                android:layout_marginLeft="55px"
+                android:layout_width="30px"
+                android:layout_height="30px" />
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_marginLeft="55px"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/checkwork_time"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上班时间9：00"
+                android:textColor="@color/gray"
+                android:textSize="45px" />
+            <LinearLayout
+                android:layout_below="@+id/checkwork_time"
+                android:layout_marginTop="30px"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="上班打卡时间 8：10"
+                    android:textColor="@color/black"
+                    android:textSize="55px" />
+                <TextView
+                    android:layout_marginLeft="35px"
+                    android:gravity="center"
+                    android:background="@mipmap/bq"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:layout_width="146px"
+                    android:layout_height="68px"
+                    android:text="正常"
+                    android:textColor="#16bb81"
+                    android:textSize="45px" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="460px"
+                android:id="@+id/checkwork_time1"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="下班时间18：00"
+                android:textColor="@color/gray"
+                android:textSize="45px" />
+        </RelativeLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/postbtn"
+            android:layout_marginBottom="270px"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:background="@mipmap/content_hp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="330px"
+            android:layout_height="330px">
+            <TextView
+                android:id="@+id/title_text"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="下班打卡"
+                android:textColor="@color/white"
+                android:textSize="45px" />
+            <TextView
+                android:id="@+id/time_text"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18:00:00"
+                android:textColor="@color/white"
+                android:textSize="45px" />
+        </LinearLayout>
+    <TextView
+        android:layout_marginBottom="145px"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已进入考勤范围:南京新街口"
+        android:textColor="@color/gray"
+        android:textSize="45px" />
+
+</RelativeLayout>

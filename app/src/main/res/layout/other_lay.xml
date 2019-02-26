@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+
+        <com.icebroken.widget.MyToolbar
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#3676FC"
+            app:layout_collapseMode="pin">
+        </com.icebroken.widget.MyToolbar>
+    </android.support.design.widget.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="475px">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="210px"
+                android:background="#3676FC" />
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="460px"
+        >
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/head_text"
+                    android:layout_width="180px"
+                    android:layout_height="180px"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/thread_magin_LR"
+                    android:layout_marginRight="@dimen/thread_magin_LR"
+                    android:layout_marginTop="58px"
+                    android:background="@mipmap/hp"
+                    android:gravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/toux2"
+                    android:text="小米"
+                    android:textColor="@color/white"
+                    android:textSize="45px" />
+
+                <TextView
+                    android:layout_centerHorizontal="true"
+
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="270px"
+                    android:text="高薇薇"
+                    android:textColor="@color/black"
+                    android:textSize="58px" />
+
+                <TextView
+                    android:id="@+id/user_jop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="355px"
+                    android:text="职称：人事部主管"
+                    android:textColor="@color/gray"
+                    android:textSize="45px" />
+    </RelativeLayout>
+            </android.support.v7.widget.CardView>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/layout_code"
+            android:layout_width="match_parent"
+            android:layout_height="180px"
+            android:layout_marginTop="15px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="48px"
+                android:layout_toRightOf="@+id/icon1"
+                android:text="性别"
+                android:textColor="@color/black"
+                android:textSize="48px" />
+            <TextView
+                android:id="@+id/sex_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginRight="48px"
+                android:text="女"
+                android:textColor="@color/black"
+                android:textSize="48px" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="55px"
+            android:layout_marginRight="48px"
+            android:background="@color/gray_E6" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="180px"
+            android:layout_marginTop="15px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="48px"
+                android:layout_toRightOf="@+id/icon1"
+                android:text="部门"
+                android:textColor="@color/black"
+                android:textSize="48px" />
+            <TextView
+                android:id="@+id/dep_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginRight="48px"
+                android:text="人事部"
+                android:textColor="@color/black"
+                android:textSize="48px" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="55px"
+            android:layout_marginRight="48px"
+            android:background="@color/gray_E6" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="180px"
+            android:layout_marginTop="15px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="48px"
+                android:layout_toRightOf="@+id/icon1"
+                android:text="固定电话"
+                android:textColor="@color/black"
+                android:textSize="48px" />
+            <TextView
+                android:id="@+id/phone_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginRight="48px"
+                android:text="13812345678"
+                android:textColor="@color/black"
+                android:textSize="48px" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="55px"
+            android:layout_marginRight="48px"
+            android:background="@color/gray_E6" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="180px"
+            android:layout_marginTop="15px"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="48px"
+                android:layout_toRightOf="@+id/icon1"
+                android:text="手机号码"
+                android:textColor="@color/black"
+                android:textSize="48px" />
+            <TextView
+                android:id="@+id/phone_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginRight="48px"
+                android:text="13812345678"
+                android:textColor="@color/black"
+                android:textSize="48px" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="55px"
+            android:layout_marginRight="48px"
+            android:background="@color/gray_E6" /><RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180px"
+        android:layout_marginTop="15px"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="48px"
+            android:layout_toRightOf="@+id/icon1"
+            android:text="短号"
+            android:textColor="@color/black"
+            android:textSize="48px" />
+        <TextView
+            android:id="@+id/short_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:layout_marginRight="48px"
+            android:text="13812345678"
+            android:textColor="@color/black"
+            android:textSize="48px" />
+    </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="55px"
+            android:layout_marginRight="48px"
+            android:background="@color/gray_E6" />
+
+    </LinearLayout>
+</LinearLayout>
