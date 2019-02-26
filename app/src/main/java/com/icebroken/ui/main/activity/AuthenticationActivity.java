@@ -11,13 +11,13 @@ import android.support.design.widget.AppBarLayout;
 import android.text.Html;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
 import com.icebroken.R;
 import com.icebroken.api.Api;
 import com.icebroken.api.HostType;
@@ -32,14 +32,16 @@ import com.mocuz.common.commonutils.ImageLoaderUtils;
 import com.tbruyelle.rxpermissions.RxPermissions;
 import com.yuyh.library.imgsel.ImgSelActivity;
 
+import org.angmarch.views.NiceSpinner;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.functions.Action1;
 
@@ -59,7 +61,7 @@ public class AuthenticationActivity extends BaseActivity {
     @Bind(R.id.school_ed)
     EditText schoolEd;
     @Bind(R.id.auth_name)
-    TextView authName;
+    NiceSpinner authName;
     @Bind(R.id.auth_select)
     LinearLayout authSelect;
     @Bind(R.id.bt_login)
@@ -81,8 +83,8 @@ public class AuthenticationActivity extends BaseActivity {
     private boolean isImage1pick;
     private String imgUrl1;
     private String imgUrl2;
-    private String [] mSchool_str={"校园一卡通","学生证","录取通知书","毕业证"};
-    private List<String> mSchools =new ArrayList<>();
+    private String[] mSchool_str = {"校园一卡通", "学生证", "录取通知书", "毕业证"};
+    private List<String> mSchools = new ArrayList<>();
 
     @Override
     public int getLayoutId() {
@@ -114,6 +116,18 @@ public class AuthenticationActivity extends BaseActivity {
         mSchools.add("2");
         mSchools.add("3");
         mSchools.add("4");
+
+
+        //设置验证方式
+        final List<String> dataset = new LinkedList<>(Arrays.asList("校园一卡通", "学生证", "录取通知书", "毕业证"));
+        authName.attachDataSource(dataset);
+
+        authName.addOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                authName.setTextInternal(dataset.get(i));
+            }
+        });
 
     }
 
@@ -206,13 +220,14 @@ public class AuthenticationActivity extends BaseActivity {
             }
         });
     }
+
     @OnClick({R.id.auth_select, R.id.auth_img, R.id.auth_delete, R.id.auth_select_pic, R.id.auth_img1, R.id.auth_delete1, R.id.auth_select_pic1})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.auth_select:
                 break;
             case R.id.auth_img:
-                isImage1pick=true;
+                isImage1pick = true;
                 choseImg();
                 break;
             case R.id.auth_delete:
@@ -220,13 +235,13 @@ public class AuthenticationActivity extends BaseActivity {
             case R.id.auth_select_pic:
                 break;
             case R.id.auth_img1:
-                isImage1pick=false;
+                isImage1pick = false;
                 choseImg();
                 break;
             case R.id.auth_delete1:
                 break;
             case R.id.auth_select_pic1:
-                ShowPop(mSchool_str,mSchools,"选择认证方式",authName);
+                ShowPop(mSchool_str, mSchools, "选择认证方式", authName);
                 break;
         }
     }
@@ -252,7 +267,7 @@ public class AuthenticationActivity extends BaseActivity {
                             public void run() {
                                 BaseUtil.dismissProgress();
                                 if (!TextUtils.isEmpty(file)) {
-                                    ImageLoaderUtils.display(AuthenticationActivity.this, isImage1pick?authImg:authImg1, file);
+                                    ImageLoaderUtils.display(AuthenticationActivity.this, isImage1pick ? authImg : authImg1, file);
 //                                    ImageLoaderUtils.displayBlurImage(OrganizingDataActivity.this, iv_background, file);
                                     String file1 = BaseUtil.endcodeBase64File(file);
                                     uploadPhoto(file1);
@@ -268,7 +283,6 @@ public class AuthenticationActivity extends BaseActivity {
             }
         }
     }
-
 
 
     private void uploadPhoto(String file1) {
@@ -293,10 +307,10 @@ public class AuthenticationActivity extends BaseActivity {
 
             @Override
             public void _onNext(String bean) {
-                if (isImage1pick){
-                    imgUrl1=bean;
-                }else{
-                    imgUrl2=bean;
+                if (isImage1pick) {
+                    imgUrl1 = bean;
+                } else {
+                    imgUrl2 = bean;
                 }
             }
         });

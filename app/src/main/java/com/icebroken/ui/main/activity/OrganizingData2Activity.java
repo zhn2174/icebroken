@@ -391,6 +391,7 @@ public class OrganizingData2Activity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.school_select:
+
                 break;
             case R.id.start_school_select:
                 pvCustomLunar.show();

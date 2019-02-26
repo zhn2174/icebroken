@@ -92,11 +92,14 @@
                     android:scheme="aaaa" />
             </intent-filter>
         </activity>
-        <activity android:name="com.icebroken.ui.main.activity.SplashActivity2" />
+        <activity android:name="com.icebroken.ui.main.activity.SplashActivity2"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:exported="false"/>
 
         <activity
             android:name="com.icebroken.ui.main.activity.MainActivity"
             android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/SampleTheme"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
 
@@ -195,10 +198,10 @@
             android:enabled="true" />
         <meta-data
             android:name="design_width"
-            android:value="1080"></meta-data>
+            android:value="1080"/>
         <meta-data
             android:name="design_height"
-            android:value="1920"></meta-data>
+            android:value="1920"/>
 
         <!-- 百度地图 Begin -->
         <service
