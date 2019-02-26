@@ -161,7 +161,7 @@ public class MyToolbar extends Toolbar {
             @Override
             public void run() {
 //                setCenter("mNavButtonView");
-                Setletf("mNavButtonView");
+                setLeft("mNavButtonView");
                 setCenter("mMenuView");
             }
 
@@ -192,7 +192,7 @@ public class MyToolbar extends Toolbar {
         }
     }
 
-    private void Setletf(String fieldName) {
+    private void setLeft(String fieldName) {
         try {
             Field field = getClass().getSuperclass().getDeclaredField(fieldName);//反射得到父类Field
             field.setAccessible(true);

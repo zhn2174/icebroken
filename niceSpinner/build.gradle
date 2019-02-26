@@ -7,7 +7,7 @@ buildscript {
         maven { url 'https://maven.google.com' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.0-alpha04'
+        classpath 'com.android.tools.build:gradle:3.3.1'
     }
 }
 
@@ -26,5 +26,5 @@ dependencies {
         google()
         maven { url 'https://maven.google.com' }
     }
-    implementation 'com.android.support:appcompat-v7:23+'
+    implementation 'com.android.support:appcompat-v7:23.0.1'
 }

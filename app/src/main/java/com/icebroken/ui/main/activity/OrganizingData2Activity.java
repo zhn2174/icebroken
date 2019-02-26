@@ -127,18 +127,32 @@ public class OrganizingData2Activity extends BaseActivity {
         mIdentitys.add("0");
         mIdentitys.add("1");
         mIdentitys.add("2");
-    }
 
-
-    @OnClick(R.id.bt_login)
-    public void onViewClicked() {
-        post();
-
+        //男性默认关闭，女性打开
+        if (userInfo != null && userInfo.getSex() == 1) {
+            talkCk.setChecked(false);
+        }
     }
 
     private void post() {
+        if (TextUtils.isEmpty(schoolText.getText())) {
+            showShortToast("请填写学校");
+            return;
+        }
         if (TextUtils.isEmpty(schoolEd.getText())) {
             showShortToast("请填写院系");
+            return;
+        }
+        if (TextUtils.isEmpty(startSchoolText.getText())) {
+            showShortToast("请选择入学年");
+            return;
+        }
+        if (TextUtils.isEmpty(identityText.getText())) {
+            showShortToast("请选择身份");
+            return;
+        }
+        if (TextUtils.isEmpty(studentText.getText())) {
+            showShortToast("请先认证身份");
             return;
         }
         userInfo.setSchoolId(1);
@@ -387,11 +401,14 @@ public class OrganizingData2Activity extends BaseActivity {
         });
     }
 
-    @OnClick({R.id.school_select, R.id.start_school_select, R.id.identity_select, R.id.student_select, R.id.talk_select})
+    @OnClick({R.id.bt_login, R.id.school_select, R.id.start_school_select, R.id.identity_select, R.id.student_select, R.id.talk_select})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.bt_login:
+                post();
+                break;
             case R.id.school_select:
-
+                startActivityForResult(SelectSchoolActivity.class, 123);
                 break;
             case R.id.start_school_select:
                 pvCustomLunar.show();
@@ -413,8 +430,6 @@ public class OrganizingData2Activity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         queryInfo();
-
-
     }
 
     public static void startAction(Activity activity) {

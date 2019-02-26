@@ -1061,4 +1061,55 @@ public class TimeUtil {
         }
         return 0;
     }
+
+    //由出生日期获得年龄
+    public static String getAge(long time) {
+        Date birthDay = new Date(time);
+        Calendar cal = Calendar.getInstance();
+
+        if (cal.before(birthDay)) {
+            return "0";
+        }
+        int yearNow = cal.get(Calendar.YEAR);
+        int monthNow = cal.get(Calendar.MONTH);
+        int dayOfMonthNow = cal.get(Calendar.DAY_OF_MONTH);
+        cal.setTime(birthDay);
+
+        int yearBirth = cal.get(Calendar.YEAR);
+        int monthBirth = cal.get(Calendar.MONTH);
+        int dayOfMonthBirth = cal.get(Calendar.DAY_OF_MONTH);
+
+        int age = yearNow - yearBirth;
+
+        if (monthNow <= monthBirth) {
+            if (monthNow == monthBirth) {
+                if (dayOfMonthNow < dayOfMonthBirth) age--;
+            } else {
+                age--;
+            }
+        }
+        if (age < 18) {
+            age = 18;
+        }
+        return String.valueOf(age);
+    }
+
+    //获取当前年份
+    public static int getYear(long time) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(time);//java.util.Date
+        return calendar.get(Calendar.YEAR);
+    }
+    //获取当前月份
+    public static int getMonth(long time) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(time);//java.util.Date
+        return calendar.get(Calendar.MONTH);
+    }
+    //获取当前月天数
+    public static int getDay(long time) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(time);//java.util.Date
+        return calendar.get(Calendar.DAY_OF_MONTH);
+    }
 }

@@ -42,6 +42,7 @@ import com.icebroken.widget.MyToolbar;
 import com.mocuz.common.baserx.RxHelper;
 import com.mocuz.common.baserx.RxSubscriber;
 import com.mocuz.common.commonutils.ImageLoaderUtils;
+import com.mocuz.common.commonutils.TimeUtil;
 import com.tbruyelle.rxpermissions.RxPermissions;
 import com.yuyh.library.imgsel.ImgSelActivity;
 
@@ -217,7 +218,7 @@ public class OrganizingDataActivity extends BaseActivity {
         Calendar startDate = Calendar.getInstance();
         startDate.set(1900, 1, 1);
         Calendar endDate = Calendar.getInstance();
-        endDate.set(2020, 12, 31);
+        endDate.set(TimeUtil.getYear(System.currentTimeMillis()), TimeUtil.getMonth(System.currentTimeMillis()), TimeUtil.getDay(System.currentTimeMillis()));
         //时间选择器 ，自定义布局
         pvCustomLunar = new TimePickerBuilder(this, new OnTimeSelectListener() {
             @Override
@@ -431,8 +432,6 @@ public class OrganizingDataActivity extends BaseActivity {
     }
 
     private void uploadPhoto(String file1) {
-
-
         JSONObject map = new JSONObject();
         try {
             map.put("img", file1);

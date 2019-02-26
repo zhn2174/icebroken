@@ -17,19 +17,19 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
-
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
@@ -61,20 +61,19 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
-        android:name="com.icebroken.app.AppApplication"
+        android:name=".app.AppApplication"
         android:allowBackup="true"
         android:icon="@mipmap/login_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="Android:icon, android:theme">
-
+        <activity android:name=".ui.main.activity.SelectSchoolActivity"></activity>
         <activity
-            android:name="com.icebroken.ui.main.activity.SplashActivity"
+            android:name=".ui.main.activity.SplashActivity"
             android:label="@string/app_name"
-            android:theme="@style/SplashTheme"
             android:screenOrientation="portrait"
-           >
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -92,118 +91,112 @@
                     android:scheme="aaaa" />
             </intent-filter>
         </activity>
-        <activity android:name="com.icebroken.ui.main.activity.SplashActivity2"
+        <activity
+            android:name=".ui.main.activity.SplashActivity2"
             android:configChanges="screenSize|keyboardHidden|orientation"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
-            android:name="com.icebroken.ui.main.activity.MainActivity"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            android:theme="@style/SampleTheme"
+            android:name=".ui.main.activity.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait" />
-
+            android:screenOrientation="portrait"
+            android:theme="@style/SampleTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.icebroken.ui.main.activity.PersonDataActivity"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            android:theme="@style/SampleTheme"
+            android:name=".ui.main.activity.PersonDataActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/SampleTheme"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.icebroken.ui.main.activity.SettingActivity"
+            android:name=".ui.main.activity.SettingActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:theme="@style/SampleTheme"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/SampleTheme" />
         <activity
-            android:name="com.icebroken.ui.main.activity.AboutActivity"
+            android:name=".ui.main.activity.AboutActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:theme="@style/SampleTheme"
-            android:screenOrientation="portrait" />
-        <!--<activity-->
-            <!--android:name="com.icebroken.ui.main.activity.LoginActivity"-->
-            <!--android:configChanges="orientation|screenSize|keyboardHidden"-->
-            <!--android:windowSoftInputMode="stateAlwaysHidden"-->
-            <!--android:screenOrientation="portrait" />-->
+            android:screenOrientation="portrait"
+            android:theme="@style/SampleTheme" /> <!-- <activity -->
+        <!-- android:name="com.icebroken.ui.main.activity.LoginActivity" -->
+        <!-- android:configChanges="orientation|screenSize|keyboardHidden" -->
+        <!-- android:windowSoftInputMode="stateAlwaysHidden" -->
+        <!-- android:screenOrientation="portrait" /> -->
         <activity
-            android:name="com.icebroken.ui.main.activity.LoginActivity"
+            android:name=".ui.main.activity.LoginActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:windowSoftInputMode="stateAlwaysVisible"
+            android:screenOrientation="portrait"
             android:theme="@style/SampleTheme"
-            android:screenOrientation="portrait" />
+            android:windowSoftInputMode="stateAlwaysVisible" />
         <activity
-            android:name="com.icebroken.ui.main.activity.LoginPwdActivity"
+            android:name=".ui.main.activity.LoginPwdActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:windowSoftInputMode="stateAlwaysVisible"
+            android:screenOrientation="portrait"
             android:theme="@style/SampleTheme"
-            android:screenOrientation="portrait" />
+            android:windowSoftInputMode="stateAlwaysVisible" />
         <activity
-            android:name="com.icebroken.ui.main.activity.SetPwdActivity"
+            android:name=".ui.main.activity.SetPwdActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait"
             android:theme="@style/SampleTheme"
-            android:screenOrientation="portrait" />
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.icebroken.ui.main.activity.AuthenticationActivity"
+            android:name=".ui.main.activity.AuthenticationActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:windowSoftInputMode="stateAlwaysVisible"
+            android:screenOrientation="portrait"
             android:theme="@style/SampleTheme"
-            android:screenOrientation="portrait" />
+            android:windowSoftInputMode="stateAlwaysVisible" />
         <activity
-            android:name="com.icebroken.ui.main.activity.LoginCodeActivity"
+            android:name=".ui.main.activity.LoginCodeActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:windowSoftInputMode="stateAlwaysVisible"
+            android:screenOrientation="portrait"
             android:theme="@style/SampleTheme"
-            android:screenOrientation="portrait" />
+            android:windowSoftInputMode="stateAlwaysVisible" />
         <activity
-            android:name="com.icebroken.ui.main.activity.EditPwdActivity"
+            android:name=".ui.main.activity.EditPwdActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait"
             android:theme="@style/SampleTheme"
-
-            android:screenOrientation="portrait" />
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.icebroken.ui.main.activity.FeedBackActivity"
+            android:name=".ui.main.activity.FeedBackActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait"
             android:theme="@style/SampleTheme"
-            android:screenOrientation="portrait" />
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.icebroken.ui.main.activity.ApplyFeedBackActivity"
+            android:name=".ui.main.activity.ApplyFeedBackActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait"
             android:theme="@style/SampleTheme"
-            android:screenOrientation="portrait" />
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.icebroken.ui.main.activity.OrganizingData2Activity"
+            android:name=".ui.main.activity.OrganizingData2Activity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:windowSoftInputMode="stateAlwaysVisible"
+            android:screenOrientation="portrait"
             android:theme="@style/SampleTheme"
-            android:screenOrientation="portrait" />
+            android:windowSoftInputMode="stateAlwaysVisible" />
         <activity
-            android:name="com.icebroken.ui.main.activity.OrganizingDataActivity"
+            android:name=".ui.main.activity.OrganizingDataActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:windowSoftInputMode="stateAlwaysVisible"
+            android:screenOrientation="portrait"
             android:theme="@style/SampleTheme"
-            android:screenOrientation="portrait" />
-
+            android:windowSoftInputMode="stateAlwaysVisible" />
         <activity
-            android:name="com.icebroken.ui.x5.X5WebViewActivity"
+            android:name=".ui.x5.X5WebViewActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait"
             android:theme="@style/SampleTheme"
-            android:screenOrientation="portrait" />
-        <!-- 启动service -->
+            android:windowSoftInputMode="stateAlwaysHidden" /> <!-- 启动service -->
         <service
-            android:name="com.icebroken.services.InitializeService"
+            android:name=".services.InitializeService"
             android:enabled="true" />
+
         <meta-data
             android:name="design_width"
-            android:value="1080"/>
+            android:value="1080" />
         <meta-data
             android:name="design_height"
-            android:value="1920"/>
-
-        <!-- 百度地图 Begin -->
+            android:value="1920" /> <!-- 百度地图 Begin -->
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
@@ -211,22 +204,24 @@
             <intent-filter>
                 <action android:name="com.baidu.location.service_v2.2" />
             </intent-filter>
-        </service>
-        <!-- meta-data需要写在application中 -->
+        </service> <!-- meta-data需要写在application中 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="GD6VyaDmBLFhovUAU7ev2FkBPO96YZqv"
             tools:replace="android:value" />
 
-        <receiver android:name="com.icebroken.receiver.MessageReceiver"
-            android:exported="true" >
+        <receiver
+            android:name=".receiver.MessageReceiver"
+            android:exported="true">
             <intent-filter>
+
                 <!-- 接收消息透传 -->
                 <action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE" />
                 <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
                 <action android:name="com.tencent.android.tpush.action.FEEDBACK" />
             </intent-filter>
         </receiver>
+
         <activity
             android:name="com.yuyh.library.imgsel.ImgSelActivity"
             android:exported="true"
@@ -234,6 +229,6 @@
         <activity
             android:name="com.mocuz.common.imagePager.BigImagePagerActivity"
             android:theme="@style/SampleTheme" />
-
     </application>
+
 </manifest>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.main.activity.SelectSchoolActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+
+        <com.icebroken.widget.MyToolbar
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:layout_collapseMode="pin">
+
+            <TextView
+                android:id="@+id/left_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:text="返回"
+                android:textColor="#ff333333"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="完善个人信息（2/2）"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+        </com.icebroken.widget.MyToolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@color/umeng_socialize_ucenter_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:text="选择城市"
+        android:textColor="@color/umeng_socialize_text_share_content" />
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        app:flexWrap="wrap">
+
+        <org.angmarch.views.NiceSpinner
+            android:id="@+id/select_province"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:gravity="center"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:textColor="#333333"
+            android:textSize="14sp" />
+
+        <org.angmarch.views.NiceSpinner
+            android:id="@+id/select_city"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:gravity="center"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:textColor="#333333"
+            android:textSize="14sp" />
+
+        <org.angmarch.views.NiceSpinner
+            android:id="@+id/select_school"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:gravity="center"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:textColor="#333333"
+            android:textSize="14sp" />
+
+
+    </com.google.android.flexbox.FlexboxLayout>
+</LinearLayout>
