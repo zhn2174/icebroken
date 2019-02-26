@@ -3,16 +3,12 @@ package com.icebroken.api;
 
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.util.SparseArray;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import com.icebroken.app.AppApplication;
-import com.icebroken.utils.StringUtils;
 import com.mocuz.common.baseapp.BaseApplication;
-import com.mocuz.common.commonutils.LogUtils;
 import com.mocuz.common.commonutils.NetWorkUtils;
 
 import java.io.File;

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.design.widget.AppBarLayout;
@@ -25,16 +24,13 @@ import com.icebroken.api.Api;
 import com.icebroken.api.HostType;
 import com.icebroken.app.AppApplication;
 import com.icebroken.base.BaseActivity;
-import com.icebroken.bean.LoginBean;
 import com.icebroken.bean.UserInfo;
 import com.icebroken.bean.accountExistBean;
 import com.icebroken.utils.BaseUtil;
-import com.icebroken.utils.SignUtil;
 import com.icebroken.widget.MyToolbar;
+import com.mocuz.common.baseapp.CacheUtils;
 import com.mocuz.common.baserx.RxHelper;
 import com.mocuz.common.baserx.RxSubscriber;
-import com.tencent.android.tpush.XGPushManager;
-import com.wevey.selector.BtSelectionDialog;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,8 +39,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by Administrator on 2018/7/4.
@@ -340,12 +334,7 @@ public class LoginCodeActivity extends BaseActivity {
                     userInfo.setComplete(bean.getComplete());
                     userInfo.setCompleteSchool(bean.getCompleteSchool());
                     AppApplication.setUserInfo(userInfo);
-                    SharedPreferences pref = LoginCodeActivity.this.getSharedPreferences("token", Context.MODE_WORLD_READABLE);
-                    SharedPreferences.Editor editor = pref.edit();
-                    //存入数据
-                    editor.putString("token", AppApplication.token);
-                    //提交修改
-                    editor.commit();
+                    CacheUtils.putToken(AppApplication.token);
                     showShortToast("登录成功");
                     OrganizingDataActivity.startAction(LoginCodeActivity.this);
 //                    finish();

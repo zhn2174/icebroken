@@ -3,7 +3,6 @@ package com.icebroken.ui.main.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -14,7 +13,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.icebroken.R;
@@ -22,14 +20,11 @@ import com.icebroken.api.Api;
 import com.icebroken.api.HostType;
 import com.icebroken.app.AppApplication;
 import com.icebroken.base.BaseActivity;
-import com.icebroken.bean.LoginBean;
 import com.icebroken.bean.accountExistBean;
-import com.icebroken.utils.SignUtil;
-import com.icebroken.utils.StringUtils;
+import com.mocuz.common.baseapp.CacheUtils;
 import com.mocuz.common.baserx.RxHelper;
 import com.mocuz.common.baserx.RxSubscriber;
 import com.mocuz.common.commonutils.ToastUitl;
-import com.tencent.android.tpush.XGPushManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,7 +33,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 
 /**
  * Created by Administrator on 2018/7/4.
@@ -88,8 +82,7 @@ public class LoginActivity extends BaseActivity {
 //                MainActivity.startAction(LoginActivity.this);
             }
         });
-        SharedPreferences pref = LoginActivity.this.getSharedPreferences("token", Context.MODE_WORLD_READABLE);
-        String phone =pref.getString("phone",null);
+        String phone =CacheUtils.getString("phone",null);
         if (!TextUtils.isEmpty(phone)){
             edPhone.setText(phone);
             btLogin.setEnabled(true);
@@ -194,12 +187,10 @@ public class LoginActivity extends BaseActivity {
                 String errMsg = null;
                 AppApplication.phone = edPhone.getText().toString();
                 AppApplication.isExist = bean.getExist();
-                SharedPreferences pref = LoginActivity.this.getSharedPreferences("token", Context.MODE_WORLD_READABLE);
-                SharedPreferences.Editor editor = pref.edit();
+
                 //存入数据
-                editor.putString("phone", AppApplication.phone);
-                //提交修改
-                editor.commit();
+                CacheUtils.putString("phone", AppApplication.phone);
+
                 if (bean.getExist()){
                     LoginPwdActivity.startAction(LoginActivity.this);
                 }else{

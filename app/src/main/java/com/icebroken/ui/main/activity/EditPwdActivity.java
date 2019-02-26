@@ -1,9 +1,7 @@
 package com.icebroken.ui.main.activity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.text.Editable;
@@ -15,14 +13,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.mocuz.common.baserx.RxHelper;
-import com.mocuz.common.baserx.RxSubscriber;
-import com.mocuz.common.commonutils.ToastUitl;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import butterknife.Bind;
 import com.icebroken.R;
 import com.icebroken.api.Api;
 import com.icebroken.api.HostType;
@@ -33,6 +23,15 @@ import com.icebroken.utils.SignUtil;
 import com.icebroken.utils.StringUtils;
 import com.icebroken.utils.WwyUtil;
 import com.icebroken.widget.MyToolbar;
+import com.mocuz.common.baseapp.CacheUtils;
+import com.mocuz.common.baserx.RxHelper;
+import com.mocuz.common.baserx.RxSubscriber;
+import com.mocuz.common.commonutils.ToastUitl;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import butterknife.Bind;
 
 /**
  * Created by Administrator on 2018/7/1.
@@ -85,7 +84,7 @@ public class EditPwdActivity extends BaseActivity {
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkInfo()){
+                if (checkInfo()) {
                     post();
                 }
             }
@@ -105,7 +104,7 @@ public class EditPwdActivity extends BaseActivity {
             public void afterTextChanged(Editable s) {
                 if (!StringUtils.isEmpty(edPassword.getText().toString()) && !StringUtils.isEmpty(edNewPassword.getText().toString())) {
                     btLogin.setEnabled(true);
-                }else{
+                } else {
                     btLogin.setEnabled(false);
 
                 }
@@ -126,7 +125,7 @@ public class EditPwdActivity extends BaseActivity {
             public void afterTextChanged(Editable s) {
                 if (!StringUtils.isEmpty(edPassword.getText().toString()) && !StringUtils.isEmpty(edNewPassword.getText().toString())) {
                     btLogin.setEnabled(true);
-                }else{
+                } else {
                     btLogin.setEnabled(false);
 
                 }
@@ -141,7 +140,8 @@ public class EditPwdActivity extends BaseActivity {
         intent.putExtras(bundle);
         activity.startActivity(intent);
     }
-    private boolean checkInfo(){
+
+    private boolean checkInfo() {
         if (StringUtils.isEmpty(edPassword.getText().toString())) {
             ToastUitl.showShort("原始密码不能为空");
             return false;
@@ -154,19 +154,20 @@ public class EditPwdActivity extends BaseActivity {
             ToastUitl.showShort("再次确认密码不能为空");
             return false;
         }
-        if (!TextUtils.equals(edAgainPassword.getText().toString(),edNewPassword.getText().toString())) {
+        if (!TextUtils.equals(edAgainPassword.getText().toString(), edNewPassword.getText().toString())) {
             ToastUitl.showShort("新密码两次输出不相同，请重新输入");
             return false;
         }
         return true;
     }
+
     private void post() {
         showProgressDialog("正在设置密码");
         JSONObject map = new JSONObject();
         try {
             map.put("State", "UpPasswd");
             map.put("Uid", AppApplication.uid);
-            map.put("OldPasswd",edPassword.getText().toString());
+            map.put("OldPasswd", edPassword.getText().toString());
             map.put("NewPasswd", edNewPassword.getText().toString());
             map.put("Sign", SignUtil.createSign(map));
         } catch (JSONException e) {
@@ -190,13 +191,8 @@ public class EditPwdActivity extends BaseActivity {
             public void _onNext(Object bean) {
                 showShortToast("修改密码成功");
                 hideProgressDialog();
-                AppApplication.uid=null;
-                SharedPreferences pref = EditPwdActivity.this.getSharedPreferences("uid", Context.MODE_WORLD_READABLE);
-                SharedPreferences.Editor editor = pref.edit();
-                //存入数据
-                editor.putString("uid", AppApplication.uid);
-                //提交修改
-                editor.commit();
+                AppApplication.uid = null;
+                CacheUtils.putString("uid", AppApplication.uid);
                 LoginActivity.startAction(EditPwdActivity.this);
                 finish();
 

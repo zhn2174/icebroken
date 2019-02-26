@@ -3,7 +3,6 @@ package com.icebroken.ui.main.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.text.Editable;
@@ -27,6 +26,7 @@ import com.icebroken.bean.UserInfo;
 import com.icebroken.bean.accountExistBean;
 import com.icebroken.utils.BaseUtil;
 import com.icebroken.widget.MyToolbar;
+import com.mocuz.common.baseapp.CacheUtils;
 import com.mocuz.common.baserx.RxHelper;
 import com.mocuz.common.baserx.RxSubscriber;
 import com.mocuz.common.commonutils.ToastUitl;
@@ -38,7 +38,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -239,12 +238,8 @@ public class SetPwdActivity extends BaseActivity {
                 userInfo.setComplete(bean.getComplete());
                 userInfo.setCompleteSchool(bean.getCompleteSchool());
                 AppApplication.setUserInfo(userInfo);
-                SharedPreferences pref = SetPwdActivity.this.getSharedPreferences("token", Context.MODE_WORLD_READABLE);
-                SharedPreferences.Editor editor = pref.edit();
-                //存入数据
-                editor.putString("token", AppApplication.token);
-                //提交修改
-                editor.commit();
+                CacheUtils.putToken(AppApplication.token);
+
                 OrganizingDataActivity.startAction(SetPwdActivity.this);
                 showShortToast("登录成功");
             }

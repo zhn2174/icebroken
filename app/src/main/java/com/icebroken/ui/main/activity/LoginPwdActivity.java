@@ -3,7 +3,6 @@ package com.icebroken.ui.main.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.text.Editable;
@@ -15,7 +14,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.icebroken.R;
@@ -23,16 +21,14 @@ import com.icebroken.api.Api;
 import com.icebroken.api.HostType;
 import com.icebroken.app.AppApplication;
 import com.icebroken.base.BaseActivity;
-import com.icebroken.bean.LoginBean;
 import com.icebroken.bean.UserInfo;
 import com.icebroken.bean.accountExistBean;
 import com.icebroken.utils.BaseUtil;
-import com.icebroken.utils.SignUtil;
 import com.icebroken.widget.MyToolbar;
+import com.mocuz.common.baseapp.CacheUtils;
 import com.mocuz.common.baserx.RxHelper;
 import com.mocuz.common.baserx.RxSubscriber;
 import com.mocuz.common.commonutils.ToastUitl;
-import com.tencent.android.tpush.XGPushManager;
 import com.wevey.selector.BtSelectionDialog;
 
 import org.json.JSONException;
@@ -42,7 +38,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -195,18 +190,13 @@ public class LoginPwdActivity extends BaseActivity {
             @Override
             public void _onNext(accountExistBean bean) {
                 hideProgressDialog();
-                UserInfo userInfo =new UserInfo();
+                UserInfo userInfo = new UserInfo();
                 userInfo.setComplete(bean.getComplete());
                 userInfo.setCompleteSchool(bean.getCompleteSchool());
                 AppApplication.setUserInfo(userInfo);
                 String errMsg = null;
                 AppApplication.token = bean.getToken();
-                SharedPreferences pref = LoginPwdActivity.this.getSharedPreferences("token", Context.MODE_WORLD_READABLE);
-                SharedPreferences.Editor editor = pref.edit();
-                //存入数据
-                editor.putString("token", AppApplication.token);
-                //提交修改
-                editor.commit();
+                CacheUtils.putToken(AppApplication.token);
                 OrganizingDataActivity.startAction(LoginPwdActivity.this);
 //                finish();
                 showShortToast("登录成功");
@@ -215,11 +205,12 @@ public class LoginPwdActivity extends BaseActivity {
     }
 
     BtSelectionDialog btSelectionDialog;
+
     @OnClick({R.id.need_help, R.id.code_login})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.need_help:
-                 btSelectionDialog = new BtSelectionDialog(mContext, null, null, new View.OnClickListener() {
+                btSelectionDialog = new BtSelectionDialog(mContext, null, null, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         FeedBackActivity.startAction(LoginPwdActivity.this);
