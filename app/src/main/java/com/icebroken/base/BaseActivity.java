@@ -27,17 +27,18 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.util.Util;
+import com.icebroken.R;
 import com.icebroken.api.AppConstant;
 import com.icebroken.utils.RomUtils;
 import com.icebroken.utils.StringUtils;
 import com.icebroken.widget.LoadView;
-import com.mocuz.common.base.BaseCommonActivity;
 import com.mocuz.common.base.BaseModel;
 import com.mocuz.common.base.BasePresenter;
 import com.mocuz.common.baseapp.AppManager;
 import com.mocuz.common.baserx.RxManager;
 import com.mocuz.common.commonutils.TUtil;
 import com.mocuz.common.commonutils.ToastUitl;
+import com.mocuz.common.commonwidget.StatusBarCompat;
 import com.mocuz.common.flyn.Eyes;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -53,15 +54,13 @@ import java.util.List;
 
 import butterknife.ButterKnife;
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
-import me.imid.swipebacklayout.lib.Utils;
-import me.imid.swipebacklayout.lib.app.SwipeBackActivityBase;
-import me.imid.swipebacklayout.lib.app.SwipeBackActivityHelper;
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
 /*
  * Created by Dev on 2017/3/8.
  */
 
-public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel> extends BaseCommonActivity implements SwipeBackActivityBase {
+public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel> extends SwipeBackActivity {
     public T mPresenter;
     public E mModel;
     public Context mContext;
@@ -81,14 +80,10 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
     private LoadView loadView;
     private View rootView;
     private ProgressDialog mProgressDialog;
-    private SwipeBackActivityHelper mHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mHelper = new SwipeBackActivityHelper(this);
-        mHelper.onActivityCreate();
-
         mRxManager = new RxManager();
         doBeforeSetcontentView();
         initTitle();
@@ -125,6 +120,7 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
             }
         });
     }
+
 
 
     private void initTitle() {
@@ -189,6 +185,64 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
 
     //初始化view
     public abstract void initView();
+
+
+    /**
+     * 着色状态栏（4.4以上系统有效）
+     */
+    protected void SetStatusBarColor() {
+//        StatusBarCompat.setStatusBarColor(this, ContextCompat.getColor(this, com.mocuz.common.R.color.main_color));
+//        StatusBarCompat.setStatusBarColor(this, BaseUtil.getBaseColor());
+        StatusBarCompat.setTranslucentStatus(this, true);
+    }
+
+
+    /**
+     * 沉浸状态栏（4.4以上系统有效）
+     */
+    protected void SetTranslanteBar() {
+        StatusBarCompat.translucentStatusBar(this);
+    }
+
+
+    /**
+     * 通过Class跳转界面
+     **/
+    public void startActivity(Class<?> cls) {
+        startActivity(cls, null);
+    }
+
+    /**
+     * 通过Class跳转界面
+     **/
+    public void startActivityForResult(Class<?> cls, int requestCode) {
+        startActivityForResult(cls, null, requestCode);
+    }
+
+    /**
+     * 含有Bundle通过Class跳转界面
+     **/
+    public void startActivityForResult(Class<?> cls, Bundle bundle,
+                                       int requestCode) {
+        Intent intent = new Intent();
+        intent.setClass(this, cls);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        startActivityForResult(intent, requestCode);
+    }
+
+    /**
+     * 含有Bundle通过Class跳转界面
+     **/
+    public void startActivity(Class<?> cls, Bundle bundle) {
+        Intent intent = new Intent();
+        intent.setClass(this, cls);
+        if (bundle != null) {
+            intent.putExtras(bundle);
+        }
+        startActivity(intent);
+    }
 
     /**
      * 开启浮动加载进度条
@@ -319,7 +373,8 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         AppManager.getAppManager().finishActivity(this);
         fixInputMethodManagerLeak(this);
         //Glide 回收
-        if (Util.isOnMainThread() && !this.isFinishing()) {
+        if(Util.isOnMainThread()&&!this.isFinishing())
+        {
             Glide.with(this).pauseRequests();
         }
     }
@@ -594,7 +649,6 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
      * @param
      */
     public int position;
-
     public void ShowPop(final String[] list, final List<String> value, String title, final TextView selectView) {
         Dialog mDialog = new Dialog(mContext, R.style.pop_style);
         LayoutInflater mLayoutInflater = LayoutInflater.from(mContext);
@@ -654,35 +708,5 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
             }
         });
 
-    }
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        mHelper.onPostCreate();
-    }
-
-    @Override
-    public View findViewById(int id) {
-        View v = super.findViewById(id);
-        if (v == null && mHelper != null)
-            return mHelper.findViewById(id);
-        return v;
-    }
-
-    @Override
-    public SwipeBackLayout getSwipeBackLayout() {
-        return mHelper.getSwipeBackLayout();
-    }
-
-    @Override
-    public void setSwipeBackEnable(boolean enable) {
-        getSwipeBackLayout().setEnableGesture(enable);
-    }
-
-    @Override
-    public void scrollToFinishActivity() {
-        Utils.convertActivityToTranslucent(this);
-        getSwipeBackLayout().scrollToFinishActivity();
     }
 }
