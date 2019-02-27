@@ -1,7 +1,6 @@
 package com.icebroken.ui.main.activity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -9,7 +8,6 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -34,9 +32,6 @@ import com.wevey.selector.BtSelectionDialog;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import butterknife.Bind;
 import butterknife.OnClick;
 
@@ -48,8 +43,8 @@ public class LoginPwdActivity extends BaseActivity {
 
     @Bind(R.id.iv_logo)
     ImageView ivLogo;
-    @Bind(R.id.ed_phone)
-    EditText edPhone;
+    @Bind(R.id.ed_password)
+    EditText ed_password;
     @Bind(R.id.bt_login)
     TextView btLogin;
     @Bind(R.id.ll_content)
@@ -92,7 +87,7 @@ public class LoginPwdActivity extends BaseActivity {
                 finish();
             }
         });
-        edPhone.addTextChangedListener(new TextWatcher() {
+        ed_password.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -124,7 +119,7 @@ public class LoginPwdActivity extends BaseActivity {
 
 
     private boolean checkInfo() {
-        if (TextUtils.isEmpty(edPhone.getText().toString())) {
+        if (TextUtils.isEmpty(ed_password.getText().toString())) {
             ToastUitl.showShort("请输入密码");
             return false;
         }
@@ -138,38 +133,13 @@ public class LoginPwdActivity extends BaseActivity {
         activity.startActivity(intent);
     }
 
-    private void hideKeyBoard() {
-        InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (this.getCurrentFocus() != null) {
-            imm.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-        }
-    }
-
-    /**
-     * 匹配号码是否是11为数字
-     *
-     * @param phoneNum
-     * @return 不是11位数字，返回false
-     */
-    public static boolean checkPhoneNum(String phoneNum) {
-        if (!TextUtils.isEmpty(phoneNum)) {
-            String format = "^\\d{11}$";
-            Pattern p = Pattern.compile(format);
-            Matcher m = p.matcher(phoneNum);
-            return m.matches();
-        } else {
-            return false;
-        }
-
-    }
-
     private void Login() {
         showProgressDialog("正在登录");
         JSONObject map = new JSONObject();
         try {
             map.put("type", 1);
             map.put("phone", AppApplication.phone);
-            map.put("password", edPhone.getText().toString());
+            map.put("password", ed_password.getText().toString());
         } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -197,9 +167,14 @@ public class LoginPwdActivity extends BaseActivity {
                 String errMsg = null;
                 AppApplication.token = bean.getToken();
                 CacheUtils.putToken(AppApplication.token);
-                OrganizingDataActivity.startAction(LoginPwdActivity.this);
-//                finish();
                 showShortToast("登录成功");
+                if (!bean.getComplete()) {
+                    OrganizingDataActivity.startAction(LoginPwdActivity.this);
+                } else if (!bean.getCompleteSchool()) {
+                    OrganizingData2Activity.startAction(LoginPwdActivity.this);
+                } else {
+                    MainActivity.startAction(LoginPwdActivity.this);
+                }
             }
         });
     }

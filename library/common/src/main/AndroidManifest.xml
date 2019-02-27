@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-package="com.mocuz.common">
+    package="com.mocuz.common">
 
+    <application>
+        <activity android:name="com.mocuz.common.imagePager.BigImagePagerActivity" />
 
+    </application>
 </manifest>

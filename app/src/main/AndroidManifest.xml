@@ -68,12 +68,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="Android:icon, android:theme">
-        <activity android:name=".ui.main.activity.SelectSchoolActivity"></activity>
+        <activity
+            android:name=".ui.main.activity.SelectAddressActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:exported="false" />
+        <activity
+            android:name=".ui.main.activity.SelectSchoolActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:exported="false" />
         <activity
             android:name=".ui.main.activity.SplashActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -94,99 +101,68 @@
         <activity
             android:name=".ui.main.activity.SplashActivity2"
             android:configChanges="screenSize|keyboardHidden|orientation"
+            android:theme="@style/SplashTheme"
             android:exported="false" />
         <activity
             android:name=".ui.main.activity.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/SampleTheme"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.activity.PersonDataActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/SampleTheme"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.activity.SettingActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/SampleTheme" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.activity.AboutActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/SampleTheme" /> <!-- <activity -->
-        <!-- android:name="com.icebroken.ui.main.activity.LoginActivity" -->
-        <!-- android:configChanges="orientation|screenSize|keyboardHidden" -->
-        <!-- android:windowSoftInputMode="stateAlwaysHidden" -->
-        <!-- android:screenOrientation="portrait" /> -->
+            android:screenOrientation="portrait" /> <!-- <activity -->
         <activity
             android:name=".ui.main.activity.LoginActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/SampleTheme"
-            android:windowSoftInputMode="stateAlwaysVisible" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.activity.LoginPwdActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/SampleTheme"
-            android:windowSoftInputMode="stateAlwaysVisible" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.activity.SetPwdActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/SampleTheme"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.activity.AuthenticationActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/SampleTheme"
-            android:windowSoftInputMode="stateAlwaysVisible" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.activity.LoginCodeActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/SampleTheme"
-            android:windowSoftInputMode="stateAlwaysVisible" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.activity.EditPwdActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/SampleTheme"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.activity.FeedBackActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/SampleTheme"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.activity.ApplyFeedBackActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/SampleTheme"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.activity.OrganizingData2Activity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/SampleTheme"
-            android:windowSoftInputMode="stateAlwaysVisible" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.main.activity.OrganizingDataActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/SampleTheme"
-            android:windowSoftInputMode="stateAlwaysVisible" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.x5.X5WebViewActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:theme="@style/SampleTheme"
-            android:windowSoftInputMode="stateAlwaysHidden" /> <!-- 启动service -->
+            android:screenOrientation="portrait" /> <!-- 启动service -->
         <service
             android:name=".services.InitializeService"
             android:enabled="true" />
@@ -221,14 +197,6 @@
                 <action android:name="com.tencent.android.tpush.action.FEEDBACK" />
             </intent-filter>
         </receiver>
-
-        <activity
-            android:name="com.yuyh.library.imgsel.ImgSelActivity"
-            android:exported="true"
-            android:theme="@style/SampleTheme" />
-        <activity
-            android:name="com.mocuz.common.imagePager.BigImagePagerActivity"
-            android:theme="@style/SampleTheme" />
     </application>
 
 </manifest>

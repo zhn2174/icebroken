@@ -106,7 +106,7 @@ public class LoginCodeActivity extends BaseActivity {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_DEL) {
-                    if (edCode2.getText()!=null){
+                    if (edCode2.getText() != null) {
                         edCode1.setText("");
                     }
                 }
@@ -118,7 +118,7 @@ public class LoginCodeActivity extends BaseActivity {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_DEL) {
-                    if (edCode3.getText()!=null){
+                    if (edCode3.getText() != null) {
                         edCode2.setText("");
                     }
                 }
@@ -130,7 +130,7 @@ public class LoginCodeActivity extends BaseActivity {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_DEL) {
-                    if (edCode4.getText()!=null){
+                    if (edCode4.getText() != null) {
                         edCode3.setText("");
                     }
                 }
@@ -150,7 +150,7 @@ public class LoginCodeActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (s != null && s.length() ==1) {
+                if (s != null && s.length() == 1) {
                     edCode2.requestFocus();
                 } else {
 
@@ -171,7 +171,7 @@ public class LoginCodeActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (s != null && s.length() ==1) {
+                if (s != null && s.length() == 1) {
                     edCode3.requestFocus();
                 } else {
 //                    edCode1.requestFocus();
@@ -193,7 +193,7 @@ public class LoginCodeActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (s != null && s.length() ==1) {
+                if (s != null && s.length() == 1) {
                     edCode4.requestFocus();
                 } else {
 //                    edCode2.requestFocus();
@@ -213,7 +213,7 @@ public class LoginCodeActivity extends BaseActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (s != null && s.length() ==1) {
+                if (s != null && s.length() == 1) {
                     Login();
                 } else {
 //                    edCode3.requestFocus();
@@ -230,7 +230,7 @@ public class LoginCodeActivity extends BaseActivity {
 
 
     private boolean checkInfo() {
-        if (TextUtils.isEmpty(edCode4.getText())){
+        if (TextUtils.isEmpty(edCode4.getText())) {
             return false;
         }
         return true;
@@ -270,11 +270,11 @@ public class LoginCodeActivity extends BaseActivity {
 
     private void getcode() {
         JSONObject map = new JSONObject();
-        String code =edCode1.getText().toString()+edCode2.getText().toString()+edCode3.getText().toString()+edCode4.getText().toString();
+        String code = edCode1.getText().toString() + edCode2.getText().toString() + edCode3.getText().toString() + edCode4.getText().toString();
         try {
             map.put("countryCode", "86");
             map.put("mobilephone", AppApplication.phone);
-            map.put("type",AppApplication.isExist?2:1);
+            map.put("type", AppApplication.isExist ? 2 : 1);
         } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -301,14 +301,14 @@ public class LoginCodeActivity extends BaseActivity {
     }
 
     private void Login() {
-        if (AppApplication.isExist){
+        if (AppApplication.isExist) {
             showProgressDialog("正在登录");
             JSONObject map = new JSONObject();
-            String code =edCode1.getText().toString()+edCode2.getText().toString()+edCode3.getText().toString()+edCode4.getText().toString();
+            String code = edCode1.getText().toString() + edCode2.getText().toString() + edCode3.getText().toString() + edCode4.getText().toString();
             try {
                 map.put("type", 2);
                 map.put("phone", AppApplication.phone);
-                map.put("password",code);
+                map.put("password", code);
             } catch (JSONException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -330,23 +330,27 @@ public class LoginCodeActivity extends BaseActivity {
                 public void _onNext(accountExistBean bean) {
                     hideProgressDialog();
                     AppApplication.token = bean.getToken();
-                    UserInfo userInfo =new UserInfo();
+                    UserInfo userInfo = new UserInfo();
                     userInfo.setComplete(bean.getComplete());
                     userInfo.setCompleteSchool(bean.getCompleteSchool());
                     AppApplication.setUserInfo(userInfo);
                     CacheUtils.putToken(AppApplication.token);
                     showShortToast("登录成功");
-                    OrganizingDataActivity.startAction(LoginCodeActivity.this);
-//                    finish();
-
+                    if (!bean.getComplete()) {
+                        OrganizingDataActivity.startAction(LoginCodeActivity.this);
+                    } else if (!bean.getCompleteSchool()) {
+                        OrganizingData2Activity.startAction(LoginCodeActivity.this);
+                    } else {
+                        MainActivity.startAction(LoginCodeActivity.this);
+                    }
 
                 }
             });
-        }else{
+        } else {
             showProgressDialog("正在校验验证码");
             JSONObject map = new JSONObject();
-            String code =edCode1.getText().toString()+edCode2.getText().toString()+edCode3.getText().toString()+edCode4.getText().toString();
-            AppApplication.code=code;
+            String code = edCode1.getText().toString() + edCode2.getText().toString() + edCode3.getText().toString() + edCode4.getText().toString();
+            AppApplication.code = code;
             try {
                 map.put("mobilephone", AppApplication.phone);
                 map.put("type", 1);
@@ -418,7 +422,7 @@ public class LoginCodeActivity extends BaseActivity {
                 view.setEnabled(false);
             if (null != btLogin)
 //                mGetLoginCode.setText( String.format(getResources().getString(R.string.recapture), (millisUntilFinished / 1000)+""));
-                btLogin.setText("重新获取　"+(millisUntilFinished / 1000) + "s");
+                btLogin.setText("重新获取　" + (millisUntilFinished / 1000) + "s");
         }
 
         @SuppressLint("ResourceAsColor")

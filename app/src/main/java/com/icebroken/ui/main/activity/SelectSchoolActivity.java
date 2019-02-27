@@ -6,8 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
 import com.icebroken.R;
+import com.icebroken.adapter.SelectAddressAdpter;
 import com.icebroken.api.Api;
 import com.icebroken.api.HostType;
 import com.icebroken.base.BaseActivity;
@@ -16,10 +16,10 @@ import com.icebroken.widget.DividerItemDecoration;
 import com.mocuz.common.baserx.RxHelper;
 import com.mocuz.common.baserx.RxSubscriber;
 import com.mocuz.common.commonutils.DisplayUtil;
-import com.mocuz.common.commonutils.LocationUtils;
-import com.mocuz.common.commonutils.StringUtil;
 
 import org.angmarch.views.NiceSpinner;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -33,7 +33,7 @@ public class SelectSchoolActivity extends BaseActivity {
     NiceSpinner select_school;
     @Bind(R.id.select_list_rv)
     RecyclerView select_list_rv;
-    private ShopProductTypeAdapter adapter;
+    private SelectAddressAdpter adapter;
 
     @Override
     public int getLayoutId() {
@@ -47,7 +47,7 @@ public class SelectSchoolActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        adapter = new ShopProductTypeAdapter();
+        adapter = new SelectAddressAdpter(true);
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -71,53 +71,25 @@ public class SelectSchoolActivity extends BaseActivity {
     }
 
 
-//    private void selectSchool(int codeId) {
-//        com.alibaba.fastjson.JSONObject map = new com.alibaba.fastjson.JSONObject();
-//        map.put("code", codeId);
-//        map.put("code", 1);//type=1 选择学校使用，type=0 正常使用
-//        Api.getDefault(HostType.MAIN).completeInformation(map.toJSONString())
-//                .compose(RxHelper.<Object>handleResult()).subscribe(new RxSubscriber<SchoolAddressBean>(mContext, false) {
-//            @Override
-//            public void onCompleted() {
-//
-//            }
-//
-//            @Override
-//            public void _onError(String e) {
-//                showShortToast(e);
-//                hideProgressDialog();
-//            }
-//
-//            @Override
-//            public void _onNext(SchoolAddressBean bean) {
-//                hideProgressDialog();
-//                showShortToast("资料完善成功");
-//
-//
-//            }
-//        });
-//    }
+    private void selectSchool(final int codeId) {
+        //type=1 选择学校使用，type=0 正常使用
+        Api.getDefault(HostType.MAIN).selectAddress(codeId, 1)
+                .compose(RxHelper.<List<SchoolAddressBean>>handleResult()).subscribe(new RxSubscriber<List<SchoolAddressBean>>(this, true) {
+            @Override
+            protected void _onNext(List<SchoolAddressBean> schoolAddressBean) {
+                if (schoolAddressBean != null) {
+                    if (codeId == 0) {
 
-    class ShopProductTypeAdapter extends BaseQuickAdapter<SchoolAddressBean, BaseViewHolder> {
+                    } else {
 
-
-        public ShopProductTypeAdapter() {
-            super(R.layout.school_address_item_view);
-        }
-
-        @Override
-        protected void convert(BaseViewHolder helper, SchoolAddressBean item) {
-            helper.setText(R.id.address_name_tv, item.getName());
-            if (LocationUtils.getBdLocation().hasAltitude()) {
-                helper.setText(R.id.address_distance_tv,
-                        StringUtil.getDistance(LocationUtils.getBdLocation().getLatitude(),
-                                LocationUtils.getBdLocation().getLongitude(),
-                                Double.valueOf(item.getLat()),
-                                Double.valueOf(item.getLng())));
-            } else {
-                helper.setText(R.id.address_distance_tv, "");
+                    }
+                }
             }
 
-        }
+            @Override
+            protected void _onError(String message) {
+
+            }
+        });
     }
 }

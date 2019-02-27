@@ -36,6 +36,7 @@ import com.mocuz.common.base.BaseModel;
 import com.mocuz.common.base.BasePresenter;
 import com.mocuz.common.baseapp.AppManager;
 import com.mocuz.common.baserx.RxManager;
+import com.mocuz.common.commonutils.KeyBordUtil;
 import com.mocuz.common.commonutils.TUtil;
 import com.mocuz.common.commonutils.ToastUitl;
 import com.mocuz.common.commonwidget.StatusBarCompat;
@@ -122,7 +123,6 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
     }
 
 
-
     private void initTitle() {
         appBarLayout = new AppBarLayout(this);
         mRootLayout.addView(appBarLayout);
@@ -150,8 +150,6 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         } else {
             Eyes.translucentStatusBar(this, false);
         }
-
-        SetStatusBarColor();
         mRootLayout = new LinearLayout(this);
 //        mRootLayout.setBackgroundColor(Color.rgb(255, 255, 255));
 //        mRootLayout.setFitsSystemWindows(false);
@@ -369,12 +367,12 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         if (mPresenter != null)
             mPresenter.onDestroy();
         mRxManager.clear();
+        KeyBordUtil.hideSoftKeyboard(this);
         ButterKnife.unbind(this);
         AppManager.getAppManager().finishActivity(this);
         fixInputMethodManagerLeak(this);
         //Glide 回收
-        if(Util.isOnMainThread()&&!this.isFinishing())
-        {
+        if (Util.isOnMainThread() && !this.isFinishing()) {
             Glide.with(this).pauseRequests();
         }
     }
@@ -649,6 +647,7 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
      * @param
      */
     public int position;
+
     public void ShowPop(final String[] list, final List<String> value, String title, final TextView selectView) {
         Dialog mDialog = new Dialog(mContext, R.style.pop_style);
         LayoutInflater mLayoutInflater = LayoutInflater.from(mContext);

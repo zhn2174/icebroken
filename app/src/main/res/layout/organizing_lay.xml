@@ -8,6 +8,33 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+
+        <com.icebroken.widget.MyToolbar
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:layout_collapseMode="pin">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="完善个人信息（1/2）"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+        </com.icebroken.widget.MyToolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -18,32 +45,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <android.support.design.widget.AppBarLayout
-                android:id="@+id/topview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:theme="@style/AppTheme.AppBarOverlay"
-                app:elevation="0px">
-
-                <com.icebroken.widget.MyToolbar
-                    android:id="@+id/myToolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="@color/colorPrimary"
-                    app:layout_collapseMode="pin">
-
-                    <TextView
-                        android:id="@+id/title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="完善个人信息（1/2）"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
-                </com.icebroken.widget.MyToolbar>
-
-            </android.support.design.widget.AppBarLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
