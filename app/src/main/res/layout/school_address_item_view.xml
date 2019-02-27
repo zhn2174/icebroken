@@ -6,7 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     android:gravity="center_vertical"
-    android:paddingHorizontal="15dp">
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
 
     <TextView
         android:id="@+id/address_name_tv"

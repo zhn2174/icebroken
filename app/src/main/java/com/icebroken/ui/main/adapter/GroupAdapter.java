@@ -7,6 +7,13 @@ import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.icebroken.R;
+import com.icebroken.api.Api;
+import com.icebroken.api.HostType;
+import com.icebroken.app.AppApplication;
+import com.icebroken.bean.AddressBean;
+import com.icebroken.bean.DepBean;
+import com.icebroken.utils.SignUtil;
 import com.mocuz.common.baserx.RxHelper;
 import com.mocuz.common.baserx.RxSubscriber;
 
@@ -15,14 +22,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.icebroken.R;
-import com.icebroken.api.Api;
-import com.icebroken.api.HostType;
-import com.icebroken.app.AppApplication;
-import com.icebroken.bean.AddressBean;
-import com.icebroken.bean.DepBean;
-import com.icebroken.utils.SignUtil;
 
 /**
  * Created by Yorashe on 18-6-25.
@@ -47,7 +46,6 @@ public class GroupAdapter extends BaseQuickAdapter<DepBean, BaseViewHolder> {
         };
         mRecyclerView.setHasFixedSize(true);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        linearLayoutManager.setAutoMeasureEnabled(true);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         final PersonAdapter adapter = new PersonAdapter(new ArrayList<AddressBean>());
         mRecyclerView.setAdapter(adapter);
