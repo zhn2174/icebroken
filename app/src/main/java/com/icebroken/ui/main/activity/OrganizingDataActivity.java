@@ -188,10 +188,15 @@ public class OrganizingDataActivity extends BaseActivity {
             showShortToast("请选择头像");
             return;
         }
-        userInfo.setNickname(name.getText().toString());
-        AppApplication.setUserInfo(userInfo);
-
-        OrganizingData2Activity.startAction(this);
+        if (TextUtils.isEmpty(birthdayText.getText())) {
+            showShortToast("请选择生日");
+            return;
+        }
+        if (TextUtils.isEmpty(homeText.getText())) {
+            showShortToast("请选择家乡");
+            return;
+        }
+        post();
     }
 
 
@@ -479,6 +484,35 @@ public class OrganizingDataActivity extends BaseActivity {
                 Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
                 intent.setData(Uri.parse("package:" + getPackageName())); // 根据包名打开对应的设置界面
                 startActivity(intent);
+            }
+        });
+    }
+
+    //提交第一部分
+    private void post() {
+        Gson gson = new Gson();
+        showProgressDialog("正在完善资料");
+        Api.getDefault(HostType.MAIN).completeInformation(gson.toJson(userInfo))
+                .compose(RxHelper.<Object>handleResult()).subscribe(new RxSubscriber<Object>(mContext, false) {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void _onError(String e) {
+                showShortToast(e);
+                hideProgressDialog();
+            }
+
+            @Override
+            public void _onNext(Object bean) {
+                hideProgressDialog();
+                userInfo.setNickname(name.getText().toString());
+                AppApplication.setUserInfo(userInfo);
+
+                OrganizingData2Activity.startAction(OrganizingDataActivity.this);
+                finish();
             }
         });
     }

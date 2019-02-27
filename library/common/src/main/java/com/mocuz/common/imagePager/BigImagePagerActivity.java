@@ -25,7 +25,6 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.mocuz.common.R;
 import com.mocuz.common.base.BaseCommonActivity;
-import com.mocuz.common.commonwidget.ViewPagerFixed;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,38 +78,38 @@ public class BigImagePagerActivity extends BaseCommonActivity {
     public void initView() {
         //设置透明状态栏
         SetTranslanteBar();
-
-        ViewPager viewPager = (ViewPagerFixed) findViewById(R.id.pager);
-        guideGroup = (LinearLayout) findViewById(R.id.guideGroup);
-
-        int startPos = getIntent().getIntExtra(INTENT_POSITION, 0);
-        ArrayList<String> imgUrls = getIntent().getStringArrayListExtra(INTENT_IMGURLS);
-
-        ImageAdapter mAdapter = new ImageAdapter(this);
-        mAdapter.setDatas(imgUrls);
-        viewPager.setAdapter(mAdapter);
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                for (int i = 0; i < guideViewList.size(); i++) {
-                    guideViewList.get(i).setSelected(i == position ? true : false);
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-        viewPager.setCurrentItem(startPos);
-
-        addGuideView(guideGroup, startPos, imgUrls);
+//
+//        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+//        guideGroup = (LinearLayout) findViewById(R.id.guideGroup);
+//
+//        int startPos = getIntent().getIntExtra(INTENT_POSITION, 0);
+//        ArrayList<String> imgUrls = getIntent().getStringArrayListExtra(INTENT_IMGURLS);
+//
+//        ImageAdapter mAdapter = new ImageAdapter(this);
+//        mAdapter.setDatas(imgUrls);
+//        viewPager.setAdapter(mAdapter);
+//        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                for (int i = 0; i < guideViewList.size(); i++) {
+//                    guideViewList.get(i).setSelected(i == position ? true : false);
+//                }
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        });
+//        viewPager.setCurrentItem(startPos);
+//
+//        addGuideView(guideGroup, startPos, imgUrls);
     }
 
     @Override

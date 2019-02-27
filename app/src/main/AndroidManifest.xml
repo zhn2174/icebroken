@@ -207,7 +207,7 @@
         </service> <!-- meta-data需要写在application中 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="GD6VyaDmBLFhovUAU7ev2FkBPO96YZqv"
+            android:value="pRxS9XrsGDlNIgQgS8TYEuKeLtF1r0ka"
             tools:replace="android:value" />
 
         <receiver

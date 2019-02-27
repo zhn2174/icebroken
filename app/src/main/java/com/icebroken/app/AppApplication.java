@@ -13,6 +13,7 @@ import com.icebroken.utils.BaseUtil;
 import com.icebroken.utils.MyCrashHandler;
 import com.mocuz.common.baseapp.BaseApplication;
 import com.mocuz.common.baseapp.CacheUtils;
+import com.mocuz.common.commonutils.LocationUtils;
 import com.mocuz.common.commonutils.LogUtils;
 import com.tencent.android.tpush.XGIOperateCallback;
 import com.tencent.android.tpush.XGPushManager;
@@ -27,7 +28,7 @@ import com.zxy.recovery.core.Recovery;
 public class AppApplication extends BaseApplication {
     // 自己的全局应用
     private static AppApplication mAppApplication;
-    private static UserInfo userInfo;
+    private static UserInfo userInfo = new UserInfo();
     public static String PushToken;
     public static String uid;
     public static String token;
@@ -64,7 +65,7 @@ public class AppApplication extends BaseApplication {
         openPush();
         //百度地图初始化
         SDKInitializer.initialize(BaseApplication.getAppContext());
-
+        LocationUtils.initLocationOption(this);
     }
 
 
