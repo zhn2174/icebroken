@@ -209,7 +209,7 @@ public class NiceSpinner extends AppCompatTextView {
     }
 
     private void measureDisplayHeight() {
-        displayHeight = getContext().getResources().getDisplayMetrics().heightPixels/2;
+        displayHeight = getContext().getResources().getDisplayMetrics().heightPixels;
     }
 
     private int getParentVerticalOffset() {

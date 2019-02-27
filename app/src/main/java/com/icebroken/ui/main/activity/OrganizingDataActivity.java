@@ -354,7 +354,7 @@ public class OrganizingDataActivity extends BaseActivity {
     private void post() {
         com.alibaba.fastjson.JSONObject params = new com.alibaba.fastjson.JSONObject(true);
         params.put("headUrl", userInfo.getHeadUrl());
-        params.put("nickname", userInfo.getNickname());
+        params.put("nickname", name.getText().toString());
         params.put("birthday", userInfo.getBirthday());
         params.put("hometownCode", userInfo.getHometownCode());
         params.put("sex", userInfo.getSex());

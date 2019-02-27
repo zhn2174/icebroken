@@ -78,7 +78,6 @@ public class LocationUtils {
 //            int errorCode = location.getLocType();
 
             bdLocation = location;
-
         }
     }
 

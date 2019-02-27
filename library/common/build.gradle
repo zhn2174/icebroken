@@ -97,6 +97,7 @@ dependencies {
     implementation 'com.tencent:mmkv:1.0.12'
     compile 'com.android.support:recyclerview-v7:23.0.1'
 
+    compile 'com.qiniu:qiniu-android-sdk:7.3.15'
 }
 
 

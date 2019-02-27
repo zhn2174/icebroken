@@ -1,8 +1,8 @@
 package com.icebroken.bean;
 
-public class SchoolAddressBean  {
+public class CityAddressBean {
 
-    public SchoolAddressBean() {
+    public CityAddressBean() {
     }
 
     /**

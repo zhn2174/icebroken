@@ -13,7 +13,8 @@ import com.icebroken.bean.NotiBean;
 import com.icebroken.bean.NotiInfoBean;
 import com.icebroken.bean.PeopleBean;
 import com.icebroken.bean.ScheduleBean;
-import com.icebroken.bean.SchoolAddressBean;
+import com.icebroken.bean.CityAddressBean;
+import com.icebroken.bean.SchoolsBean;
 import com.icebroken.bean.TaskBean;
 import com.icebroken.bean.UserBean;
 import com.icebroken.bean.UserInfo;
@@ -121,6 +122,11 @@ public interface ApiService {
     Observable<BaseRespose<List<LnSignInBean>>> querySignInList(@Body String body);
 
     @GET("region/{code}/{type}")
-    Observable<BaseRespose<List<SchoolAddressBean>>> selectAddress(@Path("code") int code, @Path("type") int type);
+    Observable<BaseRespose<List<CityAddressBean>>> selectAddress(@Path("code") int code, @Path("type") int type);
 
+    @GET("school/{cityId}")
+    Observable<BaseRespose<List<SchoolsBean>>> selectSchool(@Path("cityId") int cityId);
+
+    @GET("qiniu/token")
+    Observable<BaseRespose<String>> qiniuToken();
 }

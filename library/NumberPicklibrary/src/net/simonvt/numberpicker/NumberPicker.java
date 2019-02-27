@@ -2272,7 +2272,7 @@ public class NumberPicker extends LinearLayout {
 
         @Override
         public List<AccessibilityNodeInfo> findAccessibilityNodeInfosByText(String searched,
-                int virtualViewId) {
+                                                                            int virtualViewId) {
             if (TextUtils.isEmpty(searched)) {
                 return Collections.emptyList();
             }
@@ -2477,7 +2477,7 @@ public class NumberPicker extends LinearLayout {
         }
 
         private void sendAccessibilityEventForVirtualButton(int virtualViewId, int eventType,
-                String text) {
+                                                            String text) {
             if (((AccessibilityManager) getContext().getSystemService(Context.ACCESSIBILITY_SERVICE)).isEnabled()) {
                 AccessibilityEvent event = AccessibilityEvent.obtain(eventType);
                 event.setClassName(Button.class.getName());
@@ -2490,7 +2490,7 @@ public class NumberPicker extends LinearLayout {
         }
 
         private void findAccessibilityNodeInfosByTextInChild(String searchedLowerCase,
-                int virtualViewId, List<AccessibilityNodeInfo> outResult) {
+                                                             int virtualViewId, List<AccessibilityNodeInfo> outResult) {
             switch (virtualViewId) {
                 case VIRTUAL_VIEW_ID_DECREMENT: {
                     String text = getVirtualDecrementButtonText();
@@ -2536,7 +2536,7 @@ public class NumberPicker extends LinearLayout {
         }
 
         private AccessibilityNodeInfo createAccessibilityNodeInfoForVirtualButton(int virtualViewId,
-                String text, int left, int top, int right, int bottom) {
+                                                                                  String text, int left, int top, int right, int bottom) {
             AccessibilityNodeInfo info = AccessibilityNodeInfo.obtain();
             info.setClassName(Button.class.getName());
             info.setPackageName(getContext().getPackageName());
@@ -2570,7 +2570,7 @@ public class NumberPicker extends LinearLayout {
         }
 
         private AccessibilityNodeInfo createAccessibilityNodeInfoForNumberPicker(int left, int top,
-                int right, int bottom) {
+                                                                                 int right, int bottom) {
             AccessibilityNodeInfo info = AccessibilityNodeInfo.obtain();
             info.setClassName(NumberPicker.class.getName());
             info.setPackageName(getContext().getPackageName());
@@ -2589,22 +2589,22 @@ public class NumberPicker extends LinearLayout {
             info.setScrollable(true);
 
             /** TODO: Figure out compat implementation for this
-            final float applicationScale =
-                    getContext().getResources().getCompatibilityInfo().applicationScale;
+             final float applicationScale =
+             getContext().getResources().getCompatibilityInfo().applicationScale;
 
-            Rect boundsInParent = mTempRect;
-            boundsInParent.set(left, top, right, bottom);
-            boundsInParent.scale(applicationScale);
-            info.setBoundsInParent(boundsInParent);
+             Rect boundsInParent = mTempRect;
+             boundsInParent.set(left, top, right, bottom);
+             boundsInParent.scale(applicationScale);
+             info.setBoundsInParent(boundsInParent);
 
-            info.setVisibleToUser(isVisibleToUser());
+             info.setVisibleToUser(isVisibleToUser());
 
-            Rect boundsInScreen = boundsInParent;
-            int[] locationOnScreen = mTempArray;
-            getLocationOnScreen(locationOnScreen);
-            boundsInScreen.offset(locationOnScreen[0], locationOnScreen[1]);
-            boundsInScreen.scale(applicationScale);
-            info.setBoundsInScreen(boundsInScreen);
+             Rect boundsInScreen = boundsInParent;
+             int[] locationOnScreen = mTempArray;
+             getLocationOnScreen(locationOnScreen);
+             boundsInScreen.offset(locationOnScreen[0], locationOnScreen[1]);
+             boundsInScreen.scale(applicationScale);
+             info.setBoundsInScreen(boundsInScreen);
              */
 
             if (mAccessibilityFocusedView != View.NO_ID) {

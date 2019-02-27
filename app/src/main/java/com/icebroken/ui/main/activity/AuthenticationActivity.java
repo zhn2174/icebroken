@@ -14,8 +14,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.icebroken.R;
@@ -29,6 +27,7 @@ import com.icebroken.widget.MyToolbar;
 import com.mocuz.common.baserx.RxHelper;
 import com.mocuz.common.baserx.RxSubscriber;
 import com.mocuz.common.commonutils.ImageLoaderUtils;
+import com.mocuz.common.commonutils.StringUtil;
 import com.tbruyelle.rxpermissions.RxPermissions;
 import com.yuyh.library.imgsel.ImgSelActivity;
 
@@ -62,29 +61,21 @@ public class AuthenticationActivity extends BaseActivity {
     EditText schoolEd;
     @Bind(R.id.auth_name)
     NiceSpinner authName;
-    @Bind(R.id.auth_select)
-    LinearLayout authSelect;
     @Bind(R.id.bt_login)
     TextView btLogin;
     @Bind(R.id.auth_img)
     ImageView authImg;
     @Bind(R.id.auth_delete)
     ImageView authDelete;
-    @Bind(R.id.auth_select_pic)
-    RelativeLayout authSelectPic;
     @Bind(R.id.auth_img1)
     ImageView authImg1;
     @Bind(R.id.auth_delete1)
     ImageView authDelete1;
-    @Bind(R.id.auth_select_pic1)
-    RelativeLayout authSelectPic1;
     private UserInfo userInfo;
     private RxPermissions rxPermissions;
     private boolean isImage1pick;
-    private String imgUrl1;
-    private String imgUrl2;
-    private String[] mSchool_str = {"校园一卡通", "学生证", "录取通知书", "毕业证"};
     private List<String> mSchools = new ArrayList<>();
+    private int type;
 
     @Override
     public int getLayoutId() {
@@ -126,6 +117,7 @@ public class AuthenticationActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 authName.setTextInternal(dataset.get(i));
+                type = i + 1;
             }
         });
 
@@ -134,30 +126,60 @@ public class AuthenticationActivity extends BaseActivity {
 
     @OnClick(R.id.bt_login)
     public void onViewClicked() {
+        if (TextUtils.isEmpty(schoolEd.getText())) {
+            showShortToast("请填姓名");
+            return;
+        }
+        if (TextUtils.isEmpty(photo1)) {
+            showShortToast("请选择正面图片");
+            return;
+        }
+        if (TextUtils.isEmpty(photo2)) {
+            showShortToast("请选择反面图片");
+            return;
+        }
+        showProgressDialog("正在认证资料");
+        imgUrl1 = "";
+        imgUrl2 = "";
+        for (int i = 0; i < 2; i++) {
+            final int finalI = i;
+            Api.getDefault(HostType.MAIN).qiniuToken()
+                    .compose(RxHelper.<String>handleResult()).subscribe(new RxSubscriber<String>(mContext, false) {
+                @Override
+                public void onCompleted() {
+
+                }
+
+                @Override
+                public void _onError(String e) {
+                    showShortToast(e);
+                    hideProgressDialog();
+                }
+
+                @Override
+                public void _onNext(String bean) {
+                    if (finalI == 0) {
+                        imgUrl1 = bean;
+                    } else if (finalI == 1) {
+                        imgUrl2 = bean;
+                    }
+                    if (StringUtil.isNotBlank(imgUrl1) && StringUtil.isNotBlank(imgUrl2)) {
+                        post();
+                    }
+                }
+            });
+        }
         post();
 
     }
 
     private void post() {
-        if (TextUtils.isEmpty(schoolEd.getText())) {
-            showShortToast("请填姓名");
-            return;
-        }
-        if (TextUtils.isEmpty(imgUrl1)) {
-            showShortToast("请选择正面图片");
-            return;
-        }
-        if (TextUtils.isEmpty(imgUrl2)) {
-            showShortToast("请选择反面图片");
-            return;
-        }
-        showProgressDialog("正在认证资料");
         JSONObject map = new JSONObject();
         try {
             map.put("realName", schoolEd.getText().toString());
             map.put("imgUrl1", imgUrl1);
             map.put("imgUrl2", imgUrl2);
-            map.put("type", 1);//认证类型 1-校园一卡通 2-学生证 3-录取通知书 4-毕业证
+            map.put("type", type);//认证类型 1-校园一卡通 2-学生证 3-录取通知书 4-毕业证
         } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -179,11 +201,9 @@ public class AuthenticationActivity extends BaseActivity {
             public void _onNext(Object bean) {
                 hideProgressDialog();
                 showShortToast("认证成功");
-                finish();
                 userInfo.setCertify(true);
                 AppApplication.setUserInfo(userInfo);
-
-
+                finish();
             }
         });
     }
@@ -221,98 +241,76 @@ public class AuthenticationActivity extends BaseActivity {
         });
     }
 
-    @OnClick({R.id.auth_select, R.id.auth_img, R.id.auth_delete, R.id.auth_select_pic, R.id.auth_img1, R.id.auth_delete1, R.id.auth_select_pic1})
+    @OnClick({R.id.auth_img, R.id.auth_delete, R.id.auth_img1, R.id.auth_delete1})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.auth_select:
-                break;
             case R.id.auth_img:
                 isImage1pick = true;
                 choseImg();
                 break;
             case R.id.auth_delete:
-                break;
-            case R.id.auth_select_pic:
+                photo1 = "";
+                authImg.setImageResource(0);
+                authDelete.setVisibility(View.GONE);
                 break;
             case R.id.auth_img1:
                 isImage1pick = false;
                 choseImg();
                 break;
             case R.id.auth_delete1:
-                break;
-            case R.id.auth_select_pic1:
-                ShowPop(mSchool_str, mSchools, "选择认证方式", authName);
+                photo2 = "";
+                authImg1.setImageResource(0);
+                authDelete1.setVisibility(View.GONE);
                 break;
         }
     }
 
     private int REQUEST_CODE = 120;
-    private String photo = "";
-    private String file;
+    private String photo1 = "", photo2 = "";
+    private String imgUrl1, imgUrl2;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null) {
-            ArrayList<String> photos = data.getStringArrayListExtra(ImgSelActivity.INTENT_RESULT);
+            final ArrayList<String> photos = data.getStringArrayListExtra(ImgSelActivity.INTENT_RESULT);
             if (null != photos && photos.size() > 0) {
                 BaseUtil.showProgress(mContext, "图片处理中...");
-                photo = photos.get(0);
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        file = BaseUtil.compressFile(AuthenticationActivity.this, photo);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                BaseUtil.dismissProgress();
-                                if (!TextUtils.isEmpty(file)) {
-                                    ImageLoaderUtils.display(AuthenticationActivity.this, isImage1pick ? authImg : authImg1, file);
-//                                    ImageLoaderUtils.displayBlurImage(OrganizingDataActivity.this, iv_background, file);
-                                    String file1 = BaseUtil.endcodeBase64File(file);
-                                    uploadPhoto(file1);
-                                } else {
-                                    showShortToast("头像错误，请选择其他头像");
-                                }
-                            }
-
-
-                        });
-                    }
-                }).start();
-            }
-        }
-    }
-
-
-    private void uploadPhoto(String file1) {
-
-        JSONObject map = new JSONObject();
-        try {
-            map.put("img", file1);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        Api.getDefault(HostType.MAIN).upload(map.toString())
-                .compose(RxHelper.<String>handleResult()).subscribe(new RxSubscriber<String>(mContext, false) {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void _onError(String e) {
-                showShortToast(e);
-            }
-
-            @Override
-            public void _onNext(String bean) {
                 if (isImage1pick) {
-                    imgUrl1 = bean;
+                    photo1 = photos.get(0);
+                    ImageLoaderUtils.display(AuthenticationActivity.this, authImg, photos.get(0));
+                    authDelete.setVisibility(View.VISIBLE);
                 } else {
-                    imgUrl2 = bean;
+                    photo2 = photos.get(0);
+                    ImageLoaderUtils.display(AuthenticationActivity.this, authImg1, photos.get(0));
+                    authDelete1.setVisibility(View.VISIBLE);
                 }
+
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                            file1 = BaseUtil.compressFile(AuthenticationActivity.this, photos.get(0));
+//                        else
+//                            file2 = BaseUtil.compressFile(AuthenticationActivity.this, photos.get(0));
+//
+//                        runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                BaseUtil.dismissProgress();
+//                                if (!TextUtils.isEmpty(file)) {
+////                                    ImageLoaderUtils.displayBlurImage(OrganizingDataActivity.this, iv_background, file);
+//                                    String file1 = BaseUtil.endcodeBase64File(file);
+//                                    uploadPhoto(file1);
+//                                } else {
+//                                    showShortToast("头像错误，请选择其他头像");
+//                                }
+//                            }
+//
+//
+//                        });
+//                    }
+//                }).start();
             }
-        });
+        }
     }
 }

@@ -164,7 +164,6 @@ public class LoginPwdActivity extends BaseActivity {
                 userInfo.setComplete(bean.getComplete());
                 userInfo.setCompleteSchool(bean.getCompleteSchool());
                 AppApplication.setUserInfo(userInfo);
-                String errMsg = null;
                 AppApplication.token = bean.getToken();
                 CacheUtils.putToken(AppApplication.token);
                 showShortToast("登录成功");

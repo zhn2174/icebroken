@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.baidu.mapapi.SDKInitializer;
 import com.mocuz.common.baseapp.BaseApplication;
 import com.mocuz.common.commonutils.LogUtils;
 import com.tencent.smtt.sdk.QbSdk;
@@ -109,7 +108,7 @@ public class InitializeService extends IntentService {
         QbSdk.initX5Environment(BaseApplication.getAppContext().getApplicationContext(), cb);
         //TBS_X5 end
 
-        SDKInitializer.initialize(BaseApplication.getAppContext());
+//        SDKInitializer.initialize(BaseApplication.getAppContext());
 
     }
 

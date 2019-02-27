@@ -14,7 +14,7 @@ import com.icebroken.adapter.SelectAddressAdpter;
 import com.icebroken.api.Api;
 import com.icebroken.api.HostType;
 import com.icebroken.base.BaseActivity;
-import com.icebroken.bean.SchoolAddressBean;
+import com.icebroken.bean.CityAddressBean;
 import com.icebroken.widget.DividerItemDecoration;
 import com.mocuz.common.baserx.RxHelper;
 import com.mocuz.common.baserx.RxSubscriber;
@@ -98,9 +98,9 @@ public class SelectAddressActivity extends BaseActivity {
     private void selecAddress(final int codeId) {
         //type=1 选择学校使用，type=0 正常使用
         Api.getDefault(HostType.MAIN).selectAddress(codeId, 0)
-                .compose(RxHelper.<List<SchoolAddressBean>>handleResult()).subscribe(new RxSubscriber<List<SchoolAddressBean>>(this, true) {
+                .compose(RxHelper.<List<CityAddressBean>>handleResult()).subscribe(new RxSubscriber<List<CityAddressBean>>(this, true) {
             @Override
-            protected void _onNext(List<SchoolAddressBean> schoolAddressBean) {
+            protected void _onNext(List<CityAddressBean> schoolAddressBean) {
                 if (schoolAddressBean != null && schoolAddressBean.size() > 0) {
                     adapter.setNewData(schoolAddressBean);
                 }

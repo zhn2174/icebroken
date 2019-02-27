@@ -5,7 +5,6 @@ import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.util.Log;
 
-import com.baidu.mapapi.SDKInitializer;
 import com.icebroken.bean.UserBean;
 import com.icebroken.bean.UserInfo;
 import com.icebroken.ui.main.activity.MainActivity;
@@ -13,7 +12,6 @@ import com.icebroken.utils.BaseUtil;
 import com.icebroken.utils.MyCrashHandler;
 import com.mocuz.common.baseapp.BaseApplication;
 import com.mocuz.common.baseapp.CacheUtils;
-import com.mocuz.common.commonutils.LocationUtils;
 import com.mocuz.common.commonutils.LogUtils;
 import com.tencent.android.tpush.XGIOperateCallback;
 import com.tencent.android.tpush.XGPushManager;
@@ -64,8 +62,7 @@ public class AppApplication extends BaseApplication {
         MyCrashHandler.register();
         openPush();
         //百度地图初始化
-        SDKInitializer.initialize(BaseApplication.getAppContext());
-        LocationUtils.initLocationOption(this);
+//        SDKInitializer.initialize(BaseApplication.getAppContext());
     }
 
 

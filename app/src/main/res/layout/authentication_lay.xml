@@ -9,6 +9,34 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/topview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="0px">
+
+        <com.icebroken.widget.MyToolbar
+            android:id="@+id/myToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:layout_collapseMode="pin">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="学生认证"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+        </com.icebroken.widget.MyToolbar>
+
+
+    </android.support.design.widget.AppBarLayout>
+
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -18,34 +46,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <android.support.design.widget.AppBarLayout
-                android:id="@+id/topview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:theme="@style/AppTheme.AppBarOverlay"
-                app:elevation="0px">
-
-                <com.icebroken.widget.MyToolbar
-                    android:id="@+id/myToolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="@color/colorPrimary"
-                    app:layout_collapseMode="pin">
-
-                    <TextView
-                        android:id="@+id/title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="学生认证"
-                        android:textColor="@android:color/white"
-                        android:textSize="18sp" />
-                </com.icebroken.widget.MyToolbar>
-
-
-            </android.support.design.widget.AppBarLayout>
 
             <TextView
                 android:id="@+id/info_text"
@@ -110,7 +110,6 @@
                     android:textSize="@dimen/sp_16" />
 
                 <LinearLayout
-                    android:id="@+id/auth_select"
                     android:layout_width="@dimen/dp_188"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -168,7 +167,6 @@
                 android:orientation="horizontal">
 
                 <RelativeLayout
-                    android:id="@+id/auth_select_pic"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/dp_99"
                     android:layout_weight="1">
@@ -189,11 +187,11 @@
                         android:layout_height="15dp"
                         android:layout_alignRight="@id/auth_img"
                         android:layout_marginRight="-4dp"
+                        android:visibility="gone"
                         android:src="@mipmap/icon_deledt" />
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/auth_select_pic1"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/dp_99"
                     android:layout_marginLeft="@dimen/dp_22"

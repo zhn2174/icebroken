@@ -56,7 +56,7 @@ public class LoginActivity extends BaseActivity {
     LinearLayout llContent;
     @Bind(R.id.main)
     RelativeLayout main;
-    private Runnable runnable =new Runnable() {
+    private Runnable runnable = new Runnable() {
         @Override
         public void run() {
             tvCue.setVisibility(View.VISIBLE);
@@ -82,8 +82,8 @@ public class LoginActivity extends BaseActivity {
 //                MainActivity.startAction(LoginActivity.this);
             }
         });
-        String phone =CacheUtils.getString("phone",null);
-        if (!TextUtils.isEmpty(phone)){
+        String phone = CacheUtils.getString("phone", null);
+        if (!TextUtils.isEmpty(phone)) {
             edPhone.setText(phone);
             btLogin.setEnabled(true);
         }
@@ -106,7 +106,7 @@ public class LoginActivity extends BaseActivity {
                     btLogin.setEnabled(true);
                 } else {
                     btLogin.setEnabled(false);
-                    tvCue.postDelayed(runnable,2000);
+                    tvCue.postDelayed(runnable, 2000);
                 }
             }
         });
@@ -118,6 +118,7 @@ public class LoginActivity extends BaseActivity {
             accountExist();
         }
     }
+
     private boolean checkInfo() {
         if (!checkPhoneNum(edPhone.getText().toString())) {
             ToastUitl.showShort("请输入正确的手机号码");
@@ -158,6 +159,7 @@ public class LoginActivity extends BaseActivity {
         }
 
     }
+
     private void accountExist() {
         showProgressDialog("正在校验手机号码");
         JSONObject map = new JSONObject();
@@ -191,9 +193,9 @@ public class LoginActivity extends BaseActivity {
                 //存入数据
                 CacheUtils.putString("phone", AppApplication.phone);
 
-                if (bean.getExist()){
+                if (bean.getExist()) {
                     LoginPwdActivity.startAction(LoginActivity.this);
-                }else{
+                } else {
                     LoginCodeActivity.startAction(LoginActivity.this);
                 }
 //                finish();

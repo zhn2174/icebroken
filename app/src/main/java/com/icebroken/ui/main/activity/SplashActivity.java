@@ -6,25 +6,16 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.text.TextUtils;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 
 import com.icebroken.R;
-import com.icebroken.app.AppApplication;
 import com.icebroken.base.BaseActivity;
-import com.icebroken.utils.CacheConstants;
-import com.icebroken.utils.CacheServerResponse;
+import com.mocuz.common.commonutils.LocationUtils;
 import com.tbruyelle.rxpermissions.RxPermissions;
-import com.tencent.android.tpush.XGPushManager;
 
 import butterknife.Bind;
 import rx.functions.Action1;
@@ -37,6 +28,7 @@ public class SplashActivity extends BaseActivity {
     private AnimatorSet animatorSet;
     @Bind(R.id.ivLogo)
     ImageView ivLogo;
+
     @Override
     public int getLayoutId() {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -90,11 +82,11 @@ public class SplashActivity extends BaseActivity {
 
 //        }
 //        if(CacheServerResponse.isCacheDataFailure(getApplicationContext(),"BootBean")){
-            PropertyValuesHolder alpha = PropertyValuesHolder.ofFloat("alpha", 0f, 1f);
-            PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat("scaleX", 0f, 1f);
-            PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat("scaleY", 0f, 1f);
+        PropertyValuesHolder alpha = PropertyValuesHolder.ofFloat("alpha", 0f, 1f);
+        PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat("scaleX", 0f, 1f);
+        PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat("scaleY", 0f, 1f);
 //        ObjectAnimator objectAnimator1 = ObjectAnimator.ofPropertyValuesHolder(layout_jump, alpha, scaleX, scaleY);
-            ObjectAnimator objectAnimator2 = ObjectAnimator.ofPropertyValuesHolder(ivLogo, alpha, scaleX, scaleY);
+        ObjectAnimator objectAnimator2 = ObjectAnimator.ofPropertyValuesHolder(ivLogo, alpha, scaleX, scaleY);
 //        layout_jump.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -102,44 +94,52 @@ public class SplashActivity extends BaseActivity {
 //                goNext();
 //            }
 //        });
-            animatorSet = new AnimatorSet();
-            animatorSet.playTogether(objectAnimator2);
-            animatorSet.setInterpolator(new AccelerateInterpolator());
-            animatorSet.setDuration(2000);
-            animatorSet.start();
-            animatorSet.addListener(new Animator.AnimatorListener() {
-                @Override
-                public void onAnimationStart(Animator animator) {
+        animatorSet = new AnimatorSet();
+        animatorSet.playTogether(objectAnimator2);
+        animatorSet.setInterpolator(new AccelerateInterpolator());
+        animatorSet.setDuration(2000);
+        animatorSet.start();
+        animatorSet.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
 
-                }
+            }
 
-                @Override
-                public void onAnimationEnd(Animator animator) {
-                    goNext();
-                }
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                new RxPermissions(SplashActivity.this).request(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION)
+                        .subscribe(new Action1<Boolean>() {
+                            @Override
+                            public void call(Boolean aBoolean) {
+                                if (aBoolean) {
+                                    LocationUtils.initLocationOption(getApplicationContext());
+                                    goNext();
+                                }
+                            }
+                        });
+            }
 
-                @Override
-                public void onAnimationCancel(Animator animator) {
+            @Override
+            public void onAnimationCancel(Animator animator) {
 
-                }
+            }
 
-                @Override
-                public void onAnimationRepeat(Animator animator) {
+            @Override
+            public void onAnimationRepeat(Animator animator) {
 
-                }
-            });
+            }
+        });
 
 //        }
     }
-
 
 
     private void goNext() {
 //        SharedPreferences pref =this.getSharedPreferences("uid", Context.MODE_WORLD_READABLE);
 //        String uid = pref.getString("uid",null);
 //        if (TextUtils.isEmpty(uid)){
-            LoginActivity.startAction(this);
-            finish();
+        LoginActivity.startAction(this);
+        finish();
 //        }else {
 //            AppApplication.uid = uid;
 //            XGPushManager.setTag(SplashActivity.this,AppApplication.uid);
@@ -151,6 +151,7 @@ public class SplashActivity extends BaseActivity {
 //
 //        }
     }
+
     /**
      * @param activity
      */
