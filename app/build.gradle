@@ -23,10 +23,10 @@ android {
     aaptOptions.useNewCruncher = false
     signingConfigs {
         key {
-            keyAlias 'icebroken.keystore'
-            keyPassword '12345679'
-            storeFile file('../icebroken.keystore')
-            storePassword '12345679'
+            keyAlias 'icebroken123'
+            keyPassword 'icebroken123'
+            storeFile file('../icebrokenKey.keystore')
+            storePassword 'icebroken123'
         }
     }
     packagingOptions {

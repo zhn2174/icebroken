@@ -261,7 +261,7 @@ public class OrganizingDataActivity extends BaseActivity {
         if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null) {
             ArrayList<String> photos = data.getStringArrayListExtra(ImgSelActivity.INTENT_RESULT);
             if (null != photos && photos.size() > 0) {
-                BaseUtil.showProgress(mContext, "图片处理中...");
+//                BaseUtil.showProgress(mContext, "图片处理中...");
                 photo = photos.get(0);
                 ImageLoaderUtils.display(OrganizingDataActivity.this, ivUser, photo);
 //                new Thread(new Runnable() {
