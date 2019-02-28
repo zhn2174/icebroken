@@ -54,7 +54,7 @@ public class ImageLoaderUtils {
                 .centerCrop()
                 .placeholder(R.drawable.ic_image_loading)
                 .error(R.drawable.ic_image_loading)
-                .crossFade().into(imageView);
+                .into(imageView);
     }
 
     public static void displayNoPlaceholder(Context context, ImageView imageView, String url) {

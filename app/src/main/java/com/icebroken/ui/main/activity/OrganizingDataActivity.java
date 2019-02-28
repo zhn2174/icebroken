@@ -263,7 +263,7 @@ public class OrganizingDataActivity extends BaseActivity {
             if (null != photos && photos.size() > 0) {
 //                BaseUtil.showProgress(mContext, "图片处理中...");
                 photo = photos.get(0);
-                ImageLoaderUtils.display(OrganizingDataActivity.this, ivUser, photo);
+                ImageLoaderUtils.displayCircle(OrganizingDataActivity.this, ivUser, photo);
 //                new Thread(new Runnable() {
 //                    @Override
 //                    public void run() {
