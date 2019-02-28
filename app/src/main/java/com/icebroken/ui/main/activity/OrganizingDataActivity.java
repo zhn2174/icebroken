@@ -169,7 +169,7 @@ public class OrganizingDataActivity extends BaseActivity {
             showShortToast("请输入昵称");
             return;
         }
-        if (TextUtils.isEmpty(userInfo.getHeadUrl())) {
+        if (TextUtils.isEmpty(photo)) {
             showShortToast("请选择头像");
             return;
         }
