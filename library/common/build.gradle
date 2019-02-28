@@ -41,15 +41,18 @@ dependencies {
     compile 'com.android.support:design:23.0.1'
     compile 'com.android.support:cardview-v7:23.0.1'
     compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.android.support:recyclerview-v7:23.0.1'
+
     compile project(':library:NumberPicklibrary')
     //retrofit和rxjava
-    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
-    compile 'io.reactivex:rxjava:1.0.1'
-    compile 'io.reactivex:rxandroid:1.0.1'
+    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
+    compile 'com.squareup.okhttp3:okhttp:3.12.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.12.0'
+    compile 'io.reactivex:rxjava:1.1.6'
+    compile 'io.reactivex:rxandroid:1.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
-    compile 'com.android.support:multidex:1.0.0'
+    compile 'com.android.support:multidex:1.0.3'
     //分包
     compile 'com.alibaba:fastjson:1.2.8'
     //json解析封装框架
@@ -69,7 +72,7 @@ dependencies {
     //悬浮动画菜单
     //    compile 'cn.hugeterry.updatefun:updatefun:1.8.6'
     //    //fire.im自动更新
-    compile 'com.umeng.analytics:analytics:latest.integration'
+    compile 'com.umeng.analytics:analytics:6.1.4'
     //友盟统计
 //    compile 'com.github.orangegangsters:swipy:1.2.3@aar'
     //上下刷新
@@ -95,9 +98,9 @@ dependencies {
 
     //本地缓存
     implementation 'com.tencent:mmkv:1.0.12'
-    compile 'com.android.support:recyclerview-v7:23.0.1'
 
     compile 'com.qiniu:qiniu-android-sdk:7.3.15'
+
 }
 
 

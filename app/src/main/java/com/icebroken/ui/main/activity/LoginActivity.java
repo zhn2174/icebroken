@@ -186,7 +186,6 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void _onNext(accountExistBean bean) {
                 hideProgressDialog();
-                String errMsg = null;
                 AppApplication.phone = edPhone.getText().toString();
                 AppApplication.isExist = bean.getExist();
 
@@ -197,12 +196,6 @@ public class LoginActivity extends BaseActivity {
                     LoginPwdActivity.startAction(LoginActivity.this);
                 } else {
                     LoginCodeActivity.startAction(LoginActivity.this);
-                }
-//                finish();
-//                XGPushManager.setTag(LoginActivity.this, AppApplication.uid);
-//                showShortToast("登录成功");
-                if (!TextUtils.isEmpty(errMsg)) {
-                    showShortToast(errMsg);
                 }
             }
         });

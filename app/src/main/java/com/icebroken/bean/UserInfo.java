@@ -10,7 +10,7 @@ public class UserInfo implements Serializable {
 
     private Boolean isComplete;//该账号是否完善基本信息了，true-已被完善
     private Boolean isCompleteSchool;//该账号是否完善学校信息了，true-已被完善
-    private String headUrl;//    headUrl 	否 	string 	头像地址（基本信息）
+    public String headUrl;//    headUrl 	否 	string 	头像地址（基本信息）
     private String nickname;//    nickname 	否 	string 	用户昵称（基本信息）
     private int birthday;//    birthday 	否 	int 	生日，时间戳 （基本信息）
     private int hometownCode;//    hometownCode 	否 	int 	家乡code（基本信息）

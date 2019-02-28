@@ -2,10 +2,8 @@ package com.icebroken.ui.main.activity;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,7 +26,6 @@ import com.icebroken.api.Api;
 import com.icebroken.api.HostType;
 import com.icebroken.app.AppApplication;
 import com.icebroken.base.BaseActivity;
-import com.icebroken.bean.JsonBean;
 import com.icebroken.bean.UserInfo;
 import com.icebroken.utils.BaseUtil;
 import com.icebroken.widget.MyToolbar;
@@ -36,20 +33,17 @@ import com.mocuz.common.baserx.RxHelper;
 import com.mocuz.common.baserx.RxSubscriber;
 import com.mocuz.common.commonutils.ImageLoaderUtils;
 import com.mocuz.common.commonutils.TimeUtil;
+import com.mocuz.common.compressorutils.FileUpload7NiuUtil;
 import com.tbruyelle.rxpermissions.RxPermissions;
 import com.yuyh.library.imgsel.ImgSelActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -187,7 +181,31 @@ public class OrganizingDataActivity extends BaseActivity {
             showShortToast("请选择家乡");
             return;
         }
-        post();
+        showProgressDialog("正在完善资料");
+        Api.getDefault(HostType.MAIN).qiniuToken()
+                .compose(RxHelper.<String>handleResult()).subscribe(new RxSubscriber<String>(mContext, false) {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void _onError(String e) {
+                showShortToast(e);
+                hideProgressDialog();
+            }
+
+            @Override
+            public void _onNext(String bean) {
+                FileUpload7NiuUtil.uploadImageToQiniu(photo, bean, new FileUpload7NiuUtil.OnUpLoadCompleteListener() {
+                    @Override
+                    public void onUpLoadComplete(String key) {
+                        userInfo.setHeadUrl(key);
+                        post();
+                    }
+                });
+            }
+        });
     }
 
 
@@ -233,28 +251,6 @@ public class OrganizingDataActivity extends BaseActivity {
 
     }
 
-    private List<JsonBean> options1Items = new ArrayList<>();
-    private ArrayList<ArrayList<String>> options2Items = new ArrayList<>();
-    private ArrayList<ArrayList<ArrayList<String>>> options3Items = new ArrayList<>();
-
-
-    public String getJson(Context context, String fileName) {
-
-        StringBuilder stringBuilder = new StringBuilder();
-        try {
-            AssetManager assetManager = context.getAssets();
-            BufferedReader bf = new BufferedReader(new InputStreamReader(
-                    assetManager.open(fileName)));
-            String line;
-            while ((line = bf.readLine()) != null) {
-                stringBuilder.append(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return stringBuilder.toString();
-    }
-
     private int REQUEST_CODE = 120;
     private String photo = "";
     private String file;
@@ -267,28 +263,29 @@ public class OrganizingDataActivity extends BaseActivity {
             if (null != photos && photos.size() > 0) {
                 BaseUtil.showProgress(mContext, "图片处理中...");
                 photo = photos.get(0);
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        file = BaseUtil.compressFile(OrganizingDataActivity.this, photo);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                BaseUtil.dismissProgress();
-                                if (!TextUtils.isEmpty(file)) {
-                                    ImageLoaderUtils.displayCircle(OrganizingDataActivity.this, ivUser, file);
-//                                    ImageLoaderUtils.displayBlurImage(OrganizingDataActivity.this, iv_background, file);
-                                    String file1 = BaseUtil.endcodeBase64File(file);
-                                    uploadPhoto(file1);
-                                } else {
-                                    showShortToast("头像错误，请选择其他头像");
-                                }
-                            }
-
-
-                        });
-                    }
-                }).start();
+                ImageLoaderUtils.display(OrganizingDataActivity.this, ivUser, photo);
+//                new Thread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        file = BaseUtil.compressFile(OrganizingDataActivity.this, photo);
+//                        runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                BaseUtil.dismissProgress();
+//                                if (!TextUtils.isEmpty(file)) {
+//                                    ImageLoaderUtils.displayCircle(OrganizingDataActivity.this, ivUser, file);
+////                                    ImageLoaderUtils.displayBlurImage(OrganizingDataActivity.this, iv_background, file);
+//                                    String file1 = BaseUtil.endcodeBase64File(file);
+//                                    uploadPhoto(file1);
+//                                } else {
+//                                    showShortToast("头像错误，请选择其他头像");
+//                                }
+//                            }
+//
+//
+//                        });
+//                    }
+//                }).start();
             }
         } else if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
             if (data.hasExtra("codeId")) {
@@ -353,14 +350,12 @@ public class OrganizingDataActivity extends BaseActivity {
     //提交第一部分
     private void post() {
         com.alibaba.fastjson.JSONObject params = new com.alibaba.fastjson.JSONObject(true);
-        params.put("headUrl", userInfo.getHeadUrl());
+        params.put("headUrl", userInfo.headUrl);
         params.put("nickname", name.getText().toString());
         params.put("birthday", userInfo.getBirthday());
         params.put("hometownCode", userInfo.getHometownCode());
         params.put("sex", userInfo.getSex());
         params.put("emotionalState", userInfo.getEmotionalState());
-
-        showProgressDialog("正在完善资料");
 
         Api.getDefault(HostType.MAIN).completeInformation(params.toJSONString())
                 .compose(RxHelper.<Object>handleResult()).subscribe(new RxSubscriber<Object>(mContext, false) {

@@ -28,6 +28,7 @@ import com.mocuz.common.baserx.RxHelper;
 import com.mocuz.common.baserx.RxSubscriber;
 import com.mocuz.common.commonutils.ImageLoaderUtils;
 import com.mocuz.common.commonutils.StringUtil;
+import com.mocuz.common.compressorutils.FileUpload7NiuUtil;
 import com.tbruyelle.rxpermissions.RxPermissions;
 import com.yuyh.library.imgsel.ImgSelActivity;
 
@@ -158,19 +159,31 @@ public class AuthenticationActivity extends BaseActivity {
 
                 @Override
                 public void _onNext(String bean) {
+
                     if (finalI == 0) {
-                        imgUrl1 = bean;
+                        FileUpload7NiuUtil.uploadImageToQiniu(photo1, bean, new FileUpload7NiuUtil.OnUpLoadCompleteListener() {
+                            @Override
+                            public void onUpLoadComplete(String key) {
+                                imgUrl1 = key;
+                                if (StringUtil.isNotBlank(imgUrl1) && StringUtil.isNotBlank(imgUrl2)) {
+                                    post();
+                                }
+                            }
+                        });
                     } else if (finalI == 1) {
-                        imgUrl2 = bean;
-                    }
-                    if (StringUtil.isNotBlank(imgUrl1) && StringUtil.isNotBlank(imgUrl2)) {
-                        post();
+                        FileUpload7NiuUtil.uploadImageToQiniu(photo2, bean, new FileUpload7NiuUtil.OnUpLoadCompleteListener() {
+                            @Override
+                            public void onUpLoadComplete(String key) {
+                                imgUrl2 = key;
+                                if (StringUtil.isNotBlank(imgUrl1) && StringUtil.isNotBlank(imgUrl2)) {
+                                    post();
+                                }
+                            }
+                        });
                     }
                 }
             });
         }
-        post();
-
     }
 
     private void post() {
@@ -275,7 +288,7 @@ public class AuthenticationActivity extends BaseActivity {
         if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null) {
             final ArrayList<String> photos = data.getStringArrayListExtra(ImgSelActivity.INTENT_RESULT);
             if (null != photos && photos.size() > 0) {
-                BaseUtil.showProgress(mContext, "图片处理中...");
+//                BaseUtil.showProgress(mContext, "图片处理中...");
                 if (isImage1pick) {
                     photo1 = photos.get(0);
                     ImageLoaderUtils.display(AuthenticationActivity.this, authImg, photos.get(0));

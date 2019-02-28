@@ -57,7 +57,7 @@
                     android:layout_height="@dimen/dp_100"
                     android:layout_centerHorizontal="true">
 
-                    <ImageView
+                    <com.icebroken.widget.CircleImageView
                         android:id="@+id/iv_user"
                         android:layout_width="@dimen/dp_100"
                         android:layout_height="@dimen/dp_100"

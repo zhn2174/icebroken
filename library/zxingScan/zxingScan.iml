@@ -114,15 +114,14 @@
     <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\SocialSDK_QQ_Simplify.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.jakewharton:butterknife:7.0.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.clans:fab:1.6.4@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.squareup.okhttp3:logging-interceptor:3.1.2@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.14.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.okhttp3:logging-interceptor:3.12.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\umeng_social_api.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\PushSDK\libs\utdid4all-1.1.5.3_proguard.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.greenrobot:greendao:3.2.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\SocialSDK_sms.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\umeng_shareboard_widget.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\commons-codec-1.6.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:multidex:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: io.reactivex:rxandroid:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.orhanobut:logger:1.13@aar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\SocialSDK_WeChat_Simplify.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-annotations:28.0.0@jar" level="project" />
@@ -131,18 +130,17 @@
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:glide:3.7.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:retrofit:2.0.0-beta4@jar" level="project" />
     <orderEntry type="library" name="Gradle: io.reactivex:rxjava:1.1.6@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.12.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\PushSDK\libs\com.umeng.message_3.1.1a.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.4@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:converter-gson:2.0.0-beta4@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\PushSDK\libs\alicloud-android-sdk-httpdns-1.0.7.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.alibaba:fastjson:1.2.8@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.11.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\Parse-1.9.4.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\umeng_social_net.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.umeng.analytics:analytics:6.1.4@jar" level="project" />
     <orderEntry type="library" name="Gradle: id.zelory:compressor:1.0.4@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:recyclerview-v7:23.0.1@aar" level="project" />
-    <orderEntry type="library" name="Gradle: io.reactivex:rxandroid:1.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:design:23.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\pinyin4j-2.5.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\tbs_sdk_thirdapp_v3.2.0.jar:unspecified@jar" level="project" />
@@ -158,7 +156,9 @@
     <orderEntry type="library" name="Gradle: com.android.support:support-v4:23.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\alipaySingle-20161222.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.greenrobot:greendao-api:3.2.2@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:multidex:1.0.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\umeng_social_shareboard.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.15.0@jar" level="project" />
     <orderEntry type="module" module-name="PushSDK" />
     <orderEntry type="module" module-name="FlycoTabLayout_Lib" />
     <orderEntry type="module" module-name="common" />
