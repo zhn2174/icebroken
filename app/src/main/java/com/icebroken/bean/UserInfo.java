@@ -20,7 +20,7 @@ public class UserInfo implements Serializable {
     private String department;//    department 	否 	string 	院系 （学校信息）
     private int enterSchoolYear;//    enterSchoolYear 	否 	int 	入学年，时间戳 （学校信息）
     private String identity;//    identity 	否 	string 	身份 0-大学生 1-研究生 2-博士生（学校信息)
-    private String isAllowDirectChat;//    isAllowDirectChat 	否 	string 	是否允许其他人直接聊天 0-不允许 1-允许 （学校信息)
+    private int isAllowDirectChat;//    isAllowDirectChat 	否 	string 	是否允许其他人直接聊天 0-不允许 1-允许 （学校信息)
     /**
      * id : 6
      * phone : 18655081109
@@ -153,11 +153,11 @@ public class UserInfo implements Serializable {
         this.identity = identity;
     }
 
-    public String getIsAllowDirectChat() {
+    public int getIsAllowDirectChat() {
         return isAllowDirectChat;
     }
 
-    public void setIsAllowDirectChat(String isAllowDirectChat) {
+    public void setIsAllowDirectChat(int isAllowDirectChat) {
         this.isAllowDirectChat = isAllowDirectChat;
     }
 

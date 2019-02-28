@@ -155,7 +155,7 @@ public class OrganizingData2Activity extends BaseActivity {
                 params.put("identity", i);
             }
         }
-        params.put("isAllowDirectChat", talkCk.isChecked() ? "1" : "0");
+        params.put("isAllowDirectChat", talkCk.isChecked() ? 1 : 0);
 
         showProgressDialog("正在完善资料");
         Api.getDefault(HostType.MAIN).completeInformation(params.toJSONString())
@@ -175,7 +175,7 @@ public class OrganizingData2Activity extends BaseActivity {
             public void _onNext(Object bean) {
                 userInfo.setDepartment(schoolEd.getText().toString());
                 userInfo.setIdentity(identityText.getText().toString());
-                userInfo.setIsAllowDirectChat(talkCk.isChecked() ? "1" : "0");
+                userInfo.setIsAllowDirectChat(talkCk.isChecked() ? 1 : 0);
                 AppApplication.setUserInfo(userInfo);
 
                 hideProgressDialog();
