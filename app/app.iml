@@ -216,5 +216,25 @@
     <orderEntry type="module" module-name="datePicklibrary" />
     <orderEntry type="module" module-name="BaseRecyclerViewAdapterHelper" />
     <orderEntry type="module" module-name="toasty" />
+    <orderEntry type="module" module-name="FlycoTabLayout_Lib" />
+    <orderEntry type="module" module-name="niceSpinner" />
+    <orderEntry type="module" module-name="common" />
+    <orderEntry type="module" module-name="photoPicker" />
+    <orderEntry type="module" module-name="selectordialog" />
+    <orderEntry type="module" module-name="smilelibrary" />
+    <orderEntry type="module" module-name="NumberPicklibrary" />
+    <orderEntry type="module" module-name="passwordinput" />
+    <orderEntry type="module" module-name="zxingScan" />
+    <orderEntry type="module" module-name="camera" />
+    <orderEntry type="module" module-name="reclib-testemoticons" />
+    <orderEntry type="module" module-name="recovery" />
+    <orderEntry type="module" module-name="PushSDK" />
+    <orderEntry type="module" module-name="GestureLock-master" />
+    <orderEntry type="module" module-name="libSnackbar" />
+    <orderEntry type="module" module-name="SwipeBackLayout" />
+    <orderEntry type="module" module-name="banner" />
+    <orderEntry type="module" module-name="datePicklibrary" />
+    <orderEntry type="module" module-name="BaseRecyclerViewAdapterHelper" />
+    <orderEntry type="module" module-name="toasty" />
   </component>
 </module>

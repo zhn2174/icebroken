@@ -1,7 +1,6 @@
 package com.icebroken.ui.main.activity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -10,7 +9,6 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -163,6 +161,7 @@ public class SetPwdActivity extends BaseActivity {
         if (!TextUtils.equals(edPwd.getText().toString(), edPwd2.getText().toString())) {
             ToastUitl.showShort("两次输入的密码不同");
             tvCue.setText("两次输入的密码不同");
+            tvCue.setVisibility(View.VISIBLE);
             return false;
         }
         return true;
@@ -173,13 +172,6 @@ public class SetPwdActivity extends BaseActivity {
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
         activity.startActivity(intent);
-    }
-
-    private void hideKeyBoard() {
-        InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (this.getCurrentFocus() != null) {
-            imm.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-        }
     }
 
     private void Login() {
@@ -200,7 +192,8 @@ public class SetPwdActivity extends BaseActivity {
                 .compose(RxHelper.<accountExistBean>handleResult()).subscribe(new RxSubscriber<accountExistBean>(mContext, false) {
             @Override
             public void onCompleted() {
-
+                hideProgressDialog();
+                showShortToast("登录成功");
             }
 
             @Override
@@ -211,7 +204,6 @@ public class SetPwdActivity extends BaseActivity {
 
             @Override
             public void _onNext(accountExistBean bean) {
-                hideProgressDialog();
                 AppApplication.token = bean.getToken();
                 UserInfo userInfo = new UserInfo();
                 userInfo.setComplete(bean.getComplete());
@@ -219,8 +211,14 @@ public class SetPwdActivity extends BaseActivity {
                 AppApplication.setUserInfo(userInfo);
                 CacheUtils.putToken(AppApplication.token);
 
-                OrganizingDataActivity.startAction(SetPwdActivity.this);
-                showShortToast("登录成功");
+                if (!bean.getComplete()) {
+                    OrganizingDataActivity.startAction(SetPwdActivity.this);
+                } else if (!bean.getCompleteSchool()) {
+                    OrganizingData2Activity.startAction(SetPwdActivity.this);
+                } else {
+                    //fixme:登陆主界面
+//                    MainActivity.startAction(LoginPwdActivity.this);
+                }
             }
         });
     }
@@ -238,26 +236,26 @@ public class SetPwdActivity extends BaseActivity {
             case R.id.eye:
                 int cursorPosition = edPwd.length();
                 int isVisible = edPwd.getInputType();
-                if (isVisible == (InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                if (isVisible == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
 //                    mPwdIsVisible.setImageResource(R.drawable.password_visible);
                     edPwd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
                     edPwd.setSelection(cursorPosition);
-                }else{
+                } else {
 //                    mPwdIsVisible.setImageResource(R.drawable.password_unvisible);
-                    edPwd.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    edPwd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                     edPwd.setSelection(cursorPosition);
                 }
                 break;
             case R.id.eye1:
                 int cursorPosition2 = edPwd2.length();
                 int isVisible2 = edPwd2.getInputType();
-                if (isVisible2 == (InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
+                if (isVisible2 == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)) {
 //                    mPwdIsVisible.setImageResource(R.drawable.password_visible);
                     edPwd2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
                     edPwd2.setSelection(cursorPosition2);
-                }else{
+                } else {
 //                    mPwdIsVisible.setImageResource(R.drawable.password_unvisible);
-                    edPwd2.setInputType(InputType.TYPE_CLASS_TEXT|InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    edPwd2.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                     edPwd2.setSelection(cursorPosition2);
                 }
                 break;

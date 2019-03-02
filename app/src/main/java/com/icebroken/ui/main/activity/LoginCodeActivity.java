@@ -89,7 +89,17 @@ public class LoginCodeActivity extends BaseActivity {
             @Override
             public void inputComplete() {
                 if (icv.getInputContent().length() == 4) {
-                    Login();
+                    Intent intent = getIntent();
+                    if (intent != null && intent.getBooleanExtra("isForgetPassword", false)) {
+                        checkCode();
+                    } else {
+                        if (AppApplication.isExist) {
+                            Login();
+                        } else {
+                            checkCode();
+                        }
+
+                    }
                 }
             }
 
@@ -169,97 +179,94 @@ public class LoginCodeActivity extends BaseActivity {
     }
 
     private void Login() {
-        if (AppApplication.isExist) {
-            showProgressDialog("正在登录");
-            JSONObject map = new JSONObject();
-            try {
-                map.put("type", 2);
-                map.put("phone", AppApplication.phone);
-                map.put("password", icv.getInputContent());
-            } catch (JSONException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            Api.getDefault(HostType.MAIN).login(map.toString())
-                    .compose(RxHelper.<accountExistBean>handleResult()).subscribe(new RxSubscriber<accountExistBean>(mContext, false) {
-                @Override
-                public void onCompleted() {
-                    icv.clearInputContent();
-                    hideProgressDialog();
-                    showShortToast("登录成功");
-                    tvCue.setText("");
-                }
-
-                @Override
-                public void _onError(String e) {
-                    showShortToast(e);
-                    hideProgressDialog();
-                    icv.clearInputContent();
-                    tvCue.setText("短信验证码不正确");
-                }
-
-                @Override
-                public void _onNext(accountExistBean bean) {
-                    hideProgressDialog();
-                    AppApplication.token = bean.getToken();
-                    UserInfo userInfo = new UserInfo();
-                    userInfo.setComplete(bean.getComplete());
-                    userInfo.setCompleteSchool(bean.getCompleteSchool());
-                    AppApplication.setUserInfo(userInfo);
-                    CacheUtils.putToken(AppApplication.token);
-                    if (!bean.getComplete()) {
-                        OrganizingDataActivity.startAction(LoginCodeActivity.this);
-                    } else if (!bean.getCompleteSchool()) {
-                        OrganizingData2Activity.startAction(LoginCodeActivity.this);
-                    } else {
-//                        MainActivity.startAction(LoginCodeActivity.this);
-                        //fixme:登陆主界面
-                    }
-
-                }
-            });
-        } else {
-            showProgressDialog("正在校验验证码");
-            JSONObject map = new JSONObject();
-            AppApplication.code = icv.getInputContent();
-            try {
-                map.put("mobilephone", AppApplication.phone);
-                map.put("type", 1);
-                map.put("code", icv.getInputContent());
-            } catch (JSONException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-            Api.getDefault(HostType.MAIN).check(map.toString())
-                    .compose(RxHelper.<Object>handleResult()).subscribe(new RxSubscriber<Object>(mContext, false) {
-                @Override
-                public void onCompleted() {
-                    icv.clearInputContent();
-                    hideProgressDialog();
-                    showShortToast("验证成功");
-                    tvCue.setText("");
-
-                }
-
-                @Override
-                public void _onError(String e) {
-                    showShortToast(e);
-                    hideProgressDialog();
-                    icv.clearInputContent();
-                    tvCue.setText("短信验证码不正确");
-                }
-
-                @Override
-                public void _onNext(Object bean) {
-                    SetPwdActivity.startAction(LoginCodeActivity.this);
-                }
-            });
-
-
+        showProgressDialog("正在登录");
+        JSONObject map = new JSONObject();
+        try {
+            map.put("type", 2);
+            map.put("phone", AppApplication.phone);
+            map.put("password", icv.getInputContent());
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
+        Api.getDefault(HostType.MAIN).login(map.toString())
+                .compose(RxHelper.<accountExistBean>handleResult()).subscribe(new RxSubscriber<accountExistBean>(mContext, false) {
+            @Override
+            public void onCompleted() {
+                icv.clearInputContent();
+                hideProgressDialog();
+                showShortToast("登录成功");
+                tvCue.setText("");
+            }
+
+            @Override
+            public void _onError(String e) {
+                showShortToast(e);
+                hideProgressDialog();
+                icv.clearInputContent();
+                tvCue.setText("短信验证码不正确");
+            }
+
+            @Override
+            public void _onNext(accountExistBean bean) {
+                hideProgressDialog();
+                AppApplication.token = bean.getToken();
+                UserInfo userInfo = new UserInfo();
+                userInfo.setComplete(bean.getComplete());
+                userInfo.setCompleteSchool(bean.getCompleteSchool());
+                AppApplication.setUserInfo(userInfo);
+                CacheUtils.putToken(AppApplication.token);
+                if (!bean.getComplete()) {
+                    OrganizingDataActivity.startAction(LoginCodeActivity.this);
+                } else if (!bean.getCompleteSchool()) {
+                    OrganizingData2Activity.startAction(LoginCodeActivity.this);
+                } else {
+//                        MainActivity.startAction(LoginCodeActivity.this);
+                    //fixme:登陆主界面
+                }
+
+            }
+        });
 
     }
 
+    private void checkCode() {
+        showProgressDialog("正在校验验证码");
+        JSONObject map = new JSONObject();
+        AppApplication.code = icv.getInputContent();
+        try {
+            map.put("mobilephone", AppApplication.phone);
+            map.put("type", 1);
+            map.put("code", icv.getInputContent());
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        Api.getDefault(HostType.MAIN).check(map.toString())
+                .compose(RxHelper.<Object>handleResult()).subscribe(new RxSubscriber<Object>(mContext, false) {
+            @Override
+            public void onCompleted() {
+                icv.clearInputContent();
+                hideProgressDialog();
+                showShortToast("验证成功");
+                tvCue.setText("");
+
+            }
+
+            @Override
+            public void _onError(String e) {
+                showShortToast(e);
+                hideProgressDialog();
+                icv.clearInputContent();
+                tvCue.setText("短信验证码不正确");
+            }
+
+            @Override
+            public void _onNext(Object bean) {
+                SetPwdActivity.startAction(LoginCodeActivity.this);
+            }
+        });
+    }
 
     /**
      * 启动倒计时

@@ -188,7 +188,8 @@ public class LoginPwdActivity extends BaseActivity {
                 btSelectionDialog = new BtSelectionDialog(mContext, null, null, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        FeedBackActivity.startAction(LoginPwdActivity.this);
+                        startActivity(new Intent(LoginPwdActivity.this, LoginCodeActivity.class)
+                                .putExtra("isForgetPassword", true));
                         btSelectionDialog.dismiss();
                     }
                 }, new View.OnClickListener() {
