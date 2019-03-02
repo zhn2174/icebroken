@@ -96,7 +96,7 @@
                 android:textColor="@color/umeng_socialize_list_item_textcolor"
                 android:textSize="@dimen/sp_16" />
 
-            <EditText
+            <TextView
                 android:id="@+id/school_ed"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_38"
@@ -105,6 +105,7 @@
                 android:background="@color/white"
                 android:gravity="center_vertical|right"
                 android:hint="请填写院系"
+                android:drawableRight="@mipmap/icon_arrow"
                 android:textColor="@color/umeng_socialize_list_item_textcolor"
                 android:textSize="@dimen/sp_16" />
         </RelativeLayout>

@@ -37,9 +37,6 @@ import com.mocuz.common.compressorutils.FileUpload7NiuUtil;
 import com.tbruyelle.rxpermissions.RxPermissions;
 import com.yuyh.library.imgsel.ImgSelActivity;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -90,11 +87,7 @@ public class OrganizingDataActivity extends BaseActivity {
     private Thread thread;
     private RxPermissions rxPermissions;
 
-    private static final int MSG_LOAD_DATA = 0x0001;
-    private static final int MSG_LOAD_SUCCESS = 0x0002;
-    private static final int MSG_LOAD_FAILED = 0x0003;
     private TimePickerView pvCustomLunar;
-    private static boolean isLoaded = false;
     private UserInfo userInfo;
 
     @Override
@@ -288,37 +281,13 @@ public class OrganizingDataActivity extends BaseActivity {
 //                }).start();
             }
         } else if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
-            if (data.hasExtra("codeId")) {
-                userInfo.setHometownCode(data.getIntExtra("codeId", 0));
-                homeText.setText(data.getStringExtra("address"));
+            if (data.hasExtra("homeProvince")) {
+                userInfo.setHomeProvince(data.getStringExtra("homeProvince"));
+                userInfo.setHomeCity(data.getStringExtra("homeCity"));
+                userInfo.setHomeRegion(data.getStringExtra("homeRegion"));
+                homeText.setText(userInfo.getHomeProvince() + userInfo.getHomeCity() + userInfo.getHomeRegion());
             }
         }
-    }
-
-    private void uploadPhoto(String file1) {
-        JSONObject map = new JSONObject();
-        try {
-            map.put("img", file1);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        Api.getDefault(HostType.MAIN).upload(map.toString())
-                .compose(RxHelper.<String>handleResult()).subscribe(new RxSubscriber<String>(mContext, false) {
-            @Override
-            public void onCompleted() {
-
-            }
-
-            @Override
-            public void _onError(String e) {
-                showShortToast(e);
-            }
-
-            @Override
-            public void _onNext(String bean) {
-                userInfo.setHeadUrl(bean);
-            }
-        });
     }
 
     @OnClick(R.id.iv_user)
@@ -353,7 +322,9 @@ public class OrganizingDataActivity extends BaseActivity {
         params.put("headUrl", userInfo.headUrl);
         params.put("nickname", name.getText().toString());
         params.put("birthday", userInfo.getBirthday());
-        params.put("hometownCode", userInfo.getHometownCode());
+        params.put("homeProvince", userInfo.getHomeProvince());
+        params.put("homeCity", userInfo.getHomeCity());
+        params.put("homeRegion", userInfo.getHomeRegion());
         params.put("sex", userInfo.getSex());
         params.put("emotionalState", userInfo.getEmotionalState());
 

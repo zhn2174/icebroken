@@ -1,5 +1,7 @@
 package com.icebroken.bean;
 
+import com.mocuz.common.compressorutils.FileUpload7NiuUtil;
+
 import java.io.Serializable;
 
 /**
@@ -13,7 +15,9 @@ public class UserInfo implements Serializable {
     public String headUrl;//    headUrl 	否 	string 	头像地址（基本信息）
     private String nickname;//    nickname 	否 	string 	用户昵称（基本信息）
     private int birthday;//    birthday 	否 	int 	生日，时间戳 （基本信息）
-    private int hometownCode;//    hometownCode 	否 	int 	家乡code（基本信息）
+    private String homeProvince;//家乡省
+    private String homeCity;//家乡市
+    private String homeRegion;//家乡区
     private int sex;//    sex 	否 	int 	0-女 1-男（基本信息）
     private int emotionalState;//    emotionalState 	否 	int 	情感状态 0-单身 1-恋爱中 2-保密（基本信息）
     private int schoolId;//    schoolId 	否 	int 	学校id （学校信息）
@@ -74,6 +78,9 @@ public class UserInfo implements Serializable {
     }
 
     public String getHeadUrl() {
+        if (headUrl != null && !headUrl.startsWith(FileUpload7NiuUtil.MEDIA_SUB_URL)) {
+            return FileUpload7NiuUtil.MEDIA_SUB_URL + headUrl;
+        }
         return headUrl;
     }
 
@@ -97,12 +104,28 @@ public class UserInfo implements Serializable {
         this.birthday = birthday;
     }
 
-    public int getHometownCode() {
-        return hometownCode;
+    public String getHomeProvince() {
+        return homeProvince;
     }
 
-    public void setHometownCode(int hometownCode) {
-        this.hometownCode = hometownCode;
+    public void setHomeProvince(String homeProvince) {
+        this.homeProvince = homeProvince;
+    }
+
+    public String getHomeCity() {
+        return homeCity;
+    }
+
+    public void setHomeCity(String homeCity) {
+        this.homeCity = homeCity;
+    }
+
+    public String getHomeRegion() {
+        return homeRegion;
+    }
+
+    public void setHomeRegion(String homeRegion) {
+        this.homeRegion = homeRegion;
     }
 
     public int getSex() {

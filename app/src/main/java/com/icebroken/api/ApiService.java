@@ -5,6 +5,7 @@ import com.icebroken.bean.AddressBean;
 import com.icebroken.bean.CarBean;
 import com.icebroken.bean.DepBean;
 import com.icebroken.bean.DepPeronBean;
+import com.icebroken.bean.InstituteBean;
 import com.icebroken.bean.LnSignInBean;
 import com.icebroken.bean.MeetRoomBean;
 import com.icebroken.bean.MeetRoomEQBean;
@@ -126,6 +127,9 @@ public interface ApiService {
 
     @GET("school/{cityId}")
     Observable<BaseRespose<List<SchoolsBean>>> selectSchool(@Path("cityId") int cityId);
+
+    @GET("school/department/{schoolId}")
+    Observable<BaseRespose<List<InstituteBean>>> selectInstitute(@Path("schoolId") int schoolId);
 
     @GET("qiniu/token")
     Observable<BaseRespose<String>> qiniuToken();

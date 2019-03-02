@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class FileUpload7NiuUtil {
+    public static String MEDIA_SUB_URL = "http://pnl1g24kx.bkt.clouddn.com/";
+
     public interface OnUpLoadCompleteListener {
         abstract void onUpLoadComplete(String key);
     }

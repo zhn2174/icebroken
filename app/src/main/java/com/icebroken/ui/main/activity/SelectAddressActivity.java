@@ -54,13 +54,10 @@ public class SelectAddressActivity extends BaseActivity {
             public void onItemClick(BaseQuickAdapter adapter1, View view, int position) {
                 address[level - 1] = adapter.getData().get(position).getName();
                 if (level == 3) {
-                    StringBuffer str = new StringBuffer();
-                    for (String s : address) {
-                        str.append(s);
-                    }
                     setResult(Activity.RESULT_OK, new Intent()
-                            .putExtra("codeId", adapter.getData().get(position).getCode())
-                            .putExtra("address", str.toString()));
+                            .putExtra("homeProvince", address[0])
+                            .putExtra("homeCity", address[1])
+                            .putExtra("homeRegion", address[2]));
                     finish();
                 } else {
                     level += 1;

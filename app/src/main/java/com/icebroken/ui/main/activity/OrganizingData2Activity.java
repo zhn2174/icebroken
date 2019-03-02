@@ -10,7 +10,6 @@ import android.support.design.widget.AppBarLayout;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -58,7 +57,7 @@ public class OrganizingData2Activity extends BaseActivity {
     @Bind(R.id.school_select)
     RelativeLayout schoolSelect;
     @Bind(R.id.school_ed)
-    EditText schoolEd;
+    TextView schoolEd;
     @Bind(R.id.start_school_text)
     TextView startSchoolText;
     @Bind(R.id.start_school_select)
@@ -139,10 +138,6 @@ public class OrganizingData2Activity extends BaseActivity {
         }
         if (TextUtils.isEmpty(identityText.getText())) {
             showShortToast("请选择身份");
-            return;
-        }
-        if (!userInfo.isCertify()) {
-            showShortToast("请先认证身份");
             return;
         }
 
@@ -268,11 +263,19 @@ public class OrganizingData2Activity extends BaseActivity {
         });
     }
 
-    @OnClick({R.id.bt_login, R.id.school_select, R.id.start_school_select, R.id.identity_select, R.id.student_select, R.id.talk_select})
+    @OnClick({R.id.bt_login, R.id.school_select, R.id.school_ed, R.id.start_school_select, R.id.identity_select, R.id.student_select, R.id.talk_select})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.bt_login:
                 post();
+                break;
+            case R.id.school_ed:
+                if (userInfo.getSchoolId() != 0 && !TextUtils.isEmpty(schoolText.getText())) {
+                    startActivityForResult(new Intent(this, SelectInstituteActivity.class)
+                            .putExtra("schoolId", userInfo.getSchoolId()), 2);
+                } else {
+                    showShortToast("请填写学校");
+                }
                 break;
             case R.id.school_select:
                 startActivityForResult(SelectSchoolActivity.class, 1);
@@ -313,6 +316,11 @@ public class OrganizingData2Activity extends BaseActivity {
             if (data.hasExtra("codeId")) {
                 userInfo.setSchoolId(data.getIntExtra("codeId", 0));
                 schoolText.setText(data.getStringExtra("address"));
+            }
+        } else if (requestCode == 2 && resultCode == RESULT_OK && data != null) {
+            if (data.hasExtra("address")) {
+                userInfo.setDepartment(data.getStringExtra("address"));
+                schoolEd.setText(userInfo.getDepartment());
             }
         }
     }
