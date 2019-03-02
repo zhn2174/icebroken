@@ -64,13 +64,6 @@
       <sourceFolder url="file://$MODULE_DIR$/assets" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/assets" type="java-test-resource" />
@@ -78,26 +71,27 @@
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/build/generated/not_namespaced_r_class_sources" />
       <excludeFolder url="file://$MODULE_DIR$/build/generated/source/r" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/aapt_friendly_merged_manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotation_processor_list" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotations_typedef_file" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotations_zip" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/check_manifest_result" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/compile_only_not_namespaced_r_class_jar" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/consumer_proguard_file" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/full_jar" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/intermediate-jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javac" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/library_and_local_jars_jni" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/library_assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/library_manifest" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/lint_jar" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_manifests" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packaged-classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/packaged_res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/public_res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
@@ -112,66 +106,65 @@
     <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: org.freemarker:freemarker:2.3.23@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\umeng_shareboard_widget.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: jp.co.cyberagent.android.gpuimage:gpuimage-library:1.3.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\umeng_social_shareview.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\SocialSDK_Sina_Simplify.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: jp.wasabeef:glide-transformations:2.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7:23.0.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\SocialSDK_QQ_Simplify.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.jakewharton:butterknife:7.0.1@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\PushSDK\libs\utdid4all-1.1.5.3_proguard.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.clans:fab:1.6.4@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp3:logging-interceptor:3.12.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\BaiduLBS_Android.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\zxingScan\libs\core-3.1.1-SNAPSHOT.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\Parse-1.9.4.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\umeng_social_api.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\PushSDK\libs\utdid4all-1.1.5.3_proguard.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.greenrobot:greendao:3.2.2@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\umeng_social_net.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\umeng_social_shareview.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\SocialSDK_sms.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\umeng_shareboard_widget.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\commons-codec-1.6.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: io.reactivex:rxandroid:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.orhanobut:logger:1.13@aar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\SocialSDK_WeChat_Simplify.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-annotations:28.0.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\umeng_social_shareboard.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\umeng_social_tool.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:glide:3.7.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:retrofit:2.0.0-beta4@jar" level="project" />
     <orderEntry type="library" name="Gradle: io.reactivex:rxjava:1.1.6@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\alipaySingle-20161222.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\SocialSDK_Sina_Simplify.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.12.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\PushSDK\libs\com.umeng.message_3.1.1a.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.4@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.retrofit2:converter-gson:2.0.0-beta4@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\pinyin4j-2.5.0.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\PushSDK\libs\alicloud-android-sdk-httpdns-1.0.7.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.alibaba:fastjson:1.2.8@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\PushSDK\libs\com.umeng.message_3.1.1a.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\SocialSDK_sms.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\Parse-1.9.4.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\umeng_social_net.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.umeng.analytics:analytics:6.1.4@jar" level="project" />
     <orderEntry type="library" name="Gradle: id.zelory:compressor:1.0.4@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:recyclerview-v7:23.0.1@aar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\tbs_sdk_thirdapp_v3.2.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:design:23.0.1@aar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\SocialSDK_QQ_Simplify.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\pinyin4j-2.5.0.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\tbs_sdk_thirdapp_v3.2.0.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.qiniu:qiniu-android-sdk:7.3.15@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\nrtc-sdk.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.commit451:PhotoView:1.2.4@aar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\SocialSDK_WeChat_Simplify.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\libammsdk.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\nrtc-sdk.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:cardview-v7:23.0.1@aar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\PushSDK\libs\alicloud-android-sdk-httpdns-1.0.7.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.zhy:autolayout:1.4.5@aar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\BaiduLBS_Android.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.greenrobot:greendao-generator:3.0.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\commons-codec-1.6.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\zxingScan\libs\core-3.1.1-SNAPSHOT.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-v4:23.0.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\alipaySingle-20161222.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.greenrobot:greendao-api:3.2.2@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\umeng_social_api.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:multidex:1.0.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_studio\AndroidStudioProjects\icebroken\library\common\libs\umeng_social_shareboard.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.15.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\libammsdk.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:D.\Android_Studio\WorkerSpace\icebroken\library\common\libs\umeng_social_tool.jar:unspecified@jar" level="project" />
-    <orderEntry type="module" module-name="FlycoTabLayout_Lib" />
     <orderEntry type="module" module-name="PushSDK" />
-    <orderEntry type="module" module-name="toasty" />
-    <orderEntry type="module" module-name="BaseRecyclerViewAdapterHelper" />
-    <orderEntry type="module" module-name="NumberPicklibrary" />
+    <orderEntry type="module" module-name="FlycoTabLayout_Lib" />
     <orderEntry type="module" module-name="common" />
     <orderEntry type="module" module-name="SwipeBackLayout" />
-    <orderEntry type="library" name="Gradle: android-android-23" level="project" />
+    <orderEntry type="module" module-name="NumberPicklibrary" />
+    <orderEntry type="module" module-name="BaseRecyclerViewAdapterHelper" />
+    <orderEntry type="module" module-name="toasty" />
   </component>
 </module>

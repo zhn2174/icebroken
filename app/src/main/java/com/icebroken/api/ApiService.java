@@ -126,7 +126,7 @@ public interface ApiService {
     Observable<BaseRespose<List<CityAddressBean>>> selectAddress(@Path("code") int code, @Path("type") int type);
 
     @GET("school/{cityId}")
-    Observable<BaseRespose<List<SchoolsBean>>> selectSchool(@Path("cityId") int cityId);
+    Observable<BaseRespose<List<SchoolsBean>>> selectSchool(@Path("cityId") String cityId);
 
     @GET("school/department/{schoolId}")
     Observable<BaseRespose<List<InstituteBean>>> selectInstitute(@Path("schoolId") int schoolId);

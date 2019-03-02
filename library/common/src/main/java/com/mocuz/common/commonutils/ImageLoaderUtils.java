@@ -57,6 +57,20 @@ public class ImageLoaderUtils {
                 .into(imageView);
     }
 
+    public static void displayFitcenter(Context context, ImageView imageView, String url) {
+        if (imageView == null) {
+            throw new IllegalArgumentException("argument error");
+        }
+        if (isFinished(context))
+            return;
+        Glide.with(context).load(url)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .fitCenter()
+                .placeholder(R.drawable.ic_image_loading)
+                .error(R.drawable.ic_image_loading)
+                .into(imageView);
+    }
+
     public static void displayNoPlaceholder(Context context, ImageView imageView, String url) {
         if (imageView == null) {
             throw new IllegalArgumentException("argument error");

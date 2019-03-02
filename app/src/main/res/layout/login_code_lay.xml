@@ -64,7 +64,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_200"
             android:orientation="vertical"
-            android:paddingLeft="@dimen/dp_40">
+            android:paddingLeft="@dimen/dp_40"
+            android:paddingRight="40dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -94,9 +95,10 @@
                 <com.tuo.customview.VerificationCodeView
                     android:id="@+id/icv"
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
+                    android:layout_height="wrap_content"
                     app:icv_et_number="4"
-                    app:icv_et_text_size="18sp" />
+                    app:icv_et_text_size="18sp"
+                    app:icv_et_width="@dimen/dp_35" />
             </LinearLayout>
 
             <TextView

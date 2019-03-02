@@ -235,7 +235,7 @@ public class AuthenticationActivity extends BaseActivity {
                     @Override
                     public void call(Boolean aBoolean) {
                         if (aBoolean) {
-                            BaseUtil.skipImageSelector(AuthenticationActivity.this, "请选择图片", 1, REQUEST_CODE, true, false);
+                            BaseUtil.skipImageSelector(AuthenticationActivity.this, "请选择图片", 1, REQUEST_CODE, false, false);
                         } else {
                             AskForPermission("当前应用读写手机存储或者相机权限被关闭,请去设置界面打开\n打开之后按两次返回键可回到该应用哦");
                         }
@@ -291,11 +291,11 @@ public class AuthenticationActivity extends BaseActivity {
 //                BaseUtil.showProgress(mContext, "图片处理中...");
                 if (isImage1pick) {
                     photo1 = photos.get(0);
-                    ImageLoaderUtils.display(AuthenticationActivity.this, authImg, photos.get(0));
+                    ImageLoaderUtils.displayFitcenter(AuthenticationActivity.this, authImg, photos.get(0));
                     authDelete.setVisibility(View.VISIBLE);
                 } else {
                     photo2 = photos.get(0);
-                    ImageLoaderUtils.display(AuthenticationActivity.this, authImg1, photos.get(0));
+                    ImageLoaderUtils.displayFitcenter(AuthenticationActivity.this, authImg1, photos.get(0));
                     authDelete1.setVisibility(View.VISIBLE);
                 }
 

@@ -2,18 +2,12 @@ package com.icebroken.ui.main.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.design.widget.AppBarLayout;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -89,7 +83,9 @@ public class LoginCodeActivity extends BaseActivity {
         icv.setInputCompleteListener(new VerificationCodeView.InputCompleteListener() {
             @Override
             public void inputComplete() {
-                Login();
+                if (icv.getInputContent().length() == 4){
+                    Login();
+                }
             }
 
             @Override
@@ -220,7 +216,7 @@ public class LoginCodeActivity extends BaseActivity {
             try {
                 map.put("mobilephone", AppApplication.phone);
                 map.put("type", 1);
-                map.put("code",  icv.getInputContent());
+                map.put("code", icv.getInputContent());
             } catch (JSONException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

@@ -97,7 +97,7 @@ public class SelectSchoolActivity extends BaseActivity {
             }
         });
 
-        selectSchool(3201);//3201是南京的id
+        selectSchool("南京市");//3201是南京的id
     }
 
     @OnClick({R.id.left_text,})
@@ -110,7 +110,7 @@ public class SelectSchoolActivity extends BaseActivity {
     }
 
 
-    private void selectSchool(final int cityId) {
+    private void selectSchool(final String cityId) {
         Api.getDefault(HostType.MAIN).selectSchool(cityId)
                 .compose(RxHelper.<List<SchoolsBean>>handleResult()).subscribe(new RxSubscriber<List<SchoolsBean>>(this, true) {
             @Override
