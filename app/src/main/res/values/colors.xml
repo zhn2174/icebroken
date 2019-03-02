@@ -187,4 +187,11 @@
     <!-- LBS End -->
     <color name="white_60">#60ffffff</color>
 
+    <color name="black_3">#FF333333</color>
+    <color name="black_f3">#F3F3F3</color>
+    <color name="black_6">#FF666666</color>
+    <color name="black_f6">#F6F6F6</color>
+    <color name="black_9">#FF999999</color>
+    <color name="black_f9">#F9F9F9</color>
+
 </resources>

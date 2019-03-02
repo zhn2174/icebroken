@@ -3,11 +3,13 @@ package com.icebroken.ui.main.activity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.design.widget.AppBarLayout;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -45,7 +47,7 @@ public class LoginCodeActivity extends BaseActivity {
     @Bind(R.id.iv_logo)
     ImageView ivLogo;
     @Bind(R.id.bt_login)
-    TextView btLogin;
+    Button btLogin;
     @Bind(R.id.ll_content)
     LinearLayout llContent;
     @Bind(R.id.main)
@@ -80,10 +82,13 @@ public class LoginCodeActivity extends BaseActivity {
                 finish();
             }
         });
+        tvCue.setHint(String.format("发送验证码至%s", AppApplication.phone));
+        tvCue.setHintTextColor(Color.parseColor("#CBCBCB"));
+
         icv.setInputCompleteListener(new VerificationCodeView.InputCompleteListener() {
             @Override
             public void inputComplete() {
-                if (icv.getInputContent().length() == 4){
+                if (icv.getInputContent().length() == 4) {
                     Login();
                 }
             }
@@ -225,6 +230,10 @@ public class LoginCodeActivity extends BaseActivity {
                     .compose(RxHelper.<Object>handleResult()).subscribe(new RxSubscriber<Object>(mContext, false) {
                 @Override
                 public void onCompleted() {
+                    icv.clearInputContent();
+                    hideProgressDialog();
+                    showShortToast("验证成功");
+                    tvCue.setText("");
 
                 }
 
@@ -233,17 +242,12 @@ public class LoginCodeActivity extends BaseActivity {
                     showShortToast(e);
                     hideProgressDialog();
                     icv.clearInputContent();
-
+                    tvCue.setText("短信验证码不正确");
                 }
 
                 @Override
                 public void _onNext(Object bean) {
-                    hideProgressDialog();
-                    showShortToast("验证成功");
                     SetPwdActivity.startAction(LoginCodeActivity.this);
-//                    finish();
-
-
                 }
             });
 

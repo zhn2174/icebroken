@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -33,6 +34,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import butterknife.Bind;
+import butterknife.OnClick;
 
 /**
  * Created by Administrator on 2018/7/4.
@@ -47,7 +49,7 @@ public class LoginActivity extends BaseActivity {
     @Bind(R.id.tv_cue)
     TextView tvCue;
     @Bind(R.id.bt_login)
-    TextView btLogin;
+    Button btLogin;
     @Bind(R.id.wx_login)
     LinearLayout wxLogin;
     @Bind(R.id.qq_login)
@@ -75,13 +77,6 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        btLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gotoLogin();
-//                MainActivity.startAction(LoginActivity.this);
-            }
-        });
         String phone = CacheUtils.getString("phone", null);
         if (!TextUtils.isEmpty(phone)) {
             edPhone.setText(phone);
@@ -112,9 +107,17 @@ public class LoginActivity extends BaseActivity {
         });
     }
 
+    @OnClick(R.id.bt_login)
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.bt_login:
+                gotoLogin();
+                break;
+        }
+    }
+
     private void gotoLogin() {
         if (checkInfo()) {
-//            LoginPwdActivity.startAction(LoginActivity.this);
             accountExist();
         }
     }

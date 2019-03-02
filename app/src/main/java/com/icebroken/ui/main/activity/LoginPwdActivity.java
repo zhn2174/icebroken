@@ -172,7 +172,8 @@ public class LoginPwdActivity extends BaseActivity {
                 } else if (!bean.getCompleteSchool()) {
                     OrganizingData2Activity.startAction(LoginPwdActivity.this);
                 } else {
-                    MainActivity.startAction(LoginPwdActivity.this);
+                    //fixme:登陆主界面
+//                    MainActivity.startAction(LoginPwdActivity.this);
                 }
             }
         });

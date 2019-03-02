@@ -34,9 +34,6 @@ import com.mocuz.common.commonutils.ToastUitl;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import butterknife.Bind;
 import butterknife.OnClick;
 
@@ -183,24 +180,6 @@ public class SetPwdActivity extends BaseActivity {
         if (this.getCurrentFocus() != null) {
             imm.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
-    }
-
-    /**
-     * 匹配号码是否是11为数字
-     *
-     * @param phoneNum
-     * @return 不是11位数字，返回false
-     */
-    public static boolean checkPhoneNum(String phoneNum) {
-        if (!TextUtils.isEmpty(phoneNum)) {
-            String format = "^\\d{11}$";
-            Pattern p = Pattern.compile(format);
-            Matcher m = p.matcher(phoneNum);
-            return m.matches();
-        } else {
-            return false;
-        }
-
     }
 
     private void Login() {
