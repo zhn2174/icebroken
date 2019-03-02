@@ -31,6 +31,7 @@ import com.icebroken.widget.MyToolbar;
 import com.mocuz.common.baseapp.CacheUtils;
 import com.mocuz.common.baserx.RxHelper;
 import com.mocuz.common.baserx.RxSubscriber;
+import com.tuo.customview.VerificationCodeView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,6 +40,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import butterknife.Bind;
+import butterknife.OnClick;
 
 /**
  * Created by Administrator on 2018/7/4.
@@ -58,16 +60,10 @@ public class LoginCodeActivity extends BaseActivity {
     MyToolbar myToolbar;
     @Bind(R.id.topview)
     AppBarLayout topview;
-    @Bind(R.id.ed_code1)
-    EditText edCode1;
-    @Bind(R.id.ed_code2)
-    EditText edCode2;
-    @Bind(R.id.ed_code3)
-    EditText edCode3;
-    @Bind(R.id.ed_code4)
-    EditText edCode4;
     @Bind(R.id.tv_cue)
     TextView tvCue;
+    @Bind(R.id.icv)
+    VerificationCodeView icv;
     private MineCountDownTimer mCountDownTimer;
 
     @Override
@@ -82,13 +78,6 @@ public class LoginCodeActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        btLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gotoLogin();
-//                MainActivity.startAction(LoginActivity.this);
-            }
-        });
         myToolbar.setNavigationIcon(R.mipmap.return_icon);
         myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,128 +86,15 @@ public class LoginCodeActivity extends BaseActivity {
                 finish();
             }
         });
-        edCode1.setCursorVisible(false);
-        edCode2.setCursorVisible(false);
-        edCode3.setCursorVisible(false);
-        edCode4.setCursorVisible(false);
-        edCode2.setOnKeyListener(new View.OnKeyListener() {
-
+        icv.setInputCompleteListener(new VerificationCodeView.InputCompleteListener() {
             @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_DEL) {
-                    if (edCode2.getText() != null) {
-                        edCode1.setText("");
-                    }
-                }
-                return false;
-            }
-        });
-        edCode3.setOnKeyListener(new View.OnKeyListener() {
-
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_DEL) {
-                    if (edCode3.getText() != null) {
-                        edCode2.setText("");
-                    }
-                }
-                return false;
-            }
-        });
-        edCode4.setOnKeyListener(new View.OnKeyListener() {
-
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_DEL) {
-                    if (edCode4.getText() != null) {
-                        edCode3.setText("");
-                    }
-                }
-                return false;
-            }
-        });
-        edCode1.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+            public void inputComplete() {
+                Login();
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            public void deleteContent() {
 
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (s != null && s.length() == 1) {
-                    edCode2.requestFocus();
-                } else {
-
-                }
-            }
-        });
-
-        edCode2.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (s != null && s.length() == 1) {
-                    edCode3.requestFocus();
-                } else {
-//                    edCode1.requestFocus();
-
-                }
-            }
-        });
-
-        edCode3.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (s != null && s.length() == 1) {
-                    edCode4.requestFocus();
-                } else {
-//                    edCode2.requestFocus();
-                }
-            }
-        });
-        edCode4.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (s != null && s.length() == 1) {
-                    Login();
-                } else {
-//                    edCode3.requestFocus();
-
-                }
             }
         });
     }
@@ -228,26 +104,11 @@ public class LoginCodeActivity extends BaseActivity {
         getcode();
     }
 
-
-    private boolean checkInfo() {
-        if (TextUtils.isEmpty(edCode4.getText())) {
-            return false;
-        }
-        return true;
-    }
-
     public static void startAction(Activity activity) {
         Intent intent = new Intent(activity, LoginCodeActivity.class);
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
         activity.startActivity(intent);
-    }
-
-    private void hideKeyBoard() {
-        InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (this.getCurrentFocus() != null) {
-            imm.hideSoftInputFromWindow(this.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-        }
     }
 
     /**
@@ -268,9 +129,17 @@ public class LoginCodeActivity extends BaseActivity {
 
     }
 
+    @OnClick({R.id.bt_login})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.bt_login:
+                gotoLogin();
+                break;
+        }
+    }
+
     private void getcode() {
         JSONObject map = new JSONObject();
-        String code = edCode1.getText().toString() + edCode2.getText().toString() + edCode3.getText().toString() + edCode4.getText().toString();
         try {
             map.put("countryCode", "86");
             map.put("mobilephone", AppApplication.phone);
@@ -294,8 +163,6 @@ public class LoginCodeActivity extends BaseActivity {
             @Override
             public void _onNext(Object bean) {
                 showShortToast("发送成功");
-
-
             }
         });
     }
@@ -304,11 +171,10 @@ public class LoginCodeActivity extends BaseActivity {
         if (AppApplication.isExist) {
             showProgressDialog("正在登录");
             JSONObject map = new JSONObject();
-            String code = edCode1.getText().toString() + edCode2.getText().toString() + edCode3.getText().toString() + edCode4.getText().toString();
             try {
                 map.put("type", 2);
                 map.put("phone", AppApplication.phone);
-                map.put("password", code);
+                map.put("password", icv.getInputContent());
             } catch (JSONException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -350,12 +216,11 @@ public class LoginCodeActivity extends BaseActivity {
         } else {
             showProgressDialog("正在校验验证码");
             JSONObject map = new JSONObject();
-            String code = edCode1.getText().toString() + edCode2.getText().toString() + edCode3.getText().toString() + edCode4.getText().toString();
-            AppApplication.code = code;
+            AppApplication.code = icv.getInputContent();
             try {
                 map.put("mobilephone", AppApplication.phone);
                 map.put("type", 1);
-                map.put("code", code);
+                map.put("code",  icv.getInputContent());
             } catch (JSONException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -371,11 +236,7 @@ public class LoginCodeActivity extends BaseActivity {
                 public void _onError(String e) {
                     showShortToast(e);
                     hideProgressDialog();
-                    edCode1.setText("");
-                    edCode2.setText("");
-                    edCode3.setText("");
-                    edCode4.setText("");
-                    edCode1.requestFocus();
+                    icv.clearInputContent();
 
                 }
 

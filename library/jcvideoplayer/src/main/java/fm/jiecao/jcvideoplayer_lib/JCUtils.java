@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.ContextThemeWrapper;
+import android.support.v7.internal.view.ContextThemeWrapper;
 import android.text.TextUtils;
 
 import java.util.Formatter;
