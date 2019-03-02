@@ -184,13 +184,18 @@ public class LoginCodeActivity extends BaseActivity {
                     .compose(RxHelper.<accountExistBean>handleResult()).subscribe(new RxSubscriber<accountExistBean>(mContext, false) {
                 @Override
                 public void onCompleted() {
-
+                    icv.clearInputContent();
+                    hideProgressDialog();
+                    showShortToast("登录成功");
+                    tvCue.setText("");
                 }
 
                 @Override
                 public void _onError(String e) {
                     showShortToast(e);
                     hideProgressDialog();
+                    icv.clearInputContent();
+                    tvCue.setText("短信验证码不正确");
                 }
 
                 @Override
@@ -202,7 +207,6 @@ public class LoginCodeActivity extends BaseActivity {
                     userInfo.setCompleteSchool(bean.getCompleteSchool());
                     AppApplication.setUserInfo(userInfo);
                     CacheUtils.putToken(AppApplication.token);
-                    showShortToast("登录成功");
                     if (!bean.getComplete()) {
                         OrganizingDataActivity.startAction(LoginCodeActivity.this);
                     } else if (!bean.getCompleteSchool()) {
