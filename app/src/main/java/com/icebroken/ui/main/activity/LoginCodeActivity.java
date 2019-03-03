@@ -221,8 +221,7 @@ public class LoginCodeActivity extends BaseActivity {
                 } else if (!bean.getCompleteSchool()) {
                     OrganizingData2Activity.startAction(LoginCodeActivity.this);
                 } else {
-//                        MainActivity.startAction(LoginCodeActivity.this);
-                    //fixme:登陆主界面
+                        MainActivity.startAction(LoginCodeActivity.this);
                 }
 
             }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.mocuz.tablayout.CommonTabLayout
+        android:id="@+id/fresh_news_tl"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        app:tl_tab_space_equal="true"
+        app:tl_textSelectColor="@color/colorPrimary"
+        app:tl_textUnselectColor="@color/black_3"
+        app:tl_textsize="16sp" />
+
+    <com.mocuz.tablayout.CommonTabLayout
+        android:id="@+id/fresh_news_tl2"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:tl_tab_space_equal="true"
+        app:tl_textSelectColor="@color/colorPrimary"
+        app:tl_textUnselectColor="@color/black_6"
+        app:tl_textsize="14sp" />
+
+    <com.icebroken.widget.CustomViewPager
+        android:id="@+id/fresh_news_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

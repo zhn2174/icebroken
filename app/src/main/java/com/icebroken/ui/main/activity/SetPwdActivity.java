@@ -81,7 +81,6 @@ public class SetPwdActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 gotoLogin();
-//                MainActivity.startAction(LoginActivity.this);
             }
         });
         myToolbar.setNavigationIcon(R.mipmap.return_icon);
@@ -216,8 +215,7 @@ public class SetPwdActivity extends BaseActivity {
                 } else if (!bean.getCompleteSchool()) {
                     OrganizingData2Activity.startAction(SetPwdActivity.this);
                 } else {
-                    //fixme:登陆主界面
-//                    MainActivity.startAction(LoginPwdActivity.this);
+                    MainActivity.startAction(SetPwdActivity.this);
                 }
             }
         });

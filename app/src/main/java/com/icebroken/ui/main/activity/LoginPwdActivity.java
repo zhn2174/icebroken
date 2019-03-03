@@ -76,7 +76,6 @@ public class LoginPwdActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 gotoLogin();
-//                MainActivity.startAction(LoginActivity.this);
             }
         });
         myToolbar.setNavigationIcon(R.mipmap.return_icon);
@@ -113,7 +112,6 @@ public class LoginPwdActivity extends BaseActivity {
     private void gotoLogin() {
         if (checkInfo()) {
             Login();
-//            OrganizingDataActivity.startAction(this);
         }
     }
 
@@ -172,8 +170,7 @@ public class LoginPwdActivity extends BaseActivity {
                 } else if (!bean.getCompleteSchool()) {
                     OrganizingData2Activity.startAction(LoginPwdActivity.this);
                 } else {
-                    //fixme:登陆主界面
-//                    MainActivity.startAction(LoginPwdActivity.this);
+                    MainActivity.startAction(LoginPwdActivity.this);
                 }
             }
         });

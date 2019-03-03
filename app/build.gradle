@@ -145,6 +145,9 @@ dependencies {
     implementation ('com.jacktuotuo.customview:verificationcodeview:1.0.5'){
         exclude group: 'com.android.support'
     }
+//    implementation ('com.androidkun:XTabLayout:1.1.4') {
+//        exclude module: 'design'
+//    }
 }
 repositories {
     flatDir {

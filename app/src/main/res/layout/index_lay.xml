@@ -5,31 +5,49 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
-    <EditText
-        android:drawablePadding="30px"
-        android:drawableLeft="@mipmap/search"
-        android:id="@+id/search_view"
-        android:hint="搜索"
-        android:paddingLeft="40px"
-        android:background="@drawable/bbs_search_bg"
-        android:layout_marginTop="33px"
-        android:layout_marginRight="51px"
-        android:layout_marginLeft="51px"
-        android:layout_marginBottom="33px"
-        android:textSize="41px"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="105px" />
-    <com.icebroken.widget.MySwipeRefreshLayout
-        android:id="@+id/swipyrefreshlayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srl_direction="top">
+        android:layout_height="75dp"
+        android:background="@color/colorPrimary"
+        android:gravity="bottom"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp">
 
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/main_head_iv"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:src="@color/blue" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+        <com.mocuz.tablayout.CommonTabLayout
+            android:id="@+id/main_fragment_ctl"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            app:tl_indicator_color="@color/white"
+            app:tl_indicator_corner_radius="3dp"
+            app:tl_indicator_height="3dp"
+            app:tl_indicator_margin_top="5dp"
+            app:tl_indicator_width="35dp"
+            app:tl_textBold="SELECT"
+            app:tl_textSelectColor="@color/white"
+            app:tl_textUnselectColor="@color/white"
+            app:tl_textsize="16sp" />
 
-    </com.icebroken.widget.MySwipeRefreshLayout>
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/main_search_iv"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_alignParentRight="true"
+            android:tint="@color/black"
+            app:srcCompat="@mipmap/icon_search" />
+
+    </RelativeLayout>
+
+    <com.icebroken.widget.CustomViewPager
+        android:id="@+id/main_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

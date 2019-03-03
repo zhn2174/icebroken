@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.mocuz.common.baseapp.AppManager;
 import com.mocuz.common.commonutils.LogUtils;
 import com.mocuz.common.commonutils.ToastUitl;
+import com.mocuz.common.commonwidget.FloatingDragger;
 import com.mocuz.tablayout.CommonTabLayout;
 import com.mocuz.tablayout.listener.CustomTabEntity;
 import com.mocuz.tablayout.listener.OnTabSelectListener;
@@ -30,6 +31,7 @@ import com.mocuz.tablayout.listener.OnTabSelectListener;
 import java.util.ArrayList;
 
 import butterknife.Bind;
+
 import com.icebroken.R;
 import com.icebroken.api.AppConstant;
 import com.icebroken.base.BaseActivity;
@@ -46,16 +48,6 @@ import com.icebroken.ui.main.fragment.WorkFragment;
 public class MainActivity extends BaseActivity {
     @Bind(R.id.ctab_layout)
     CommonTabLayout ctab_layout;
-    @Bind(R.id.title)
-    TextView title;
-    @Bind(R.id.layoutMainBlank)
-    LinearLayout layoutMainBlank;
-    @Bind(R.id.rel_parent)
-    RelativeLayout myToolbar;
-    @Bind(R.id.myToolbar)
-    RelativeLayout rel_parent;
-    @Bind(R.id.btn)
-    ImageView item;
 
     private String[] mTitles;//tab 文字
     private int[] mIconUnselectIds = {
@@ -64,13 +56,18 @@ public class MainActivity extends BaseActivity {
             R.mipmap.tab_notice_select, R.mipmap.tab_schedule_select, R.mipmap.tab_job_select, R.mipmap.tab_mail_select, R.mipmap.tab_me_select};//tab选中背景
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
 
-    private MainFragment indexFragment;//通知
-    private ScheduleMainFragment dayFragment;//日程
-    private WorkFragment workFragment;//工作
-    private AddressMainFragment phnoeFragment;//通讯录
-    private MineFragment mineFragment;//我的
+    private MainFragment indexFragment;//首页
+    private ScheduleMainFragment dayFragment;//"兴趣湾",
+    private WorkFragment workFragment;// "消息",
+    private AddressMainFragment phnoeFragment;// "聚宝盆",
+    private MineFragment mineFragment;// "更多"
     private static int tabLayoutHeight;
 
+
+    @Override
+    public void setContentView(int layoutResID) {
+        super.setContentView(new FloatingDragger(this, layoutResID).getView());
+    }
 
     /**
      * @param activity
@@ -78,7 +75,6 @@ public class MainActivity extends BaseActivity {
     public static void startAction(Activity activity) {
         Intent intent = new Intent(activity, MainActivity.class);
         Bundle bundle = new Bundle();
-//        bundle.putSerializable("advInfo", advInfo);
         intent.putExtras(bundle);
         activity.startActivity(intent);
         activity.finish();
@@ -96,60 +92,15 @@ public class MainActivity extends BaseActivity {
 
     }
 
-
-//    @Override
-//    public boolean onCreateOptionsMenu(android.view.Menu menu) {
-//        // search view
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        item = menu.findItem(R.id.action_add);
-//        item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem item) {
-//                switch (currentPosition){
-//                    case 4:        PersonDataActivity.startAction(MainActivity.this);
-//                        break;
-//                }
-//                return false;
-//            }
-//        });
-//        return true;
-//    }
-
     @Override
     public void initView() {
-//        myToolbar.setNavigationOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                BaseUtil.hideInput(MainActivity.this);
-//                finish();
-//            }
-//        });
 
         getSwipeBackLayout().setEnableGesture(false);
-            //初始化菜单
-            mTitles = new String[]{"通知", "日程", "工作", "通讯录", "我的"};
-            initTab();
-
-            // 底部遮罩
-            layoutMainBlank.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent();
-                    intent.setAction("WEATHER_BOTTOM_CLIK");
-                    sendBroadcast(intent);
-                }
-            });
-
-        item.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (currentPosition){
-                    case 4:        PersonDataActivity.startAction(MainActivity.this);
-                        break;
-                }
-            }
-        });
+        //初始化菜单
+        mTitles = new String[]{"首页", "兴趣湾", "消息", "聚宝盆", "更多"};
+        initTab();
     }
+
     /**
      * 监听返回键
      *
@@ -167,25 +118,25 @@ public class MainActivity extends BaseActivity {
                 moveTaskToBack(false);
             } else {
                 //监听全屏视频时返回键
-                    isback = true;
-                    ToastUitl.showShort("再次点击返回键退出");
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            isback = false;
-                        }
-                    }, 2000);
+                isback = true;
+                ToastUitl.showShort("再次点击返回键退出");
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        isback = false;
+                    }
+                }, 2000);
             }
             return true;
         }
         return super.onKeyDown(keyCode, event);
     }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //初始化frament
         initFragment(savedInstanceState);
-        ctab_layout.measure(0, 0);
         tabLayoutHeight = ctab_layout.getMeasuredHeight();
         //监听菜单显示或隐藏
     }
@@ -247,19 +198,14 @@ public class MainActivity extends BaseActivity {
      * 切换
      */
     private int currentPosition;
+
     private void SwitchTo(int position) {
         LogUtils.logd("主页菜单position" + position);
-        currentPosition=position;
+        currentPosition = position;
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (position) {
             //通知
             case 0:
-                if (null!=item) {
-                    item.setVisibility(View.GONE);
-                    item.setImageResource(R.mipmap.add);
-                }
-                myToolbar.setBackgroundColor(getResources().getColor(R.color.white));
-                title.setTextColor(getResources().getColor(R.color.black));
                 transaction.hide(dayFragment);
                 transaction.hide(workFragment);
                 transaction.hide(phnoeFragment);
@@ -269,13 +215,6 @@ public class MainActivity extends BaseActivity {
                 break;
             //日程
             case 1:
-                if (null!=item) {
-                    item.setVisibility(View.GONE);
-                    item.setImageResource(R.mipmap.search_b);
-                }
-                myToolbar.setBackgroundColor(getResources().getColor(R.color.white));
-                title.setTextColor(getResources().getColor(R.color.black));
-
                 transaction.hide(indexFragment);
                 transaction.hide(workFragment);
                 transaction.hide(phnoeFragment);
@@ -285,13 +224,6 @@ public class MainActivity extends BaseActivity {
                 break;
             //work
             case 2:
-                if (null!=item) {
-                    item.setVisibility(View.GONE);
-                    item.setImageResource(R.mipmap.notice);
-                }
-                myToolbar.setBackgroundColor(getResources().getColor(R.color.white));
-                title.setTextColor(getResources().getColor(R.color.black));
-
                 transaction.hide(indexFragment);
                 transaction.hide(dayFragment);
                 transaction.hide(phnoeFragment);
@@ -301,13 +233,6 @@ public class MainActivity extends BaseActivity {
                 break;
             //通讯录
             case 3:
-                myToolbar.setBackgroundColor(getResources().getColor(R.color.white));
-                title.setTextColor(getResources().getColor(R.color.black));
-
-                if (null!=item) {
-                    item.setVisibility(View.GONE);
-                    item.setImageResource(R.mipmap.add);
-                }
                 transaction.hide(indexFragment);
                 transaction.hide(dayFragment);
                 transaction.hide(workFragment);
@@ -317,12 +242,6 @@ public class MainActivity extends BaseActivity {
                 break;
             //我的
             case 4:
-                if (null!=item) {
-                    item.setVisibility(View.VISIBLE);
-                    item.setImageResource(R.mipmap.edit);
-                }
-                myToolbar.setBackgroundColor(Color.parseColor("#3676FC"));
-                title.setTextColor(getResources().getColor(R.color.white));
                 transaction.hide(indexFragment);
                 transaction.hide(dayFragment);
                 transaction.hide(workFragment);
@@ -333,35 +252,6 @@ public class MainActivity extends BaseActivity {
             default:
                 break;
         }
-    }
-
-    /**
-     * 菜单显示隐藏动画
-     *
-     * @param showOrHide
-     */
-    private void startAnimation(boolean showOrHide) {
-        final ViewGroup.LayoutParams layoutParams = ctab_layout.getLayoutParams();
-        ValueAnimator valueAnimator;
-        ObjectAnimator alpha;
-        if (!showOrHide) {
-            valueAnimator = ValueAnimator.ofInt(tabLayoutHeight, 0);
-            alpha = ObjectAnimator.ofFloat(ctab_layout, "alpha", 1, 0);
-        } else {
-            valueAnimator = ValueAnimator.ofInt(0, tabLayoutHeight);
-            alpha = ObjectAnimator.ofFloat(ctab_layout, "alpha", 0, 1);
-        }
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                layoutParams.height = (int) valueAnimator.getAnimatedValue();
-                ctab_layout.setLayoutParams(layoutParams);
-            }
-        });
-        AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.setDuration(500);
-        animatorSet.playTogether(valueAnimator, alpha);
-        animatorSet.start();
     }
 
     @Override
@@ -415,7 +305,6 @@ public class MainActivity extends BaseActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
-
 
 
     /**
