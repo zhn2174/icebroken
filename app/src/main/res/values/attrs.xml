@@ -61,4 +61,9 @@
             <enum name="solo" value="2" />
         </attr>
     </declare-styleable>
+
+    <attr name="sizeRadio" format="float" />
+    <declare-styleable name="RectImageView">
+        <attr name="sizeRadio" />
+    </declare-styleable>
 </resources>

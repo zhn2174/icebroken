@@ -64,6 +64,7 @@ public class SetPwdActivity extends BaseActivity {
     ImageView eye;
     @Bind(R.id.eye1)
     ImageView eye1;
+    private boolean isForgetPassword;
 
     @Override
     public int getLayoutId() {
@@ -77,6 +78,11 @@ public class SetPwdActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        Intent intent = getIntent();
+        if (intent != null) {
+            isForgetPassword = intent.getBooleanExtra("isForgetPassword", false);
+        }
+
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,8 +148,12 @@ public class SetPwdActivity extends BaseActivity {
 
     private void gotoLogin() {
         if (checkInfo()) {
-            Login();
-//            OrganizingDataActivity.startAction(this);
+            if (isForgetPassword) {
+                resetPassword();
+            } else {
+                Login();
+            }
+
         }
     }
 
@@ -215,8 +225,63 @@ public class SetPwdActivity extends BaseActivity {
                 } else if (!bean.getCompleteSchool()) {
                     OrganizingData2Activity.startAction(SetPwdActivity.this);
                 } else {
-                    MainActivity.startAction(SetPwdActivity.this);
+                    queryInfo();
                 }
+            }
+        });
+    }
+
+    private void queryInfo() {
+        Api.getDefault(HostType.MAIN).getUserInfo()
+                .compose(RxHelper.<UserInfo>handleResult()).subscribe(new RxSubscriber<UserInfo>(mContext, true) {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void _onError(String e) {
+                showShortToast(e);
+                hideProgressDialog();
+            }
+
+            @Override
+            public void _onNext(UserInfo bean) {
+                AppApplication.setUserInfo(bean);
+                MainActivity.startAction(SetPwdActivity.this);
+            }
+        });
+    }
+
+
+    //重设密码
+    private void resetPassword() {
+        showProgressDialog("正在重设密码");
+        JSONObject map = new JSONObject();
+        try {
+            map.put("phone", AppApplication.phone);
+            map.put("code", AppApplication.code);
+            map.put("password", edPwd.getText().toString());
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        Api.getDefault(HostType.MAIN).resetPassword(map.toString())
+                .compose(RxHelper.<String>handleResult()).subscribe(new RxSubscriber<String>(mContext, false) {
+            @Override
+            public void onCompleted() {
+                hideProgressDialog();
+            }
+
+            @Override
+            public void _onError(String e) {
+                hideProgressDialog();
+                showShortToast(e);
+            }
+
+            @Override
+            public void _onNext(String bean) {
+                Login();
             }
         });
     }

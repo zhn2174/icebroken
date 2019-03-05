@@ -61,6 +61,7 @@ public class LoginCodeActivity extends BaseActivity {
     @Bind(R.id.icv)
     VerificationCodeView icv;
     private MineCountDownTimer mCountDownTimer;
+    private boolean isForgetPassword;
 
     @Override
     public int getLayoutId() {
@@ -74,6 +75,11 @@ public class LoginCodeActivity extends BaseActivity {
 
     @Override
     public void initView() {
+        Intent intent = getIntent();
+        if (intent != null) {
+            isForgetPassword = intent.getBooleanExtra("isForgetPassword", false);
+        }
+
         myToolbar.setNavigationIcon(R.mipmap.return_icon);
         myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,8 +95,7 @@ public class LoginCodeActivity extends BaseActivity {
             @Override
             public void inputComplete() {
                 if (icv.getInputContent().length() == 4) {
-                    Intent intent = getIntent();
-                    if (intent != null && intent.getBooleanExtra("isForgetPassword", false)) {
+                    if (isForgetPassword) {
                         checkCode();
                     } else {
                         if (AppApplication.isExist) {
@@ -221,12 +226,34 @@ public class LoginCodeActivity extends BaseActivity {
                 } else if (!bean.getCompleteSchool()) {
                     OrganizingData2Activity.startAction(LoginCodeActivity.this);
                 } else {
-                        MainActivity.startAction(LoginCodeActivity.this);
+                  queryInfo();
                 }
 
             }
         });
 
+    }
+
+    private void queryInfo() {
+        Api.getDefault(HostType.MAIN).getUserInfo()
+                .compose(RxHelper.<UserInfo>handleResult()).subscribe(new RxSubscriber<UserInfo>(mContext, true) {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void _onError(String e) {
+                showShortToast(e);
+                hideProgressDialog();
+            }
+
+            @Override
+            public void _onNext(UserInfo bean) {
+                AppApplication.setUserInfo(bean);
+                MainActivity.startAction(LoginCodeActivity.this);
+            }
+        });
     }
 
     private void checkCode() {
@@ -262,7 +289,8 @@ public class LoginCodeActivity extends BaseActivity {
 
             @Override
             public void _onNext(Object bean) {
-                SetPwdActivity.startAction(LoginCodeActivity.this);
+                startActivity(new Intent(LoginCodeActivity.this, SetPwdActivity.class)
+                        .putExtra("isForgetPassword", isForgetPassword));
             }
         });
     }

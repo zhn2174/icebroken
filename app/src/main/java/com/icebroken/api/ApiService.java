@@ -44,6 +44,9 @@ public interface ApiService {
     @POST("user/register")
     Observable<BaseRespose<accountExistBean>> register(@Body String body);
 
+    @POST("user/updatePassWord")
+    Observable<BaseRespose<String>> resetPassword(@Body String body);
+
     @POST("user/completeInformation")
     Observable<BaseRespose<Object>> completeInformation(@Body String body);
 

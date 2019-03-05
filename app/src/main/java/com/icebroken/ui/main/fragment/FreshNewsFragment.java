@@ -25,7 +25,6 @@ public class FreshNewsFragment extends BaseFragment {
     @Bind(R.id.fresh_news_vp)
     CustomViewPager fresh_news_vp;
 
-    private String[] mTitles = new String[]{"新鲜事", "找朋友"};//tab 文字
     private String[] subTitle1 = new String[]{"同校", "好友", "同城", "漫游"};
     private String[] subTitle2;
     private ArrayList<Fragment> fragments;
@@ -76,8 +75,8 @@ public class FreshNewsFragment extends BaseFragment {
      */
     private void initTab() {
         ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
-        for (int i = 0; i < mTitles.length; i++) {
-            mTabEntities.add(new TabEntity(mTitles[i], 0, 0));
+        for (int i = 0; i < subTitle1.length; i++) {
+            mTabEntities.add(new TabEntity(subTitle1[i], 0, 0));
         }
         fresh_news_tl.setTabData(mTabEntities);
         //点击监听

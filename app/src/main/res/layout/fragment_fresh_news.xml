@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
+    android:background="#EEEEEE"
     android:orientation="vertical">
 
     <com.mocuz.tablayout.CommonTabLayout
@@ -21,6 +22,7 @@
         android:layout_height="36dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:layout_marginTop="1dp"
         app:tl_tab_space_equal="true"
         app:tl_textSelectColor="@color/colorPrimary"
         app:tl_textUnselectColor="@color/black_6"

@@ -1,4 +1,4 @@
-package com.icebroken.ui.main.adapter;
+package com.icebroken.adapter;
 
 import android.support.v7.widget.RecyclerView;
 
@@ -6,9 +6,9 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.icebroken.R;
 
-public class DynamicAdpter extends BaseQuickAdapter {
-    public DynamicAdpter() {
-        super(R.layout.dynamic_item_view);
+public class DynamicSelectAdapter extends BaseQuickAdapter {
+    public DynamicSelectAdapter() {
+        super(R.layout.dynamic_select_item_view);
     }
 
     @Override

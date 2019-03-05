@@ -170,8 +170,30 @@ public class LoginPwdActivity extends BaseActivity {
                 } else if (!bean.getCompleteSchool()) {
                     OrganizingData2Activity.startAction(LoginPwdActivity.this);
                 } else {
-                    MainActivity.startAction(LoginPwdActivity.this);
+                    queryInfo();
                 }
+            }
+        });
+    }
+
+    private void queryInfo() {
+        Api.getDefault(HostType.MAIN).getUserInfo()
+                .compose(RxHelper.<UserInfo>handleResult()).subscribe(new RxSubscriber<UserInfo>(mContext, true) {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void _onError(String e) {
+                showShortToast(e);
+                hideProgressDialog();
+            }
+
+            @Override
+            public void _onNext(UserInfo bean) {
+                AppApplication.setUserInfo(bean);
+                MainActivity.startAction(LoginPwdActivity.this);
             }
         });
     }
