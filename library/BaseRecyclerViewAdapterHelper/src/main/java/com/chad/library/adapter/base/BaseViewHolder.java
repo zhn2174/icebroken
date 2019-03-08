@@ -36,7 +36,6 @@ import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -79,9 +78,6 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
         this.itemChildLongClickViewIds = new LinkedHashSet<>();
         this.nestViews = new HashSet<>();
         convertView = view;
-        AutoUtils.autoSize(convertView);
-
-
     }
 
     private int getClickPosition() {

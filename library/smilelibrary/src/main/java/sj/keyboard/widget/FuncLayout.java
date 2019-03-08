@@ -7,15 +7,15 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
-import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import sj.keyboard.utils.EmoticonsKeyboardUtils;
 
-public class FuncLayout extends AutoLinearLayout {
+public class FuncLayout extends LinearLayout {
 
     public final int DEF_KEY = Integer.MIN_VALUE;
 

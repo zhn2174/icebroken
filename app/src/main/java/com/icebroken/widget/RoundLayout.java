@@ -5,8 +5,8 @@ import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.widget.LinearLayout;
 
-import com.zhy.autolayout.AutoRelativeLayout;
 
 /**
  * Synopsis     圆角RelativeLayout
@@ -15,7 +15,7 @@ import com.zhy.autolayout.AutoRelativeLayout;
  * Create 	    2017/4/1 9:04
  * Email  		intimatestranger@sina.cn
  */
-public class RoundLayout extends AutoRelativeLayout {
+public class RoundLayout extends LinearLayout {
     private float roundLayoutRadius = 12f;
     private Path roundPath;
     private RectF rectF;

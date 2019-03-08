@@ -14,5 +14,4 @@ android {
 
 dependencies {
     compile 'com.android.support:support-v4:23.0.1'
-    compile 'com.zhy:autolayout:1.4.5'
 }

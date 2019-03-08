@@ -32,16 +32,16 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
+import android.widget.LinearLayout;
 import android.widget.Scroller;
 
-import com.zhy.autolayout.AutoLinearLayout;
 
 /**
  * Created by yuqiang on 2017/3/20.
  *
  * 多tab头部悬浮效果控件
  */
-public class ScrollableLayout extends AutoLinearLayout {
+public class ScrollableLayout extends LinearLayout {
 
     private final String tag = "cp:scrollableLayout";
     private float mDownX;

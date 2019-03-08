@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import com.icebroken.R;
@@ -14,7 +15,6 @@ import com.icebroken.base.BaseActivity;
 import com.icebroken.widget.MyToolbar;
 import com.icebroken.x5.X5WebView;
 import com.tencent.smtt.sdk.WebView;
-import com.zhy.autolayout.AutoFrameLayout;
 
 import butterknife.Bind;
 
@@ -35,7 +35,7 @@ public class X5WebViewActivity extends BaseActivity {
     @Bind(R.id.mProgressBar)
     ProgressBar mProgressBar;
     @Bind(R.id.frl_parent)
-    AutoFrameLayout frlParent;
+    FrameLayout frlParent;
 
     //webView 标题
     private String mTitle;

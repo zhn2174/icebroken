@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
 
@@ -47,7 +46,6 @@ public abstract class BaseAdapter<T> extends android.widget.BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View mView=getViewOn(position, convertView, parent);
-        AutoUtils.autoSize(mView);
         return mView;
     }
 

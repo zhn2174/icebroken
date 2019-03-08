@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import com.mocuz.common.R;
 import com.mocuz.common.BuildConfig;
@@ -17,7 +18,6 @@ import com.mocuz.common.commonwidget.LoadingDialog;
 import com.mocuz.common.commonwidget.StatusBarCompat;
 import com.mocuz.common.daynightmodeutils.ChangeModeController;
 import com.umeng.analytics.MobclickAgent;
-import com.zhy.autolayout.AutoLayoutActivity;
 
 import butterknife.ButterKnife;
 
@@ -58,7 +58,7 @@ import butterknife.ButterKnife;
 //    public void initView() {
 //    }
 //}
-public abstract class BaseCommonActivity<T extends BasePresenter, E extends BaseModel> extends AutoLayoutActivity {
+public abstract class BaseCommonActivity<T extends BasePresenter, E extends BaseModel> extends AppCompatActivity {
     public T mPresenter;
     public E mModel;
     public Context mContext;

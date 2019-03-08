@@ -5,7 +5,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.support.multidex.MultiDex;
 
-import com.zhy.autolayout.config.AutoLayoutConifg;
+
+import me.jessyan.autosize.AutoSizeConfig;
 
 /**
  * APPLICATION
@@ -18,7 +19,7 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         baseApplication = this;
-        AutoLayoutConifg.getInstance().useDeviceSize();
+        AutoSizeConfig.getInstance().setCustomFragment(true);
     }
 
     public static Context getAppContext() {

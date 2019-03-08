@@ -5,16 +5,16 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.icebroken.R;
-import com.zhy.autolayout.AutoLinearLayout;
 
 /**
  * Created by Dev on 2017/5/8.
  */
 
-public class LoadView extends AutoLinearLayout {
+public class LoadView extends LinearLayout {
     private View view;
     public LoadView(Context context) {
         super(context);

@@ -65,6 +65,10 @@ public interface ApiService {
     @GET("user/userInfo")
     Observable<BaseRespose<UserInfo>> getUserInfo();
 
+    @GET("user/loginProblem")
+    Observable<BaseRespose<String>> uploadloginProblem();
+
+
     @POST("webapp")
     Observable<BaseRespose<Object>> postMeet(@Body String body);
 
